@@ -1,10 +1,9 @@
 from flask import request, jsonify
-from Backend.Model.Services.AuthentificationService import AuthService
+from Backend.Services.AuthentificationService import AuthService
 from flask import Blueprint
 
 from flask_jwt_extended import (
     #JWTManager,
-    jwt_required,
     create_access_token
 )
 
@@ -24,3 +23,5 @@ class LoginController:
             return jsonify({"msg": "Bad username or password"}), 401
         access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token), 200
+
+
