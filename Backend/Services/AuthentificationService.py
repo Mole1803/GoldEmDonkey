@@ -10,16 +10,15 @@ class AuthService:
     def verify_user(self, login: LoginDto):
         raise NotImplementedError
 
-    def username_exists(self, username):
+    def username_exists(self, login: LoginDto) -> bool:
         raise NotImplementedError
 
     @staticmethod
-    def __get_salt(username):
+    def __get_salt(username) -> str:
         raise NotImplementedError
 
-
     @staticmethod
-    def __create_salt():
+    def __create_salt() -> str:
         return os.urandom(32).hex()
 
     @staticmethod
