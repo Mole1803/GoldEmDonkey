@@ -4,7 +4,10 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from crypt import methods
 from flask import Flask,jsonify,request
 from Backend.Controller import AuthentificationController
+from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 SWAGGER_URL = '/swagger'
 API_URL = '/static/swagger.json'
@@ -19,7 +22,7 @@ API_URL = '/static/swagger.json'
 
 
 
-app = Flask(__name__)
+
 
 #app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 authentification_controller = AuthentificationController.LoginController(app)
@@ -29,8 +32,6 @@ def home():
     return jsonify({
         "Message": "app up and running successfully"
     })
-
-
 
 
 if __name__ == '__main__':
