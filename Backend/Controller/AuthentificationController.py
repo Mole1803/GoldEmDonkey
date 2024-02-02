@@ -16,7 +16,6 @@ class LogInRouting:
     register = "/register"
 
 
-
 class LoginController:
     def __init__(self, app):
         app.register_blueprint(login_controller)
