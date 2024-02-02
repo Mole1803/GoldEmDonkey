@@ -7,11 +7,13 @@ import {environment} from "../environments/environment";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './views/login/login.component';
 import {FormsModule} from "@angular/forms";
+import { RegistrationComponent } from './views/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
