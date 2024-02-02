@@ -1,28 +1,27 @@
 import os
+from Backend.Model.Login.LoginDto import LoginDto
 from hashlib import sha256
 
 
 class AuthService:
-    def create_user(self, username, password):
+    def create_user(self, login: LoginDto):
         raise NotImplementedError
 
-    def verify_user(self, username, password):
+    def verify_user(self, login: LoginDto):
         raise NotImplementedError
 
-    def username_exists(self, username):
+    def username_exists(self, login: LoginDto) -> bool:
         raise NotImplementedError
 
     @staticmethod
-    def __get_salt(username):
+    def __get_salt(username) -> str:
         raise NotImplementedError
 
-
     @staticmethod
-    def __create_salt():
+    def __create_salt() -> str:
         return os.urandom(32).hex()
 
     @staticmethod
     def hash_password(password, salt) -> str:
         """Returns hashed pw"""
         return sha256(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
-
