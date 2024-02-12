@@ -21,10 +21,6 @@ API_URL = '/static/swagger.json'
 #    }
 #)
 
-
-
-
-
 #app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 authentification_controller = AuthentificationController.LoginController(app)
 
