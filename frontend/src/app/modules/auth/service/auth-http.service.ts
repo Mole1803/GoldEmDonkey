@@ -1,13 +1,13 @@
 import {Inject, Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {HttpClient, HttpInterceptor} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthentificationService {
+export class AuthHttpService {
 
-  constructor(private http: HttpClient, @Inject("BASE_URL") private baseUrl: string) { }
+    constructor(private http: HttpClient, @Inject("BASE_URL") private baseUrl: string) { }
 
   // endpoint that checks if the user is authenticated; Post request to the server
   public testConnection(): Observable<string>{

@@ -1,28 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {environment} from "../environments/environment";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import { LoginComponent } from './views/login/login.component';
+import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {AuthModule} from "./modules/auth/auth.module";
+import {GenericComponentsModule} from "./modules/generic-components/generic-components.module";
+import {PokerModule} from "./modules/poker/poker.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AuthModule,
+    GenericComponentsModule,
+    PokerModule
   ],
   providers: [
     { provide: "BASE_URL", useValue: environment.BASE_URL },
-
-  ],
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
