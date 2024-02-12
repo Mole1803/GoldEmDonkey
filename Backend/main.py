@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
 from flask_swagger_ui import get_swaggerui_blueprint
-#from _DatabaseCall import app
-from crypt import methods
+from _DatabaseCall import app
+# from crypt import methods
 from flask import Flask,jsonify,request
 from flask_sqlalchemy import SQLAlchemy
 from Backend.Controller import AuthentificationController
 from flask_cors import CORS
 
-app = Flask(__name__)
+#app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 SWAGGER_URL = '/swagger'
