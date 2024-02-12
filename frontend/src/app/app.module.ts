@@ -9,8 +9,8 @@ import { RegistrationComponent } from './views/registration/registration.compone
 import { MenuComponent } from './views/menu/menu.component';
 import { RoomComponent } from './views/room/room.component';
 import { WaitingroomComponent } from './views/waitingroom/waitingroom.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {AuthModule} from "./modules/auth/auth.module";
+import {GenericComponentsModule} from "./modules/generic-components/generic-components.module";
 
 @NgModule({
   declarations: [
@@ -19,14 +19,15 @@ import {AuthModule} from "./modules/auth/auth.module";
     MenuComponent,
     RoomComponent,
     WaitingroomComponent,
-    NavBarComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    GenericComponentsModule
   ],
   providers: [
     { provide: "BASE_URL", useValue: environment.BASE_URL },
