@@ -11,6 +11,7 @@ import { RegistrationComponent } from './views/registration/registration.compone
 import { MenuComponent } from './views/menu/menu.component';
 import { RoomComponent } from './views/room/room.component';
 import { WaitingroomComponent } from './views/waitingroom/waitingroom.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { WaitingroomComponent } from './views/waitingroom/waitingroom.component'
     RegistrationComponent,
     MenuComponent,
     RoomComponent,
-    WaitingroomComponent
+    WaitingroomComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
