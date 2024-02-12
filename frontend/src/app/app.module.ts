@@ -5,21 +5,13 @@ import { AppComponent } from './app.component';
 import {environment} from "../environments/environment";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-import { RegistrationComponent } from './views/registration/registration.component';
-import { MenuComponent } from './views/menu/menu.component';
-import { RoomComponent } from './views/room/room.component';
-import { WaitingroomComponent } from './views/waitingroom/waitingroom.component';
 import {AuthModule} from "./modules/auth/auth.module";
 import {GenericComponentsModule} from "./modules/generic-components/generic-components.module";
+import {PokerModule} from "./modules/poker/poker.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent,
-    MenuComponent,
-    RoomComponent,
-    WaitingroomComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -27,7 +19,8 @@ import {GenericComponentsModule} from "./modules/generic-components/generic-comp
     HttpClientModule,
     FormsModule,
     AuthModule,
-    GenericComponentsModule
+    GenericComponentsModule,
+    PokerModule
   ],
   providers: [
     { provide: "BASE_URL", useValue: environment.BASE_URL },

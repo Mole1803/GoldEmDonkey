@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthentificationService} from "./services/requests/authentification.service";
+import {AuthHttpService} from "./modules/auth/service/auth-http.service";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {AuthentificationService} from "./services/requests/authentification.serv
 })
 export class AppComponent implements OnInit{
   title = 'frontend';
-  constructor(private authentificationService: AuthentificationService,) {
+  constructor(private authentificationService: AuthHttpService) {
   }
 
   ngOnInit(): void {
