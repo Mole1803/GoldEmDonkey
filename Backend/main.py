@@ -1,27 +1,22 @@
 from flask import Flask, render_template, request
 from flask_swagger_ui import get_swaggerui_blueprint
+from flasgger import Swagger
 #from _DatabaseCall import app
-from crypt import methods
 from flask import Flask,jsonify,request
 from flask_sqlalchemy import SQLAlchemy
 from Backend.Controller import AuthentificationController
 from flask_cors import CORS
 
 app = Flask(__name__)
+swagger = Swagger(app, template={
+    "info": {
+        "title": "My Flask API",
+        "description": "An example API using Flask and Swagger",
+        "version": "1.0.0"
+    }
+})
 CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
-SWAGGER_URL = '/swagger'
-API_URL = '/static/swagger.json'
-
-#swaggerui_blueprint = get_swaggerui_blueprint(
-#    SWAGGER_URL,
-#    API_URL,
-#    config={
-#        'app_name': "Access API"
-#    }
-#)
-
-#app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 authentification_controller = AuthentificationController.LoginController(app)
 
 @app.route("/")
