@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request
 from flask_swagger_ui import get_swaggerui_blueprint
 from flasgger import Swagger
-#from _DatabaseCall import app
+from _DatabaseCall import app
 from flask import Flask,jsonify,request
 from flask_sqlalchemy import SQLAlchemy
 from Backend.Controller import AuthentificationController
 from flask_cors import CORS
 
-app = Flask(__name__)
+
+
 swagger = Swagger(app, template={
     "info": {
         "title": "My Flask API",
