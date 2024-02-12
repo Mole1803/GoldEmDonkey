@@ -23,6 +23,24 @@ class LoginController:
     @staticmethod
     @login_controller.route(LogInRouting.login, methods=['POST'])
     def login():
+        """
+        This is the login endpoint!
+        ---
+        tags:
+            - POST
+        parameters:
+          - name: username
+            in: path
+            description: Username for login
+            required: true
+            type: string
+        description: Used for the login!
+        responses:
+            200:
+                description: A successful login
+                examples:
+                    application/json: "Login, successful!"
+        """
         login = LoginParser.parse_from_request(request)
         user = AuthService().verify_user(login)
         if not user:
