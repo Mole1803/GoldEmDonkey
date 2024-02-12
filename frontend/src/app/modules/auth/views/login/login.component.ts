@@ -6,13 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
   password: string = "";
   username: string = "";
 
   async login(username: string, password: string) {}
 
-
-
   redirectToRegister() {}
-
 }
