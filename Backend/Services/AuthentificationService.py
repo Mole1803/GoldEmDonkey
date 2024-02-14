@@ -36,7 +36,7 @@ class AuthService:
         return user.salt
 
     @staticmethod
-    def __get_user_from_db(username) -> UserDB:
+    def __get_user_from_db(username: str) -> UserDB:
         return UserDB.query.filter_by(username=username).first()
 
     @staticmethod
@@ -44,6 +44,6 @@ class AuthService:
         return os.urandom(32).hex()
 
     @staticmethod
-    def hash_password(password, salt) -> str:
+    def hash_password(password: str, salt: str) -> str:
         """Returns hashed pw"""
         return sha256(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()

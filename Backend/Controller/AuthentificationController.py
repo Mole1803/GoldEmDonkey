@@ -4,7 +4,7 @@ from flask import Blueprint
 from Backend.Model.Login.LoginParser import LoginParser
 
 from flask_jwt_extended import (
-    #JWTManager,
+    # JWTManager,
     create_access_token
 )
 
@@ -14,6 +14,8 @@ login_controller = Blueprint('login_controller', __name__, url_prefix='/auth')
 class LogInRouting:
     login = "/login"
     register = "/register"
+    logout = "/logout"
+    username_available = "/isUsernameAvailable"
 
 
 class LoginController:
@@ -51,4 +53,22 @@ class LoginController:
     @staticmethod
     @login_controller.route(rule=LogInRouting.register, methods=['POST'])
     def register():
+        login = LoginParser.parse_from_request(request)
+        if AuthService.username_exists(login):
+            return jsonify({"msg": "Username already exists"}), 400
+
+        user = AuthService.create_user(login)
+        if not user:
+            return jsonify({"msg": "Username already exists"}), 400
+        return jsonify({"msg": "User created successfully"}), 201
+
+    @staticmethod
+    @login_controller.route(rule="/logout", methods=['POST'])
+    def logout():
         raise NotImplementedError
+
+    @staticmethod
+    @login_controller.route(rule=LogInRouting.username_available, methods=['GET'])
+    def username_available():
+        login = LoginParser.parse_from_request(request)
+        return jsonify({"msg": AuthService.username_exists(login)}), 200

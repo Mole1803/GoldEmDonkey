@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {jwtDecode} from 'jwt-decode'
+import {TokenHandler} from "../utils/token-handler";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem('JWT_TOKEN');
+    const token = TokenHandler.getToken();
 
     if (typeof token === "string") {
       let jwtSplitted = token.split("\\.");
