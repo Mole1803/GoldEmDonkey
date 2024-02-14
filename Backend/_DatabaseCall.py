@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -10,8 +12,9 @@ class Base(DeclarativeBase):
 db = SQLAlchemy(model_class=Base)
 
 app = Flask(__name__)
-
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///project.db'
+db_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "LocalStorage"))
+os.makedirs(db_folder, exist_ok=True)  # Erstelle den Ordner, falls er nicht existiert
+app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{os.path.join(db_folder, "project.db")}'
 db.init_app(app)
 
 

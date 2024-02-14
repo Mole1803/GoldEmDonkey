@@ -1,4 +1,3 @@
 .idea
 venv
-Backend/instance
-/instance/project.db
+LocalStorage
