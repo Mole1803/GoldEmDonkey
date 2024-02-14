@@ -11,14 +11,14 @@ db = SQLAlchemy(model_class=Base)
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///..\\LocalStorage\\project.db'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///project.db'
 db.init_app(app)
 
 
 class UserDB(db.Model):
-    id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    username: Mapped[str] = mapped_column(db.String, nullable=False)
+    username: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
     password: Mapped[str] = mapped_column(db.String, nullable=False)
+    salt: Mapped[str] = mapped_column(db.String, nullable=False)
 
     def serialize(self):
         return {

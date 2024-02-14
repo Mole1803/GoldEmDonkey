@@ -1,2 +1,4 @@
 .idea
 venv
+Backend/instance
+/instance/project.db
