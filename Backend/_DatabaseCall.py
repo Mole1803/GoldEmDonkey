@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -10,13 +12,15 @@ class Base(DeclarativeBase):
 db = SQLAlchemy(model_class=Base)
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///..\\LocalStorage\\project.db'
+db_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "LocalStorage"))
+os.makedirs(db_folder, exist_ok=True)  # Erstelle den Ordner, falls er nicht existiert
+app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{os.path.join(db_folder, "project.db")}'
 db.init_app(app)
 
 
 class RoundDB(db.Model):
     id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    max_raise: [int] = mapped_column(db.Integer, nullable=False)
+    max_raise: Mapped[int] = mapped_column(db.Integer, nullable=False)
     game_id: Mapped[str] = mapped_column(db.String, nullable=False)
 
     def serialize(self):
