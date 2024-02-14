@@ -42,7 +42,7 @@ class LoginController:
                     application/json: "Login, successful!"
         """
         login = LoginParser.parse_from_request(request)
-        user = AuthService().verify_user(login)
+        user = AuthService.verify_user(login)
         if not user:
             return jsonify({"msg": "Bad username or password"}), 401
         access_token = create_access_token(identity=login.username)

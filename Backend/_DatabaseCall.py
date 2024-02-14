@@ -18,6 +18,19 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{os.path.join(db_folder, "pr
 db.init_app(app)
 
 
+class UserDB(db.Model):
+    username: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
+    password: Mapped[str] = mapped_column(db.String, nullable=False)
+    salt: Mapped[str] = mapped_column(db.String, nullable=False)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'password': self.password
+        }
+
+
 class RoundDB(db.Model):
     id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
     max_raise: Mapped[int] = mapped_column(db.Integer, nullable=False)
