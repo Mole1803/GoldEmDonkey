@@ -1,4 +1,7 @@
+import os
+
 from flask import Flask, render_template, request
+from flask_jwt_extended import JWTManager
 from flask_swagger_ui import get_swaggerui_blueprint
 from flasgger import Swagger
 from Backend.Injector.DependencyInjector import DependencyInjector
@@ -9,9 +12,15 @@ from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from Backend.Controller import AuthentificationController
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+load_dotenv()
 
 settings = {
+
+
     #"database_url": 'sqlite:///project.db',
+
 }
 
 
@@ -20,10 +29,12 @@ class GoldEmDonkeyMain:
         self.app = Flask(__name__)
         self.swagger = None
         self.db = None
+        self.jwt = None
 
         self.module_controllers: list[BaseController] = []
         self.dependencyInjector = DependencyInjector()
         self.DatabaseManager: DatabaseManager = DatabaseManager(self.app)
+
 
     def run(self):
         self.configure()
@@ -33,9 +44,14 @@ class GoldEmDonkeyMain:
         self.setup_database()
         self.configure_swagger()
         self.configure_cors()
+        self.setup_jwt()
 
         self.setup_dependy_injector()
         self.init_all_controllers()
+
+    def setup_jwt(self):
+        self.app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY")
+        self.jwt = JWTManager(self.app)
 
     def setup_database(self):
         self.DatabaseManager.init_database()

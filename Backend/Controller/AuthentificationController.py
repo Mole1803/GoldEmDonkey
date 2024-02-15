@@ -5,7 +5,7 @@ from Backend.Model.Login.LoginParser import LoginParser
 from Backend.Controller.BaseController import BaseController
 
 from flask_jwt_extended import (
-    # JWTManager,
+    #JWTManager,
     create_access_token
 )
 
