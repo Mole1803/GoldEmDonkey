@@ -14,7 +14,7 @@ class TestRankHandAlgo(unittest.TestCase):
         card6 = Card(3, 4)
         card7 = Card(1, 4)
         cards = [card1, card2, card3, card4, card5, card6, card7]
-        self.assertEqual(BestHandEvaluator.sort_cards(cards), ([card1, card2, card3, card4, card6, card7, card5], [card4, card6, card1, card3, card7, card5, card2]))
+        self.assertEqual(([card1, card2, card3, card4, card6, card7, card5], [[card4, card6], [card1], [card3, card7, card5], [card2]]), BestHandEvaluator.sort_cards(cards))
 
     def test_royal_flush_correct(self):
         card1 = Card(2, 14)
@@ -159,6 +159,17 @@ class TestRankHandAlgo(unittest.TestCase):
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
         self.assertEqual([card1, card2, card3, card4, card5], BestHandEvaluator.check_straight_flush(cards))
 
+    def test_straight_flush_incorrect_four_in_a_row_and_ace(self):
+        card1 = Card(2, 14)
+        card2 = Card(2, 12)
+        card3 = Card(2, 11)
+        card4 = Card(2, 10)
+        card5 = Card(2, 9)
+        card6 = Card(3, 9)
+        card7 = Card(1, 9)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
+        self.assertEqual(None, BestHandEvaluator.check_straight_flush(cards))
+
     def test_four_of_a_kind_correct(self):
         card1 = Card(2, 11)
         card2 = Card(1, 11)
@@ -168,7 +179,7 @@ class TestRankHandAlgo(unittest.TestCase):
         card6 = Card(2, 4)
         card7 = Card(2, 3)
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
-        self.assertEqual([card3, card1, card2, card4], BestHandEvaluator.check_four_of_a_kind(cards))
+        self.assertEqual([card3, card1, card2, card4, card5], BestHandEvaluator.check_four_of_a_kind(cards))
 
     def test_four_of_a_kind_not_correct(self):
         card1 = Card(2, 11)
@@ -180,3 +191,157 @@ class TestRankHandAlgo(unittest.TestCase):
         card7 = Card(2, 3)
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
         self.assertEqual(None, BestHandEvaluator.check_four_of_a_kind(cards))
+
+    def test_four_of_a_kind_correct_with_same_card(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 11)
+        card3 = Card(3, 11)
+        card4 = Card(0, 11)
+        card5 = Card(3, 2)
+        card6 = Card(2, 2)
+        card7 = Card(1, 2)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual([card3, card1, card2, card4, card5], BestHandEvaluator.check_four_of_a_kind(cards))
+
+    def test_full_house_correct_pair_lower(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 11)
+        card3 = Card(3, 11)
+        card4 = Card(0, 10)
+        card5 = Card(3, 2)
+        card6 = Card(2, 2)
+        card7 = Card(1, 3)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual([card3, card1, card2, card5, card6], BestHandEvaluator.check_full_house(cards))
+
+    def test_full_house_correct_pair_higher(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 11)
+        card3 = Card(3, 10)
+        card4 = Card(0, 10)
+        card5 = Card(3, 2)
+        card6 = Card(2, 2)
+        card7 = Card(1, 2)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual([card5, card6, card7, card1, card2], BestHandEvaluator.check_full_house(cards))
+
+    def test_full_house_correct_no_full_house(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 11)
+        card3 = Card(3, 10)
+        card4 = Card(0, 10)
+        card5 = Card(3, 2)
+        card6 = Card(2, 2)
+        card7 = Card(1, 3)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual(None, BestHandEvaluator.check_full_house(cards))
+
+    def test_flush_correct(self):
+        card1 = Card(2, 11)
+        card2 = Card(2, 12)
+        card3 = Card(2, 4)
+        card4 = Card(2, 10)
+        card5 = Card(3, 2)
+        card6 = Card(2, 2)
+        card7 = Card(1, 3)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
+        self.assertEqual([card2, card1, card4, card3, card6], BestHandEvaluator.check_flush(cards))
+
+    def test_flush_correct_more_cards_than_needed(self):
+        card1 = Card(2, 11)
+        card2 = Card(2, 12)
+        card3 = Card(2, 4)
+        card4 = Card(2, 10)
+        card5 = Card(2, 5)
+        card6 = Card(2, 2)
+        card7 = Card(2, 3)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
+        self.assertEqual([card2, card1, card4, card5, card3], BestHandEvaluator.check_flush(cards))
+
+    def test_flush_incorrect(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 12)
+        card3 = Card(2, 4)
+        card4 = Card(2, 10)
+        card5 = Card(3, 2)
+        card6 = Card(2, 2)
+        card7 = Card(1, 3)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
+        self.assertEqual(None, BestHandEvaluator.check_flush(cards))
+
+    def test_straight_correct(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 12)
+        card3 = Card(2, 9)
+        card4 = Card(2, 10)
+        card5 = Card(3, 8)
+        card6 = Card(2, 7)
+        card7 = Card(1, 6)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual([card2, card1, card4, card3, card5], BestHandEvaluator.check_straight(cards))
+
+    def test_straight_correct_with_higher_cards(self):
+        card1 = Card(2, 2)
+        card2 = Card(1, 12)
+        card3 = Card(2, 9)
+        card4 = Card(2, 10)
+        card5 = Card(3, 8)
+        card6 = Card(2, 7)
+        card7 = Card(1, 6)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual([card4, card3, card5, card6, card7], BestHandEvaluator.check_straight(cards))
+
+    def test_straight_incorrect(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 12)
+        card3 = Card(2, 2)
+        card4 = Card(2, 10)
+        card5 = Card(3, 8)
+        card6 = Card(2, 7)
+        card7 = Card(1, 6)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual(None, BestHandEvaluator.check_straight(cards))
+
+    def test_straight_ace_2_3_4_5(self):
+        card1 = Card(2, 14)
+        card2 = Card(1, 2)
+        card3 = Card(2, 9)
+        card4 = Card(2, 10)
+        card5 = Card(3, 4)
+        card6 = Card(2, 3)
+        card7 = Card(1, 5)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual([card7, card5, card6, card2, card1], BestHandEvaluator.check_straight(cards))
+
+    def test_straight_correct_many_cards_from_one(self):
+        card1 = Card(2, 11)
+        card2 = Card(1, 12)
+        card3 = Card(2, 9)
+        card4 = Card(2, 10)
+        card5 = Card(3, 8)
+        card6 = Card(3, 9)
+        card7 = Card(1, 9)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual([card2, card1, card4, card6, card5], BestHandEvaluator.check_straight(cards))
+
+    def test_straight_incorrect_four_in_a_row_and_ace(self):
+        card1 = Card(2, 14)
+        card2 = Card(1, 12)
+        card3 = Card(2, 11)
+        card4 = Card(2, 10)
+        card5 = Card(0, 9)
+        card6 = Card(3, 9)
+        card7 = Card(1, 9)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual(None, BestHandEvaluator.check_straight(cards))
+
+    def test_straight_incorrect_four_in_a_row_and_ace_and_2(self):
+        card1 = Card(2, 14)
+        card2 = Card(1, 12)
+        card3 = Card(2, 11)
+        card4 = Card(2, 10)
+        card5 = Card(0, 9)
+        card6 = Card(3, 9)
+        card7 = Card(1, 2)
+        cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
+        self.assertEqual(None, BestHandEvaluator.check_straight(cards))

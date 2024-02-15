@@ -32,21 +32,19 @@ class BestHandEvaluator:
         for colour in cards_colour:
             if len(colour) < 5:
                 continue
-            last_value = colour[0].value
+            return_cards = [colour[0]]
             counter = 1
-            index = 0
             for i in range(1, len(colour)):
-                if colour[i].value + 1 == last_value:
+                if colour[i].value + 1 == return_cards[-1].value:
                     counter += 1
+                    return_cards.append(colour[i])
                 else:
                     counter = 1
-                    index = i
-                last_value = colour[i].value
+                    return_cards = [colour[i]]
                 if counter > 4:
-                    return colour[index: index + 5]
-            if last_value == 2 and counter == 4:
+                    return return_cards
+            if return_cards[-1].value == 2 and counter == 4:
                 if colour[0].value == 14:
-                    return_cards = colour[index: index + 4]
                     return_cards.append(colour[0])
                     return return_cards
         return None
@@ -63,8 +61,67 @@ class BestHandEvaluator:
                 counter = 1
                 index = i
             if counter == 4:
-                return cards_value[index: index + 4]
+                return_cards = cards_value[index: index + 4]
+                for card in cards_value:
+                    if card not in return_cards:
+                        return_cards.append(card)
+                        return return_cards
         return None
+
+    @staticmethod
+    def check_full_house(cards_value):
+        counter = 1
+        last_value = cards_value[0].value
+        returnCards = []
+        index = 0
+        for i in range(1, len(cards_value)):
+            if last_value == cards_value[i].value:
+                counter += 1
+            else:
+                counter = 1
+                index = i
+            last_value = cards_value[i].value
+            if counter == 3:
+                for j in range(3):
+                    returnCards.append(cards_value.pop(index))
+                break
+        if len(returnCards) == 3:
+            last_value = cards_value[0].value
+            for j in range(1, len(cards_value)):
+                if last_value == cards_value[j].value:
+                    returnCards += cards_value[j - 1:j + 1]
+                    return returnCards
+                last_value = cards_value[j].value
+
+        return None
+
+    @staticmethod
+    def check_flush(cards_colour):
+        for colour in cards_colour:
+            if len(colour) < 5:
+                continue
+            return colour[0:5]
+        return None
+
+    @staticmethod
+    def check_straight(cards_value):
+        return_cards = [cards_value[0]]
+        counter = 1
+        for i in range(1, len(cards_value)):
+            difference = cards_value[i - 1].value - cards_value[i].value
+            if difference == 1:
+                return_cards.append(cards_value[i])
+                counter += 1
+            elif difference > 1:
+                return_cards = [cards_value[i]]
+                counter = 1
+            if counter == 5:
+                return return_cards
+        if counter == 4 and return_cards[-1].value == 2 and cards_value[0].value == 14:
+            return_cards.append(cards_value[0])
+            return return_cards
+        return None
+
 
     @staticmethod
     def sort_cards(cards):
@@ -72,6 +129,6 @@ class BestHandEvaluator:
         cards_colour_sorted = sorted(cards.copy(), key=lambda x: (x.colour, x.value), reverse=True)
         cards_colour_sorted_new = [[], [], [], []]
         for card in cards_colour_sorted:
-            cards_colour_sorted_new[card.colour].append(card)
+            cards_colour_sorted_new[3 - card.colour].append(card)
 
         return cards_value_sorted, cards_colour_sorted_new
