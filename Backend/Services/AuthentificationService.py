@@ -25,7 +25,7 @@ class AuthService:
         user = AuthService.__get_user_from_db(username=login.username, db_context=db_context)
         if not user:
             return None
-        salt = AuthService.__get_salt_from_db_entry(login.username)
+        salt = AuthService.__get_salt_from_db_entry(user=user)
         if not salt:
             return None
         if AuthService.hash_password(login.password, salt) == user.password:

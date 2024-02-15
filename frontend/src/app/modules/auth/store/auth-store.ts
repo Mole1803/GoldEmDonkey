@@ -1,6 +1,7 @@
 import {AuthHttpService} from "../service/auth-http.service";
 import {TokenHandler} from "../utils/token-handler";
 import {AvailabilityCheckDto} from "../models/availability-check-dto";
+import {Router} from "@angular/router";
 
   /**
    * Uses the LocalStorage to save the JWT_TOKEN
@@ -8,7 +9,7 @@ import {AvailabilityCheckDto} from "../models/availability-check-dto";
    */
 export class AuthStore {
 
-  constructor(private authHttpService: AuthHttpService) {}
+  constructor(private authHttpService?: AuthHttpService, private router?: Router) {}
 
 
   /**
@@ -16,7 +17,12 @@ export class AuthStore {
     * @return true if the login was successful
    */
   async login(username: string, password: string, callback: (success: boolean) => void) {
-    this.authHttpService.login(username, password).subscribe(jwt => {
+    if(this.authHttpService === undefined) {
+      console.error("AuthHttpService is not defined. Returning")
+      return;
+    }
+
+    this.authHttpService?.login(username, password).subscribe(jwt => {
       TokenHandler.saveToken(jwt);
       callback(true);
     }, error => {
@@ -26,7 +32,12 @@ export class AuthStore {
   }
 
   async register(username: string, password: string, callback: (success: boolean) => void) {
-    this.authHttpService.register(username, password).subscribe(jwt => {
+    if(this.authHttpService === undefined) {
+      console.error("AuthHttpService is not defined. Returning")
+      return;
+    }
+
+    this.authHttpService?.register(username, password).subscribe(jwt => {
       TokenHandler.saveToken(jwt);
       callback(true);
 
@@ -37,7 +48,11 @@ export class AuthStore {
   }
 
   async isUsernameAvailable(username: string, callback: (dto: AvailabilityCheckDto | undefined) => void) {
-    this.authHttpService.isUsernameAvailable(username).subscribe(response => {
+    if(this.authHttpService === undefined) {
+      console.error("AuthHttpService is not defined. Returning")
+      return;
+    }
+    this.authHttpService?.isUsernameAvailable(username).subscribe(response => {
       callback(response);
     },
     error => {
@@ -51,5 +66,13 @@ export class AuthStore {
     TokenHandler.removeToken();
     window.location.reload();
     // Todo: reload the page or redirect to land on the login page
+  }
+
+  redirectToHome() {
+    if (this.router === undefined) {
+      console.error("Router is not defined. Returning")
+      return;
+    }
+    this.router.navigate(['/']);
   }
 }
