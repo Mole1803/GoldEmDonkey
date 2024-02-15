@@ -12,11 +12,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.authentificationService.testConnection().subscribe(
+    /*this.authentificationService.testConnection().subscribe(
       data => {
         console.log(data);
       }
-    )
+    )*/
   }
 
 }
