@@ -72,7 +72,7 @@ class BestHandEvaluator:
     def check_full_house(cards_value):
         counter = 1
         last_value = cards_value[0].value
-        returnCards = []
+        return_cards = []
         index = 0
         for i in range(1, len(cards_value)):
             if last_value == cards_value[i].value:
@@ -83,14 +83,14 @@ class BestHandEvaluator:
             last_value = cards_value[i].value
             if counter == 3:
                 for j in range(3):
-                    returnCards.append(cards_value.pop(index))
+                    return_cards.append(cards_value.pop(index))
                 break
-        if len(returnCards) == 3:
+        if len(return_cards) == 3:
             last_value = cards_value[0].value
             for j in range(1, len(cards_value)):
                 if last_value == cards_value[j].value:
-                    returnCards += cards_value[j - 1:j + 1]
-                    return returnCards
+                    return_cards += cards_value[j - 1:j + 1]
+                    return return_cards
                 last_value = cards_value[j].value
 
         return None
@@ -122,7 +122,6 @@ class BestHandEvaluator:
             return return_cards
         return None
 
-
     @staticmethod
     def check_three_of_a_kind(cards_value):
         result = []
@@ -143,14 +142,14 @@ class BestHandEvaluator:
     def check_two_pair(cards_value):
         result = []
         counter = 0
-        i=1
+        i = 1
         while i < len(cards_value):
             if cards_value[i].value == cards_value[i - 1].value:
                 result.append(cards_value[i - 1])
                 result.append(cards_value[i])
-                i+=1
+                i += 1
                 counter += 1
-            i+=1
+            i += 1
         if counter == 2:
             for card in cards_value:
                 if card not in result:

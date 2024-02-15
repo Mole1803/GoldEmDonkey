@@ -13,7 +13,13 @@ class TestCardSort(unittest.TestCase):
         card6 = Card(3, 4)
         card7 = Card(1, 4)
         cards = [card1, card2, card3, card4, card5, card6, card7]
-        self.assertEqual(([card1, card2, card3, card4, card6, card7, card5], [[card4, card6], [card1], [card3, card7, card5], [card2]]), BestHandEvaluator.sort_cards(cards))
+        self.assertEqual(
+            (
+                [card1, card2, card3, card4, card6, card7, card5],
+                [[card4, card6], [card1], [card3, card7, card5], [card2]]
+            ),
+            BestHandEvaluator.sort_cards(cards)
+        )
 
 
 class TestRoyalFlush(unittest.TestCase):
@@ -162,8 +168,6 @@ class TestStraightFlush(unittest.TestCase):
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
         self.assertEqual([card1, card2, card3, card4, card5], BestHandEvaluator.check_straight_flush(cards))
 
-
-class TestFourOfAKind(unittest.TestCase):
     def test_straight_flush_incorrect_four_in_a_row_and_ace(self):
         card1 = Card(2, 14)
         card2 = Card(2, 12)
@@ -175,6 +179,8 @@ class TestFourOfAKind(unittest.TestCase):
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
         self.assertEqual(None, BestHandEvaluator.check_straight_flush(cards))
 
+
+class TestFourOfAKind(unittest.TestCase):
     def test_four_of_a_kind_correct(self):
         card1 = Card(2, 11)
         card2 = Card(1, 11)
@@ -208,6 +214,8 @@ class TestFourOfAKind(unittest.TestCase):
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
         self.assertEqual([card3, card1, card2, card4, card5], BestHandEvaluator.check_four_of_a_kind(cards))
 
+
+class TestFullHouse(unittest.TestCase):
     def test_full_house_correct_pair_lower(self):
         card1 = Card(2, 11)
         card2 = Card(1, 11)
@@ -274,6 +282,8 @@ class TestFourOfAKind(unittest.TestCase):
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[1]
         self.assertEqual(None, BestHandEvaluator.check_flush(cards))
 
+
+class TestStraight(unittest.TestCase):
     def test_straight_correct(self):
         card1 = Card(2, 11)
         card2 = Card(1, 12)
@@ -350,6 +360,7 @@ class TestFourOfAKind(unittest.TestCase):
         card7 = Card(1, 2)
         cards = BestHandEvaluator.sort_cards([card1, card2, card3, card4, card5, card6, card7])[0]
         self.assertEqual(None, BestHandEvaluator.check_straight(cards))
+
 
 class TestThreeOfAKind(unittest.TestCase):
     def test_three_of_a_kind_correct(self):
