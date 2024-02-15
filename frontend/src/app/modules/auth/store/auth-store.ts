@@ -1,5 +1,6 @@
 import {AuthHttpService} from "../service/auth-http.service";
 import {TokenHandler} from "../utils/token-handler";
+import {AvailabilityCheckDto} from "../models/availability-check-dto";
 
   /**
    * Uses the LocalStorage to save the JWT_TOKEN
@@ -18,6 +19,8 @@ export class AuthStore {
     this.authHttpService.login(username, password).subscribe(jwt => {
       TokenHandler.saveToken(jwt);
       callback(true);
+    }, error => {
+      callback(false);
     }
     );
   }
@@ -26,13 +29,19 @@ export class AuthStore {
     this.authHttpService.register(username, password).subscribe(jwt => {
       TokenHandler.saveToken(jwt);
       callback(true);
-    }
+
+    }, error => {
+      callback(false);
+      }
     );
   }
 
-  async isUsernameAvailable(username: string, callback: (available: boolean) => void) {
-    this.authHttpService.isUsernameAvailable(username).subscribe(available => {
-      callback(available);
+  async isUsernameAvailable(username: string, callback: (dto: AvailabilityCheckDto | undefined) => void) {
+    this.authHttpService.isUsernameAvailable(username).subscribe(response => {
+      callback(response);
+    },
+    error => {
+      callback(undefined);
     }
     );
   }
@@ -43,6 +52,4 @@ export class AuthStore {
     window.location.reload();
     // Todo: reload the page or redirect to land on the login page
   }
-
-
 }

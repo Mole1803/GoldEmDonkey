@@ -1,7 +1,8 @@
-from flask import request, jsonify
+from flask import request, jsonify, Flask
 from Backend.Services.AuthentificationService import AuthService
 from flask import Blueprint
 from Backend.Model.Login.LoginParser import LoginParser
+from Backend.Controller.BaseController import BaseController
 
 from flask_jwt_extended import (
     # JWTManager,
@@ -18,8 +19,8 @@ class LogInRouting:
     username_available = "/isUsernameAvailable"
 
 
-class LoginController:
-    def __init__(self, app):
+class LoginController(BaseController):
+    def __init__(self, app: Flask):
         app.register_blueprint(login_controller)
 
     @staticmethod
@@ -43,8 +44,9 @@ class LoginController:
                 examples:
                     application/json: "Login, successful!"
         """
+        print(LoginController.dependencies.db_context)
         login = LoginParser.parse_from_request(request)
-        user = AuthService.verify_user(login)
+        user = AuthService.verify_user(login, LoginController.dependencies.db_context)
         if not user:
             return jsonify({"msg": "Bad username or password"}), 401
         access_token = create_access_token(identity=login.username)
@@ -53,22 +55,43 @@ class LoginController:
     @staticmethod
     @login_controller.route(rule=LogInRouting.register, methods=['POST'])
     def register():
+        """
+        This is the login endpoint!
+        ---
+        tags:
+            - POST
+        parameters:
+          - name: username
+            required: true
+            in: path
+            type: string
+          - name: password
+            in: path
+            required: true
+            type: string
+        description: Used for the login!
+        responses:
+            200:
+                description: A successful login
+                examples:
+                    application/json: "Login, successful!"
+                """
         login = LoginParser.parse_from_request(request)
-        if AuthService.username_exists(login):
+        if AuthService.username_exists(login, LoginController.dependencies.db_context):
             return jsonify({"msg": "Username already exists"}), 400
 
-        user = AuthService.create_user(login)
+        user = AuthService.add_user(login, LoginController.dependencies.db_context)
         if not user:
             return jsonify({"msg": "Username already exists"}), 400
-        return jsonify({"msg": "User created successfully"}), 201
+        access_token = create_access_token(identity=login.username)
+        return jsonify(access_token=access_token), 200
 
     @staticmethod
-    @login_controller.route(rule="/logout", methods=['POST'])
-    def logout():
-        raise NotImplementedError
-
-    @staticmethod
-    @login_controller.route(rule=LogInRouting.username_available, methods=['GET'])
+    @login_controller.route(rule=LogInRouting.username_available, methods=['POST'])
     def username_available():
         login = LoginParser.parse_from_request(request)
-        return jsonify({"msg": AuthService.username_exists(login)}), 200
+        return jsonify({"isUsernameAvailable": AuthService.username_exists(login, LoginController.dependencies.db_context), "username": login.username}), 200
+
+
+
+

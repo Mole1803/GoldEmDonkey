@@ -1,6 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {AvailabilityCheckDto} from "../models/availability-check-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,8 @@ export class AuthHttpService {
     return this.http.post<string>(this.baseUrl+"/auth/login", {username: username, password: password});
   }
 
-  public isUsernameAvailable(username: string): Observable<boolean> {
-    return this.http.post<boolean>(this.baseUrl+"/auth/isUsernameAvailable", {username: username});
+  public isUsernameAvailable(username: string): Observable<AvailabilityCheckDto> {
+    return this.http.post<AvailabilityCheckDto>(this.baseUrl+"/auth/isUsernameAvailable", {username: username});
   }
 
 

@@ -7,18 +7,26 @@ class Base(DeclarativeBase):
     pass
 
 
-db = SQLAlchemy(model_class=Base)
+#db = SQLAlchemy(model_class=Base)
 
-app = Flask(__name__)
+class DatabaseManager:
+    db = SQLAlchemy(model_class=Base)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///project.db'
-db.init_app(app)
+    def __init__(self, app: Flask, db_path: str = 'sqlite:///project.db'):
+        self.app = app
+        self.db_path = db_path
+
+    def init_database(self):
+        self.app.config["SQLALCHEMY_DATABASE_URI"] = self.db_path
+        self.db.init_app(self.app)
+        with self.app.app_context():
+            self.db.create_all()
 
 
-class UserDB(db.Model):
-    username: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    password: Mapped[str] = mapped_column(db.String, nullable=False)
-    salt: Mapped[str] = mapped_column(db.String, nullable=False)
+class UserDB(DatabaseManager.db.Model):
+    username: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    password: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    salt: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
 
     def serialize(self):
         return {
@@ -28,10 +36,10 @@ class UserDB(db.Model):
         }
 
 
-class RoundDB(db.Model):
-    id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    max_raise: Mapped[int] = mapped_column(db.Integer, nullable=False)
-    game_id: Mapped[str] = mapped_column(db.String, nullable=False)
+class RoundDB(DatabaseManager.db.Model):
+    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    max_raise: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
+    game_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
 
     def serialize(self):
         return {
@@ -41,8 +49,8 @@ class RoundDB(db.Model):
         }
 
 
-class GameDB(db.Model):
-    id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
+class GameDB(DatabaseManager.db.Model):
+    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
 
     def serialize(self):
         return {
@@ -50,10 +58,10 @@ class GameDB(db.Model):
         }
 
 
-class PlayerDB(db.Model):
-    id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    position: Mapped[int] = mapped_column(db.Integer, nullable=False)
-    chips: Mapped[int] = mapped_column(db.Integer, nullable=False)
+class PlayerDB(DatabaseManager.db.Model):
+    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    position: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
+    chips: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
 
     def serialize(self):
         return {
@@ -63,12 +71,12 @@ class PlayerDB(db.Model):
         }
 
 
-class RoundPlayerDB(db.Model):
-    id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    id_round: Mapped[str] = mapped_column(db.String, nullable=False)
-    id_player: Mapped[str] = mapped_column(db.String, nullable=False)
-    at_play: Mapped[bool] = mapped_column(db.Boolean, nullable=False)
-    set_chips: Mapped[int] = mapped_column(db.Integer, nullable=False)
+class RoundPlayerDB(DatabaseManager.db.Model):
+    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    id_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    id_player: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    at_play: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False)
+    set_chips: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
 
     def serialize(self):
         return {
@@ -80,10 +88,10 @@ class RoundPlayerDB(db.Model):
         }
 
 
-class CardsDB(db.Model):
-    id: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    color: Mapped[str] = mapped_column(db.String, nullable=False)
-    value: Mapped[int] = mapped_column(db.Integer, nullable=False)
+class CardsDB(DatabaseManager.db.Model):
+    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    color: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    value: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
 
     def serialize(self):
         return {
@@ -93,10 +101,10 @@ class CardsDB(db.Model):
         }
 
 
-class RoundCardsDB(db.Model):
-    id_round: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    id_cards: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    position: Mapped[int] = mapped_column(db.Integer, nullable=False)
+class RoundCardsDB(DatabaseManager.db.Model):
+    id_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    id_cards: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    position: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
 
     def serialize(self):
         return {
@@ -106,9 +114,9 @@ class RoundCardsDB(db.Model):
         }
 
 
-class RoundPlayerCardsDB(db.Model):
-    id_round_player: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
-    id_cards: Mapped[str] = mapped_column(db.String, nullable=False, primary_key=True)
+class RoundPlayerCardsDB(DatabaseManager.db.Model):
+    id_round_player: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    id_cards: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
 
     def serialize(self):
         return {
@@ -117,5 +125,6 @@ class RoundPlayerCardsDB(db.Model):
         }
 
 
-with app.app_context():
-    db.create_all()
+
+
+

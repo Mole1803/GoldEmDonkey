@@ -1,6 +1,7 @@
 import {CanActivateFn, Router} from '@angular/router';
 import {inject} from "@angular/core";
 import {AuthService} from "../service/auth.service";
+import {Routing} from "../enum/routing";
 
 export const authGuard: CanActivateFn = (route, state) => {
     const authService = inject(AuthService)
@@ -9,5 +10,5 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true
   }
   // TODO: set route
-  return router.parseUrl("/login")
+  return router.parseUrl("/"+Routing.Login)
 };
