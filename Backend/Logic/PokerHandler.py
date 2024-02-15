@@ -67,6 +67,60 @@ class BestHandEvaluator:
         return None
 
     @staticmethod
+    def check_three_of_a_kind(cards_value):
+        result = []
+        for i in range(2, len(cards_value)):
+            if cards_value[i].value == cards_value[i - 1].value and cards_value[i].value == cards_value[i - 2].value:
+                result.append(cards_value[i - 2])
+                result.append(cards_value[i - 1])
+                result.append(cards_value[i])
+                break
+        if len(result) != 3:
+            return None
+        for card in cards_value:
+            if card not in result and len(result) < 5:
+                result.append(card)
+        return result
+
+    @staticmethod
+    def check_two_pair(cards_value):
+        result = []
+        counter = 0
+        i=1
+        while i < len(cards_value):
+            if cards_value[i].value == cards_value[i - 1].value:
+                result.append(cards_value[i - 1])
+                result.append(cards_value[i])
+                i+=1
+                counter += 1
+            i+=1
+        if counter == 2:
+            for card in cards_value:
+                if card not in result:
+                    result.append(card)
+                    return result
+        return None
+
+    @staticmethod
+    def check_one_pair(cards_value):
+        result = []
+        for i in range(1, len(cards_value)):
+            if cards_value[i].value == cards_value[i - 1].value:
+                result.append(cards_value[i - 1])
+                result.append(cards_value[i])
+                break
+        if len(result) != 2:
+            return None
+        for card in cards_value:
+            if card not in result and len(result) < 5:
+                result.append(card)
+        return result
+
+    @staticmethod
+    def check_high_card(cards_value):
+        return cards_value[0:5]
+
+    @staticmethod
     def sort_cards(cards):
         cards_value_sorted = sorted(cards.copy(), key=lambda x: (x.value, x.colour), reverse=True)
         cards_colour_sorted = sorted(cards.copy(), key=lambda x: (x.colour, x.value), reverse=True)
