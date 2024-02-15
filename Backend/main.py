@@ -11,7 +11,7 @@ from Backend.Controller import AuthentificationController
 from flask_cors import CORS
 
 settings = {
-    "database_url": 'sqlite:///project.db',
+    #"database_url": 'sqlite:///project.db',
 }
 
 
@@ -23,7 +23,7 @@ class GoldEmDonkeyMain:
 
         self.module_controllers: list[BaseController] = []
         self.dependencyInjector = DependencyInjector()
-        self.DatabaseManager: DatabaseManager = DatabaseManager(self.app, settings["database_url"])
+        self.DatabaseManager: DatabaseManager = DatabaseManager(self.app)
 
     def run(self):
         self.configure()
