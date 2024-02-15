@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Routing} from "../../enum/routing";
 
 @Component({
   selector: 'app-login',
@@ -12,5 +13,9 @@ export class LoginComponent {
 
   async login(username: string, password: string) {}
 
-  redirectToRegister() {}
+  redirectToRegister() {
+    return ['/'+Routing.Register];
+  }
+
+  protected readonly Routing = Routing;
 }

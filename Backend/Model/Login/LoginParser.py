@@ -7,6 +7,7 @@ class LoginParser:
 
     @staticmethod
     def parse_from_request(request) -> LoginDto:
+        print(request.json, flush=True)
         login = LoginDto()
         login.username = request.json.get(LoginParser.usernameKey, None)
         login.password = request.json.get(LoginParser.passwordKey, None)
