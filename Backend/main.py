@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from flask_swagger_ui import get_swaggerui_blueprint
 from flasgger import Swagger
+
+from Backend.Helper.SetupHelper import SetupHelper
 from _DatabaseCall import app
 from flask import Flask,jsonify,request
 from flask_sqlalchemy import SQLAlchemy
@@ -28,4 +30,5 @@ def home():
 
 
 if __name__ == '__main__':
+
     app.run(debug=True, host="0.0.0.0", port=8080)
