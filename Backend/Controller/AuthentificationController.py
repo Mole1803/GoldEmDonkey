@@ -44,7 +44,6 @@ class LoginController(BaseController):
                 examples:
                     application/json: "Login, successful!"
         """
-        print(LoginController.dependencies.db_context)
         login = LoginParser.parse_from_request(request)
         user = AuthService.verify_user(login, LoginController.dependencies.db_context)
         if not user:

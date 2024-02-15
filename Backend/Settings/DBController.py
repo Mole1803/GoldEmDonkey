@@ -2,6 +2,8 @@ from Backend._DatabaseCall import db, RoundDB, GameDB, PlayerDB, RoundPlayerDB, 
 
 
 def create_game_db(id):
+    # Todo remove
+    # relates to GameService.add_game
     game = GameDB(
         id=id
     )
