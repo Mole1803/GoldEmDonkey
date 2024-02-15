@@ -22,6 +22,170 @@ class TestCardSort(unittest.TestCase):
         )
 
 
+class TestEvaluateAllHand(unittest.TestCase):
+    def test_royal_flush_over_flush(self):
+        player_cards = [[Card(2, 10), Card(1, 4)], [Card(2, 4), Card(0, 14)]]
+        cards = [Card(2, 14), Card(2, 13), Card(2, 12), Card(2, 11), Card(1, 3)]
+        indizes = BestHandEvaluator.evaluate_all_hands(cards, player_cards)
+        self.assertEqual([0], indizes)
+
+    def test_higher_hand_on_same_class(self):
+        player_cards = [[Card(2, 6), Card(1, 4)], [Card(2, 11), Card(0, 14)]]
+        cards = [Card(2, 10), Card(2, 9), Card(2, 8), Card(2, 7), Card(1, 3)]
+        indizes = BestHandEvaluator.evaluate_all_hands(cards, player_cards)
+        self.assertEqual([1], indizes)
+
+    def test_equal_hands(self):
+        player_cards = [[Card(0, 6), Card(1, 2)], [Card(3, 6), Card(2, 3)]]
+        cards = [Card(2, 10), Card(2, 6), Card(1, 6), Card(0, 7), Card(1, 4)]
+        indizes = BestHandEvaluator.evaluate_all_hands(cards, player_cards)
+        self.assertEqual([0, 1], indizes)
+
+class TestEvaluateHand(unittest.TestCase):
+    def test_royal_flush_correct(self):
+        card1 = Card(2, 14)
+        card2 = Card(2, 13)
+        card3 = Card(2, 12)
+        card4 = Card(2, 11)
+        card5 = Card(1, 3)
+        card6 = Card(3, 4)
+        card7 = Card(2, 10)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card3, card4, card7], res)
+        self.assertEqual(i, 0)
+
+    def test_straight_flush_correct(self):
+        card1 = Card(2, 9)
+        card2 = Card(2, 13)
+        card3 = Card(2, 12)
+        card4 = Card(2, 11)
+        card5 = Card(1, 3)
+        card6 = Card(3, 4)
+        card7 = Card(2, 10)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card2, card3, card4, card7, card1], res)
+        self.assertEqual(i, 1)
+
+    def test_straight_flush_correct(self):
+        card1 = Card(2, 9)
+        card2 = Card(2, 13)
+        card3 = Card(2, 12)
+        card4 = Card(2, 11)
+        card5 = Card(1, 3)
+        card6 = Card(3, 4)
+        card7 = Card(2, 10)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card2, card3, card4, card7, card1], res)
+        self.assertEqual(i, 1)
+
+    def test_four_of_a_kind_correct(self):
+        card1 = Card(3, 9)
+        card2 = Card(2, 9)
+        card3 = Card(1, 9)
+        card4 = Card(0, 9)
+        card5 = Card(1, 6)
+        card6 = Card(3, 3)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card3, card4, card5], res)
+        self.assertEqual(i, 2)
+
+    def test_full_house_correct(self):
+        card1 = Card(3, 9)
+        card2 = Card(2, 9)
+        card3 = Card(1, 9)
+        card4 = Card(1, 6)
+        card5 = Card(0, 6)
+        card6 = Card(3, 3)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card3, card4, card5], res)
+        self.assertEqual(i, 3)
+
+    def test_flush_correct(self):
+        card1 = Card(2, 10)
+        card2 = Card(2, 9)
+        card3 = Card(2, 8)
+        card4 = Card(2, 6)
+        card5 = Card(0, 6)
+        card6 = Card(3, 3)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card3, card4, card7], res)
+        self.assertEqual(i, 4)
+
+    def test_straight(self):
+        card1 = Card(3, 9)
+        card2 = Card(2, 8)
+        card3 = Card(1, 7)
+        card4 = Card(1, 6)
+        card5 = Card(0, 6)
+        card6 = Card(3, 5)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card3, card4, card6], res)
+        self.assertEqual(i, 5)
+
+    def test_three_of_a_kind(self):
+        card1 = Card(3, 9)
+        card2 = Card(2, 9)
+        card3 = Card(1, 9)
+        card4 = Card(1, 6)
+        card5 = Card(0, 5)
+        card6 = Card(3, 4)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card3, card4, card5], res)
+        self.assertEqual(i, 6)
+
+    def test_two_pair(self):
+        card1 = Card(3, 9)
+        card2 = Card(2, 9)
+        card3 = Card(1, 8)
+        card4 = Card(1, 6)
+        card5 = Card(0, 5)
+        card6 = Card(3, 2)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card6, card7, card3], res)
+        self.assertEqual(i, 7)
+
+    def test_one_pair(self):
+        card1 = Card(3, 14)
+        card2 = Card(2, 9)
+        card3 = Card(1, 8)
+        card4 = Card(1, 6)
+        card5 = Card(0, 5)
+        card6 = Card(3, 2)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card6, card7, card1, card2, card3], res)
+        self.assertEqual(i, 8)
+
+    def test_high_card(self):
+        card1 = Card(3, 14)
+        card2 = Card(2, 12)
+        card3 = Card(1, 8)
+        card4 = Card(1, 7)
+        card5 = Card(0, 6)
+        card6 = Card(3, 3)
+        card7 = Card(2, 2)
+        cards = [card1, card2, card3, card4, card5, card6, card7]
+        i, res = BestHandEvaluator.evaluate_hand(cards)
+        self.assertEqual([card1, card2, card3, card4, card5], res)
+        self.assertEqual(i, 9)
+
+
 class TestRoyalFlush(unittest.TestCase):
     def test_royal_flush_correct(self):
         card1 = Card(2, 14)
