@@ -1,3 +1,6 @@
+import math
+
+
 class PokerHandler:
     def shuffle_cards(self, cards):
         raise NotImplementedError
@@ -13,6 +16,55 @@ class PokerHandler:
 
 
 class BestHandEvaluator:
+    @staticmethod
+    def evaluate_all_hands(board_cards: [], players_cards):
+        best_hand_value = math.inf
+        best_hands = []
+        best_player_indices = []
+        for i in range(len(players_cards)):
+            cards = board_cards + players_cards[i]
+            value, hand = (BestHandEvaluator.evaluate_hand(cards))
+            if value < best_hand_value:
+                best_hand_value = value
+                best_hands = [hand]
+                best_player_indices = [i]
+            elif value == best_hand_value:
+                best_hand = best_hands[0]
+                better = False
+                for j in range(5):
+                    if hand[i].value > best_hand[i].value:
+                        best_hands = [hand]
+                        best_player_indices = [i]
+                        better = True
+                        break
+                if not better:
+                    best_hands.append(hand)
+                    best_player_indices.append(i)
+        return best_player_indices
+
+    @staticmethod
+    def evaluate_hand(all_cards):
+        cards_value, cards_colour = BestHandEvaluator.sort_cards(all_cards)
+        check_functions = [BestHandEvaluator.check_royal_flush,
+                           BestHandEvaluator.check_straight_flush,
+                           BestHandEvaluator.check_four_of_a_kind,
+                           BestHandEvaluator.check_full_house,
+                           BestHandEvaluator.check_flush,
+                           BestHandEvaluator.check_straight,
+                           BestHandEvaluator.check_three_of_a_kind,
+                           BestHandEvaluator.check_two_pair,
+                           BestHandEvaluator.check_one_pair,
+                           BestHandEvaluator.check_high_card]
+        for i in range(len(check_functions)):
+            if i in [0, 1, 4]:
+                cards = cards_colour
+            else:
+                cards = cards_value
+            res = check_functions[i](cards)
+            if res is not None:
+                return i, res
+        return None
+
     @staticmethod
     def check_royal_flush(cards_colour):
         for colour in cards_colour:
@@ -70,6 +122,7 @@ class BestHandEvaluator:
 
     @staticmethod
     def check_full_house(cards_value):
+        cards_value = cards_value.copy()
         counter = 1
         last_value = cards_value[0].value
         return_cards = []
