@@ -7,11 +7,13 @@ import {GameComponent} from "./views/game/game.component";
 import {LobbyComponent} from "./views/lobby/lobby.component";
 
 const routes: Routes = [
+
   { path: '',  title: "Home", component: IndexComponent,   canActivate: [authGuard],
     children: [
-    { path: 'lobby',  title: "Lobby", component: LobbyComponent,outlet: "pokeroutlet",  canActivate: [authGuard]},
-    { path: 'game',  title: "Game", component: GameComponent,outlet: "pokeroutlet",  canActivate: [authGuard]}
-  ]},
+    { path: 'lobby',  title: "Lobby", component: LobbyComponent, outlet: "pokeroutlet",  canActivate: [authGuard]},
+    { path: 'game',  title: "Game", component: GameComponent, outlet: "pokeroutlet",  canActivate: [authGuard]},
+    { path: 'menu',  title: "Menu", component: MenuComponent, outlet: "pokeroutlet",  canActivate: [authGuard]},
+  ]}
 ];
 
 @NgModule({
