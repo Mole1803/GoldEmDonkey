@@ -17,9 +17,23 @@ export class MenuComponent {
   public listActiveGames(): void {
     this.gameHttpService.listActiveGames().subscribe(
       (games: GameDto[]) => {
-        this.activeGames = games;
+        this.activeGames = this.sortByGamesHasStarted(games);
         console.log(games);
       }
     );
   }
+
+
+  sortByGamesHasStarted(games: GameDto[]): GameDto[] {
+    return games.sort((a: GameDto, b: GameDto) => {
+      if (a.hasStarted && !b.hasStarted) {
+        return 1;
+      } else if (!a.hasStarted && b.hasStarted) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
 }

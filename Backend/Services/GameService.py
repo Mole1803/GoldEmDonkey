@@ -103,10 +103,7 @@ class GameService:
     @staticmethod
     def get_all_games(db_context: SQLAlchemy):
         games = db_context.session.query(GameDB).all()
-        returnList = []
-        for game in games:
-            returnList.append(game)
-        return returnList
+        return games
 
     @staticmethod
     def get_all_active_games(db_context: SQLAlchemy):

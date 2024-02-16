@@ -3,12 +3,15 @@ from flask import Blueprint
 from Backend.Controller.BaseController import BaseController
 from Backend.Controller.SocketIOController import SocketIOController
 from Backend.Services.GameService import GameService
+from Backend._DatabaseCall import Serializer
 
 game_controller = Blueprint('game_controller', __name__, url_prefix='/game')
+
 
 class GameRouting:
     create_game = "/createGame"
     list_active_games = "/listActiveGames"
+
 
 class GameController(BaseController, SocketIOController):
     def __init__(self, app):
@@ -18,7 +21,7 @@ class GameController(BaseController, SocketIOController):
     @game_controller.route(GameRouting.list_active_games, methods=['GET'])
     def list_active_games():
         games = GameService.get_all_active_games(BaseController.dependencies.db_context)
-        return games, 200
+        return Serializer.serialize_query_set(games), 200
 
     @staticmethod
     @game_controller.route(GameRouting.create_game, methods=['GET'])
