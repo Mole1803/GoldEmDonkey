@@ -1,4 +1,5 @@
 import math
+from random import randint
 
 
 class PokerHandler:
@@ -13,6 +14,18 @@ class PokerHandler:
 
     def get_hand_rank(self, cards):
         raise NotImplementedError
+
+
+class ShuffleCards:
+    @staticmethod
+    def shuffle_cards(cards):
+        cards = cards.copy()
+        cards_shuffled = []
+        len_cards = len(cards)
+        while len_cards > 0:
+            len_cards -= 1
+            cards_shuffled.append(cards.pop(randint(0, len_cards)))
+        return cards_shuffled
 
 
 class BestHandEvaluator:
@@ -145,7 +158,6 @@ class BestHandEvaluator:
                     return_cards += cards_value[j - 1:j + 1]
                     return return_cards
                 last_value = cards_value[j].value
-
         return None
 
     @staticmethod
