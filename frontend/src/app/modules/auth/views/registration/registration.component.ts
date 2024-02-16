@@ -30,9 +30,6 @@ export class RegistrationComponent {
     );
   }
 
-  saveToken(jwt: any) {
-    localStorage.setItem("token", jwt.access_token);
-  }
 
   redirectToLogin() {
     return ["/"+Routing.Login];

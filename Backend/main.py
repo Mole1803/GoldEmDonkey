@@ -13,15 +13,12 @@ from flask_sqlalchemy import SQLAlchemy
 from Backend.Controller import AuthentificationController
 from flask_cors import CORS
 from dotenv import load_dotenv
+from flask_socketio import SocketIO
+
 
 load_dotenv()
 
-settings = {
-
-
-    #"database_url": 'sqlite:///project.db',
-
-}
+settings = {}
 
 
 class GoldEmDonkeyMain:
@@ -30,15 +27,16 @@ class GoldEmDonkeyMain:
         self.swagger = None
         self.db = None
         self.jwt = None
+        self.socketio = None
 
         self.module_controllers: list[BaseController] = []
         self.dependencyInjector = DependencyInjector()
         self.DatabaseManager: DatabaseManager = DatabaseManager(self.app)
 
-
     def run(self):
         self.configure()
-        self.app.run(debug=True, host="0.0.0.0", port=8080)
+        self.socketio.run(self.app, port=8080)
+        # self.app.run(debug=True, host="0.0.0.0", port=8080)
 
     def configure(self):
         self.setup_database()
@@ -46,17 +44,22 @@ class GoldEmDonkeyMain:
         self.configure_cors()
         self.setup_jwt()
 
-        self.setup_dependy_injector()
+        self.setup_dependency_injector()
         self.init_all_controllers()
+        self.setup_socketio()
 
     def setup_jwt(self):
         self.app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY")
         self.jwt = JWTManager(self.app)
 
+    def setup_socketio(self):
+        self.app.config['SECRET_KEY'] = os.environ.get("JWT_SECRET_KEY")
+        self.socketio = SocketIO(self.app)#, cors_allowed_origins="*"
+
     def setup_database(self):
         self.DatabaseManager.init_database()
 
-    def setup_dependy_injector(self):
+    def setup_dependency_injector(self):
         self.dependencyInjector.db_context = self.DatabaseManager.db
 
     def configure_swagger(self):
