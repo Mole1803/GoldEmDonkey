@@ -11,6 +11,19 @@ class Base(DeclarativeBase):
 
 #db = SQLAlchemy(model_class=Base)
 
+class Serializer:
+    @staticmethod
+    def serialize_query_set(query_set):
+        return [i.serialize() for i in query_set]
+
+    @staticmethod
+    def serialize(self):
+        i = vars(self)
+        i.pop('_sa_instance_state')
+        return i
+
+
+
 class DatabaseManager:
     db = SQLAlchemy(model_class=Base)
 
@@ -55,11 +68,16 @@ class RoundDB(DatabaseManager.db.Model):
 class GameDB(DatabaseManager.db.Model):
     id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
     is_active: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=True)
+    name: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    has_started: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=False)
+
 
     def serialize(self):
         return {
             'id': self.id,
-            'isActive': self.is_active
+            'isActive': self.is_active,
+            'name': self.name,
+            'hasStarted': self.has_started
         }
 
 
