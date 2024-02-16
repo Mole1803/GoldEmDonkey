@@ -109,6 +109,11 @@ class GameService:
         return returnList
 
     @staticmethod
+    def get_all_active_games(db_context: SQLAlchemy):
+        games = db_context.session.query(GameDB).filter_by(is_active=True).all()
+        return games
+
+    @staticmethod
     def set_max_raise_round(id, max_raise, db_context: SQLAlchemy):
         round = db_context.session.query(RoundDB).filter_by(id=id).all()
         if len(round) == 0:

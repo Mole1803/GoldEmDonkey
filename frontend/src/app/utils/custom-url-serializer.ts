@@ -1,7 +1,7 @@
 import {DefaultUrlSerializer, UrlTree} from "@angular/router";
 
 export class CustomUrlSerializer extends DefaultUrlSerializer{
-  private _reverseUrl(url: string): string {
+  /*private _reverseUrl(url: string): string {
     const startIndex = 1;
     const segmentString =
       `(${url.substring(startIndex).split('/').join('//')})`;
@@ -20,5 +20,5 @@ export class CustomUrlSerializer extends DefaultUrlSerializer{
 
   override serialize(tree: UrlTree): string {
     return this._beautifyUrl(super.serialize(tree));
-  }
+  }*/
 }

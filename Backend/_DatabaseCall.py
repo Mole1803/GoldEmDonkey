@@ -54,10 +54,12 @@ class RoundDB(DatabaseManager.db.Model):
 
 class GameDB(DatabaseManager.db.Model):
     id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    is_active: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=True)
 
     def serialize(self):
         return {
-            'id': self.id
+            'id': self.id,
+            'isActive': self.is_active
         }
 
 
