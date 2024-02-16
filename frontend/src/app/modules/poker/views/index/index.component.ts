@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {io} from "socket.io-client";
 
 @Component({
   selector: 'app-index',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
+  private socket = io('http://localhost:8080');
 
+  testSocketIo() {
+    this.socket.emit('message', 'Hello, World!');
+
+  }
 }
