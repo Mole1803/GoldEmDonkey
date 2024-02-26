@@ -1,23 +1,16 @@
 import os
 
-from flask import Flask, render_template, request
-from flask_jwt_extended import JWTManager
-from flask_swagger_ui import get_swaggerui_blueprint
-from flasgger import Swagger
-
-
-from Backend.Controller.SocketIOController import SocketIOController
-from Backend.Injector.DependencyInjector import DependencyInjector
-from Backend.Controller.BaseController import BaseController
-from Backend.Helper.SetupHelper import SetupHelper
-from _DatabaseCall import DatabaseManager
-from flask import Flask, jsonify, request
-from flask_sqlalchemy import SQLAlchemy
-
-from flask_cors import CORS
 from dotenv import load_dotenv
+from flasgger import Swagger
+from flask import Flask
+from flask_cors import CORS
+from flask_jwt_extended import JWTManager
 from flask_socketio import SocketIO
 
+from Backend.Controller.BaseController import BaseController
+from Backend.Controller.SocketIOController import SocketIOController
+from Backend.Injector.DependencyInjector import DependencyInjector
+from _DatabaseCall import DatabaseManager
 
 load_dotenv()
 
