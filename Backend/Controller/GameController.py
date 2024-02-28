@@ -35,6 +35,7 @@ class GameController(BaseController, SocketIOController):
     @game_controller.route('/hasActiveGame', methods=['GET'])
     def get_active_game():
         # Todo checks if user has a game -> if so check if game is running -> join_room else
+        return
         raise NotImplementedError
 
 
@@ -55,8 +56,9 @@ class GameController(BaseController, SocketIOController):
 
     @staticmethod
     @SocketIOController.socketio.on('connect')
-    def on_connect():
+    def on_connect(data):
         # Todo checks if user has a game -> if so check if game is running -> join_room else
+        return
         raise NotImplementedError
 
     @staticmethod
