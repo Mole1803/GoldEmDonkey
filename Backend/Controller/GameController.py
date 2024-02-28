@@ -4,7 +4,8 @@ from Backend.Controller.BaseController import BaseController
 from Backend.Controller.SocketIOController import SocketIOController
 from Backend.Services.GameService import GameService
 from Backend._DatabaseCall import Serializer
-from flask_socketio import join_room, send
+from flask_socketio import join_room, send, leave_room
+from flask_jwt_extended import jwt_required
 
 game_controller = Blueprint('game_controller', __name__, url_prefix='/game')
 
@@ -27,8 +28,15 @@ class GameController(BaseController, SocketIOController):
     @staticmethod
     @game_controller.route(GameRouting.create_game, methods=['GET'])
     def create_game():
-
         return "Game created", 200
+
+    @staticmethod
+    @jwt_required()
+    @game_controller.route('/hasActiveGame', methods=['GET'])
+    def get_active_game():
+        # Todo checks if user has a game -> if so check if game is running -> join_room else
+        raise NotImplementedError
+
 
     @staticmethod
     @SocketIOController.socketio.on('message')
@@ -43,4 +51,19 @@ class GameController(BaseController, SocketIOController):
         username = data["username"]
         room = data["room"]
         join_room(room)
-        send(username + " has left the room.", to=room)
+        send(username + " has joined the room.", to=room)
+
+    @staticmethod
+    @SocketIOController.socketio.on('connect')
+    def on_connect():
+        # Todo checks if user has a game -> if so check if game is running -> join_room else
+        raise NotImplementedError
+
+    @staticmethod
+    @SocketIOController.socketio.on('leave')
+    def on_leave_room(data):
+        username = data['username']
+        # Todo find active room and disconnect
+        room = data['room']
+        leave_room(room)
+        send(username + ' has left the room.', to=room)
