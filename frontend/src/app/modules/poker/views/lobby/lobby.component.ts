@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {Observable} from "rxjs";
+import * as io from "socket.io-client";
 
 @Component({
   selector: 'app-lobby',

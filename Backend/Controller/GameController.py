@@ -4,6 +4,7 @@ from Backend.Controller.BaseController import BaseController
 from Backend.Controller.SocketIOController import SocketIOController
 from Backend.Services.GameService import GameService
 from Backend._DatabaseCall import Serializer
+from flask_socketio import join_room, send
 
 game_controller = Blueprint('game_controller', __name__, url_prefix='/game')
 
@@ -29,8 +30,6 @@ class GameController(BaseController, SocketIOController):
 
         return "Game created", 200
 
-
-
     @staticmethod
     @SocketIOController.socketio.on('message')
     def get_game(msg):
@@ -38,4 +37,10 @@ class GameController(BaseController, SocketIOController):
         print("Connected to game!", msg)
         return "Game", 200
 
-
+    @staticmethod
+    @SocketIOController.socketio.on('join')
+    def on_join_room(data):
+        username = data["username"]
+        room = data["room"]
+        join_room(room)
+        send(username + " has left the room.", to=room)

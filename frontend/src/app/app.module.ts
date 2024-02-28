@@ -10,6 +10,7 @@ import {GenericComponentsModule} from "./modules/generic-components/generic-comp
 import {PokerModule} from "./modules/poker/poker.module";
 import {CustomUrlSerializer} from "./utils/custom-url-serializer";
 import {UrlSerializer} from "@angular/router";
+import {io} from "socket.io-client";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {UrlSerializer} from "@angular/router";
   providers: [
     { provide: UrlSerializer, useClass: CustomUrlSerializer },
     { provide: "BASE_URL", useValue: environment.BASE_URL },
-    ],
+    { provide: "SOCKET_IO", useValue: io(environment.BASE_URL) }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
