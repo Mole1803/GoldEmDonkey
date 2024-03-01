@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {GameHttpService} from "../../services/game-http.service";
 import {GameDto} from "../../models/game-dto";
+import {root} from "postcss";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +12,7 @@ import {GameDto} from "../../models/game-dto";
 export class MenuComponent {
   activeGames: GameDto[] = [];
 
-  constructor(private gameHttpService: GameHttpService) {
+  constructor(private gameHttpService: GameHttpService,public route: ActivatedRoute) {
     this.listActiveGames();
   }
 
@@ -18,7 +20,6 @@ export class MenuComponent {
     this.gameHttpService.listActiveGames().subscribe(
       (games: GameDto[]) => {
         this.activeGames = this.sortByGamesHasStarted(games);
-        console.log(games);
       }
     );
   }
@@ -36,4 +37,5 @@ export class MenuComponent {
     });
   }
 
+  protected readonly root = root;
 }
