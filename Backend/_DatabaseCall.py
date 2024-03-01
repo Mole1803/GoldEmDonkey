@@ -94,6 +94,17 @@ class PlayerDB(DatabaseManager.db.Model):
         }
 
 
+class ActiveGamePlayerDB(DatabaseManager.db.Model):
+    id_game: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    id_player: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+
+    def serialize(self):
+        return {
+            'id_game': self.id_game,
+            'id_player': self.id_player
+        }
+
+
 class RoundPlayerDB(DatabaseManager.db.Model):
     id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
     id_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
