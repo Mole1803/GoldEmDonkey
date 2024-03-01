@@ -38,7 +38,6 @@ class GameController(BaseController, SocketIOController):
         return
         raise NotImplementedError
 
-
     @staticmethod
     @SocketIOController.socketio.on('message')
     def get_game(msg):
