@@ -3,5 +3,7 @@ class Game:
     players: []
     currentBlind: int
     password: str
-    # settings
     blindOptions: int
+
+    def __init__(self, id):
+        self.id = id
