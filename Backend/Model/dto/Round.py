@@ -1,8 +1,16 @@
-from Backend.Model.dto import Player
+from Backend.Model.dto import Game, Player
 
 
 class Round:
-    boardCards: []
-    players: []
+    id: int
+    max_raise: int
+    game: Game
     dealer: Player
-    cards: []
+    currentBlind: int
+
+    def __init__(self, id, max_raise, game, currentBlind, dealer):
+        self.id = id
+        self.max_raise = max_raise
+        self.game = game
+        self.currentBlind = currentBlind
+        self.dealer = dealer

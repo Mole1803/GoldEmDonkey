@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundPlayerCardsDB, RoundCardsDB, CardsDB, RoundPlayerDB, ActiveGamePlayerDB
+from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundPlayerCardsDB, RoundCardsDB, CardsDB, RoundPlayerDB, \
+    ActiveGamePlayerDB
 from Backend.Model.dto.Game import Game
 
 
@@ -19,7 +20,9 @@ class ActiveGameService:
 
     @staticmethod
     def get_room_from_player(id_player, db_context: SQLAlchemy):
-        room = db_context.session.query(ActiveGamePlayerDB).join(GameDB, ActiveGamePlayerDB.id_game==GameDB.id).filter_by(id_player=id_player).all()
+        room = db_context.session.query(ActiveGamePlayerDB).join(GameDB,
+                                                                 ActiveGamePlayerDB.id_game == GameDB.id).filter_by(
+            id_player=id_player).all()
         if len(room) == 0:
             return None
         room = room[0]
