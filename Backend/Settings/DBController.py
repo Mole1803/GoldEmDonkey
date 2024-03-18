@@ -1,4 +1,5 @@
-from Backend._DatabaseCall import db, RoundDB, GameDB, PlayerDB, RoundPlayerDB, CardsDB, RoundPlayerCardsDB, RoundCardsDB
+from Backend._DatabaseCall import db, RoundDB, GameDB, PlayerDB, RoundPlayerDB, CardsDB, RoundPlayerCardsDB, \
+    RoundCardsDB, ActiveGamePlayerDB
 
 
 def create_game_db(id):
@@ -43,13 +44,14 @@ def create_player_db(id, position, chips):
         return False
 
 
-def create_round_player_db(id, id_round, id_player, at_play, set_chips):
+def create_round_player_db(id, id_round, id_player, at_play, set_chips, in_round):
     round_player = RoundPlayerDB(
         id=id,
         id_round=id_round,
         id_player=id_player,
         at_play=at_play,
-        set_chips=set_chips
+        set_chips=set_chips,
+        in_round=in_round
     )
     try:
         db.session.add(round_player)
@@ -150,4 +152,3 @@ def set_player_set_chips(id, set_chips):
     round_player = round_player[0]
     round_player.set_chips = set_chips
     commit()
-
