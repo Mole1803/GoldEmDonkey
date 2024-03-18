@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import {GameHttpService} from "../../services/game-http.service";
 import {GameDto} from "../../models/game-dto";
 import {root} from "postcss";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {GameService} from "../../store/game.service";
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 export class MenuComponent {
   activeGames: GameDto[] = [];
 
-  constructor(private gameHttpService: GameHttpService,public route: ActivatedRoute) {
+  constructor(private gameHttpService: GameHttpService,public route: ActivatedRoute, public gameService: GameService, private router: Router) {
     this.listActiveGames();
   }
 
@@ -35,6 +36,13 @@ export class MenuComponent {
         return 0;
       }
     });
+  }
+
+  createGame(): void {
+    this.gameService.createGame();
+    // redirect to lobby (lobby is sub router outlet
+    this.router.navigate([{outlets: {pokeroutlet: ['lobby']}}]);
+
   }
 
   protected readonly root = root;

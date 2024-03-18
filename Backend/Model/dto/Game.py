@@ -3,6 +3,8 @@ class Game:
     name: str
     has_started: bool
     id: int
+    players: []
+    currentBlind: int
     password: str
     blindOptions: int
 

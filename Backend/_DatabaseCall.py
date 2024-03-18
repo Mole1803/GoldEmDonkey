@@ -18,9 +18,17 @@ class Serializer:
 
     @staticmethod
     def serialize(self):
-        i = vars(self)
+        i: dict = vars(self)
         i.pop('_sa_instance_state')
+        copy_dict = {}
+        for key, value in i.items():
+            copy_dict[Serializer.underscore_to_camel_case(key)] = value
         return i
+
+    @staticmethod
+    def underscore_to_camel_case(key: str):
+        # find underscore and convert next letter to uppercase
+        return key[0] + key.title().replace("_", "")[1:]
 
 
 
