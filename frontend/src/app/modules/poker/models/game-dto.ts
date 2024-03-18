@@ -8,7 +8,7 @@ export class GameDto {
   players: PlayerDto[]
 
 
-  constructor(id: string, isActive: boolean, hasStarted: boolean, name: string,players:PlayerDto[]) {
+  constructor(id: string, isActive: boolean, hasStarted: boolean, name: string, players: PlayerDto[] = []) {
     this.id = id
     this.isActive = isActive
     this.hasStarted = hasStarted

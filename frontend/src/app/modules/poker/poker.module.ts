@@ -7,6 +7,7 @@ import { GameComponent } from './views/game/game.component';
 import { LobbyComponent } from './views/lobby/lobby.component';
 import { MenuComponent } from './views/menu/menu.component';
 import {GenericComponentsModule} from "../generic-components/generic-components.module";
+import {GameService} from "./store/game.service";
 
 
 @NgModule({
@@ -20,6 +21,9 @@ import {GenericComponentsModule} from "../generic-components/generic-components.
     CommonModule,
     PokerRoutingModule,
     GenericComponentsModule
+  ],
+  providers: [
+    GameService
   ]
 })
 export class PokerModule { }
