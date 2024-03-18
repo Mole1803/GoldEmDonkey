@@ -3,6 +3,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from Backend.Services.CardService import CardService
 
 
 class Base(DeclarativeBase):
@@ -54,14 +55,14 @@ class UserDB(DatabaseManager.db.Model):
 
 class RoundDB(DatabaseManager.db.Model):
     id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-    max_raise: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
     game_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    status: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
 
     def serialize(self):
         return {
             'id': self.id,
-            'max_raise': self.max_raise,
-            'game_id': self.game_id
+            'game_id': self.game_id,
+            'status': self.status
         }
 
 
@@ -70,14 +71,15 @@ class GameDB(DatabaseManager.db.Model):
     is_active: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=True)
     name: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
     has_started: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=False)
-
+    dealer: Mapped[str] = mapped_column(DatabaseManager.db.String)
 
     def serialize(self):
         return {
             'id': self.id,
             'isActive': self.is_active,
             'name': self.name,
-            'hasStarted': self.has_started
+            'has_started': self.has_started,
+            'dealer': self.dealer
         }
 
 
@@ -85,80 +87,51 @@ class PlayerDB(DatabaseManager.db.Model):
     id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
     position: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
     chips: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
+    game_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    user_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
 
     def serialize(self):
         return {
             'id': self.id,
             'position': self.position,
-            'chips': self.chips
-        }
-
-
-class ActiveGamePlayerDB(DatabaseManager.db.Model):
-    id_game: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-    id_player: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-
-    def serialize(self):
-        return {
-            'id_game': self.id_game,
-            'id_player': self.id_player
+            'chips': self.chips,
+            'game_id': self.game_id,
+            'user_id': self.user_id
         }
 
 
 class RoundPlayerDB(DatabaseManager.db.Model):
-    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-    id_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
-    id_player: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    id_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    id_player: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
     at_play: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False)
+    has_played: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False)
     set_chips: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
+    is_active: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False)
+    position: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
+    card_1: Mapped[int] = mapped_column(DatabaseManager.db.Integer)
+    card_2: Mapped[int] = mapped_column(DatabaseManager.db.Integer)
 
     def serialize(self):
         return {
-            'id': self.id,
             'id_round': self.id_round,
             'id_player': self.id_player,
             'at_play': self.at_play,
-            'set_chips': self.set_chips
-        }
-
-
-class CardsDB(DatabaseManager.db.Model):
-    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-    color: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
-    value: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
-
-    def serialize(self):
-        return {
-            'id': self.id,
-            'color': self.color,
-            'value': self.value
+            'set_chips': self.set_chips,
+            'is_active': self.is_active,
+            'position': self.position,
+            'card_1': CardService.parse_card_object_from_db(self.card_1),
+            'card_2': CardService.parse_card_object_from_db(self.card_2)
         }
 
 
 class RoundCardsDB(DatabaseManager.db.Model):
     id_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-    id_cards: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    id_cards: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False, primary_key=True)
     position: Mapped[int] = mapped_column(DatabaseManager.db.Integer, nullable=False)
 
     def serialize(self):
         return {
             'id_round': self.id_round,
-            'id_cards': self.id_cards,
+            'id_cards': CardService.parse_card_object_from_db(self.id_cards),
             'position': self.position,
         }
-
-
-class RoundPlayerCardsDB(DatabaseManager.db.Model):
-    id_round_player: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-    id_cards: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
-
-    def serialize(self):
-        return {
-            'id_round_player': self.id_round_player,
-            'id_cards': self.id_cards
-        }
-
-
-
-
-
