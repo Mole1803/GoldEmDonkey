@@ -1,7 +1,8 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify
 
 from Backend.Controller.BaseController import BaseController
 from Backend.Controller.SocketIOController import SocketIOController
+from Backend.Model.dto.Game import Game
 from Backend.Services.GameService import GameService
 from Backend._DatabaseCall import Serializer
 from flask_socketio import join_room, send, leave_room
@@ -26,17 +27,26 @@ class GameController(BaseController, SocketIOController):
         return Serializer.serialize_query_set(games), 200
 
     @staticmethod
-    @game_controller.route(GameRouting.create_game, methods=['GET'])
+    @game_controller.route(GameRouting.create_game, methods=['POST'])
     def create_game():
-        return "Game created", 200
+        try:
+            game = GameService.create_game_db(BaseController.dependencies.db_context)
+            game = Serializer.serialize(game)
+            print(game)
+            return jsonify(game), 200
+        except:
+            return jsonify({"msg": "Game creation failed"}), 500
+
+
+
 
     @staticmethod
     @jwt_required()
     @game_controller.route('/hasActiveGame', methods=['GET'])
     def get_active_game():
         # Todo checks if user has a game -> if so check if game is running -> join_room else
+        return
         raise NotImplementedError
-
 
     @staticmethod
     @SocketIOController.socketio.on('message')
@@ -55,8 +65,9 @@ class GameController(BaseController, SocketIOController):
 
     @staticmethod
     @SocketIOController.socketio.on('connect')
-    def on_connect():
+    def on_connect(data):
         # Todo checks if user has a game -> if so check if game is running -> join_room else
+        return
         raise NotImplementedError
 
     @staticmethod

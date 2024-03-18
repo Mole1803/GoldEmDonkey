@@ -1,24 +1,26 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundCardsDB, RoundPlayerDB
+import uuid
 
 
 class GameService:
     @staticmethod
-    def insert_game_db(id, is_active, name, has_started, dealer, db_context: SQLAlchemy):
+    def insert_game_db(is_active, name, has_started, dealer, db_context: SQLAlchemy):
+        id_ = str(uuid.uuid4())
         game = GameDB(
-            id=id,
+            id=id_,
             is_active=is_active,
             name=name,
             has_started=has_started,
             dealer=dealer
         )
-        try:
-            db_context.session.add(game)
-            db_context.session.commit()
-            return True
-        except:
-            return False
+
+        db_context.session.add(game)
+        db_context.session.commit()
+        return game
+
+
 
     @staticmethod
     def insert_round_db(id, game_id, status, db_context: SQLAlchemy):
