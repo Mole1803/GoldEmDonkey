@@ -43,6 +43,17 @@ class GameService:
         games = db_context.session.query(GameDB).filter_by(is_active=True).all()
         return games
 
+    @staticmethod
+    def select_game_by_id(id_game, db_context: SQLAlchemy):
+        game = db_context.session.query(GameDB).filter_by(id=id_game).all()
+        return game
+
+    @staticmethod
+    def select_game_get_game_by_round_id(id_round, db_context: SQLAlchemy):
+        game_id = db_context.session.query(RoundDB.game_id).filter_by(id=id_round).all()
+        game = GameService.select_game_by_id(game_id, db_context)
+        return game
+
     # Round
     @staticmethod
     def insert_round_db(id, game_id, status, db_context: SQLAlchemy):
