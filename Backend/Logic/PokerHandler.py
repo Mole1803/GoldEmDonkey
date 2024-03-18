@@ -1,4 +1,6 @@
 import math
+import random
+
 from Backend.Services.GameService import GameService
 
 
@@ -22,11 +24,30 @@ class PokerHandler:
 
         raise NotImplementedError
 
-    def shuffle_cards(self, cards):
-        raise NotImplementedError
+    def shuffle_cards(self, num_players):
+        erg=random.sample(range(0, 52), 2*num_players+5)
+        return erg
 
-    def deal_cards(self, cards, players):
-        raise NotImplementedError
+    def deal_cards(self, cards, players, round_id):
+        card_index=0
+        dealer_index=0
+
+        game=GameService.select_game_get_game_by_round_id(round_id)
+        if game["dealer"] not None:
+            for player in players:
+                if player["id"]==game["dealer"]:
+                    dealer_index=player["position"]
+        for player,i in enumerate(players):
+            if i==dealer_index:
+                GameService.insert_round_player_db(round_id, player["id"], True, False, 0, True, 0, cards[card_index],
+                                                   cards[card_index + 1], self.db_context)
+            else:
+                GameService.insert_round_player_db(round_id, player["id"], False, False, 0, True,
+                                                   (i-dealer_index+len(players))%len(players), cards[card_index],
+                                                   cards[card_index+1], self.db_context)
+            card_index+=2
+        for i in range(5):
+            GameService.insert_round_cards_db(round_id,cards[card_index+i],i,self.db_context)
 
     def evaluate_winner(self, players):
         raise NotImplementedError
