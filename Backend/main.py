@@ -11,6 +11,7 @@ from Backend.Controller.BaseController import BaseController
 from Backend.Controller.SocketIOController import SocketIOController
 from Backend.Injector.DependencyInjector import DependencyInjector
 from _DatabaseCall import DatabaseManager
+from Logic.PokerHandler import PokerHandler
 
 load_dotenv()
 
@@ -28,6 +29,7 @@ class GoldEmDonkeyMain:
         self.module_controllers: list[BaseController] = []
         self.dependencyInjector = DependencyInjector()
         self.DatabaseManager: DatabaseManager = DatabaseManager(self.app)
+        self.PokerHandler: PokerHandler = PokerHandler(self.DatabaseManager.db)
 
     def run(self):
         self.configure()
@@ -61,6 +63,7 @@ class GoldEmDonkeyMain:
 
     def setup_dependency_injector(self):
         self.dependencyInjector.db_context = self.DatabaseManager.db
+        self.dependencyInjector.poker_handler = self.PokerHandler
 
     def configure_swagger(self):
         # Swagger can be found at http://localhost:8080/api/docs/

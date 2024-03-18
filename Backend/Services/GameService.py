@@ -1,44 +1,72 @@
 from flask_sqlalchemy import SQLAlchemy
-from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundPlayerCardsDB, RoundCardsDB, CardsDB, RoundPlayerDB
 import uuid
+from sqlalchemy import func
+from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundCardsDB, RoundPlayerDB
+
 
 class GameService:
+    # Game
     @staticmethod
-    def create_game_db(db_context: SQLAlchemy):
+    def insert_game_db(is_active, name, has_started, dealer, db_context: SQLAlchemy):
         id_ = str(uuid.uuid4())
         game = GameDB(
             id=id_,
-            is_active=True,
-            name=id_,
-            has_started=False
-        )
-
-        db_context.session.add(game)
-        db_context.session.commit()
-        return game
-
-
-
-    @staticmethod
-    def create_round_db(id, max_raise, game_id, db_context: SQLAlchemy):
-        round = RoundDB(
-            id=id,
-            max_raise=max_raise,
-            game_id=game_id
+            is_active=is_active,
+            name=name,
+            has_started=has_started,
+            dealer=dealer
         )
         try:
-            db_context.session.add(round)
+            db_context.session.add(game)
+            db_context.session.commit()
+            return game
+        except:
+            return None
+
+    @staticmethod
+    def update_game_is_active(game_id: str, is_active: bool, db_context: SQLAlchemy):
+        game = db_context.session.query(GameDB).filter_by(id=game_id).all()
+        if len(game) == 0:
+            return False
+        game = game[0]
+        game.is_active = is_active
+        db_context.session.commit()
+        return True
+
+    @staticmethod
+    def select_game_get_all_games(db_context: SQLAlchemy):
+        games = db_context.session.query(GameDB).all()
+        return games
+
+    @staticmethod
+    def select_game_get_all_active_games(db_context: SQLAlchemy):
+        games = db_context.session.query(GameDB).filter_by(is_active=True).all()
+        return games
+
+    # Round
+    @staticmethod
+    def insert_round_db(id, game_id, status, db_context: SQLAlchemy):
+        round_ = RoundDB(
+            id=id,
+            game_id=game_id,
+            status=status
+        )
+        try:
+            db_context.session.add(round_)
             db_context.session.commit()
             return True
         except:
             return False
 
+    # Player
     @staticmethod
-    def create_player_db(id, position, chips, db_context: SQLAlchemy):
+    def insert_player_db(id_, position, chips, game_id, user_id, db_context: SQLAlchemy):
         player = PlayerDB(
-            id=id,
+            id=id_,
             position=position,
-            chips=chips
+            chips=chips,
+            game_id=game_id,
+            user_id=user_id
         )
         try:
             db_context.session.add(player)
@@ -48,13 +76,38 @@ class GameService:
             return False
 
     @staticmethod
-    def create_round_player_db(id, id_round, id_player, at_play, set_chips, db_context: SQLAlchemy):
+    def update_player_set_chips_player(id_player, chips, db_context: SQLAlchemy):
+        player = db_context.session.query(PlayerDB).filter_by(id=id_player).all()
+        if len(player) == 0:
+            return False
+        player = player[0]
+        player.chips = chips
+        db_context.session.commit()
+        return True
+
+    @staticmethod
+    def select_player_get_highest_position(id_game, db_context: SQLAlchemy):
+        player = db_context.session.query(func.max(PlayerDB.position)).filter_by(id_game=id_game).all()
+        return player
+
+    @staticmethod
+    def select_player_get_all_players_by_game(id_game, db_context: SQLAlchemy):
+        players = db_context.session.query(PlayerDB).filter_by(id_game=id_game).all()
+        return players
+
+    # Round Player
+    @staticmethod
+    def insert_round_player_db(id_round, id_player, at_play, has_played, set_chips, is_active, position, card_1, card_2, db_context: SQLAlchemy):
         round_player = RoundPlayerDB(
-            id=id,
             id_round=id_round,
             id_player=id_player,
             at_play=at_play,
-            set_chips=set_chips
+            has_played=has_played,
+            set_chips=set_chips,
+            is_active=is_active,
+            position=position,
+            card_1=card_1,
+            card_2=card_2
         )
         try:
             db_context.session.add(round_player)
@@ -64,21 +117,62 @@ class GameService:
             return False
 
     @staticmethod
-    def create_card_db(id, color, value, db_context: SQLAlchemy):
-        card = CardsDB(
-            id=id,
-            color=color,
-            value=value
-        )
-        try:
-            db_context.session.add(card)
-            db_context.session.commit()
-            return True
-        except:
+    def update_round_player_set_at_play(id_round, id_player, at_play, db_context: SQLAlchemy):
+        round_player = db_context.session.query(RoundPlayerDB).filter_by(id_round=id_round, id_player=id_player).all()
+        if len(round_player) == 0:
             return False
+        round_player = round_player[0]
+        round_player.at_play = at_play
+        db_context.session.commit()
+        return True
 
     @staticmethod
-    def create_round_cards_db(id_round, id_cards, position, db_context: SQLAlchemy):
+    def update_round_player_set_chips(id_round, id_player, set_chips, db_context: SQLAlchemy):
+        round_player = db_context.session.query(RoundPlayerDB).filter_by(id_round=id_round, id_player=id_player).all()
+        if len(round_player) == 0:
+            return False
+        round_player = round_player[0]
+        round_player.set_chips = set_chips
+        db_context.session.commit()
+        return True
+
+    @staticmethod
+    def update_round_player_is_active(id_round, id_player, is_active, db_context: SQLAlchemy):
+        round_player = db_context.session.query(RoundPlayerDB).filter_by(id_round=id_round, id_player=id_player).all()
+        if len(round_player) == 0:
+            return False
+        round_player = round_player[0]
+        round_player.is_active = is_active
+        db_context.session.commit()
+        return True
+
+    @staticmethod
+    def select_round_player_chips(id_round, id_player, db_context: SQLAlchemy):
+        chips = db_context.session.query(RoundPlayerDB.set_chips).filter_by(id_round=id_round,
+                                                                            id_player=id_player).all()
+        return chips
+
+    @staticmethod
+    def select_round_player_current_max_set_chips(id_round, db_context: SQLAlchemy):
+        max_set_chips = db_context.session.query(func.max(RoundPlayerDB.set_chips)).filter_by(id_round=id_round).all()
+        return max_set_chips
+
+    @staticmethod
+    def select_round_player_get_all_set_chips(id_round, db_context: SQLAlchemy):
+        sum_of_chips_in_round = db_context.session.query(func.sum(RoundPlayerDB.set_chips)).filter_by(
+            id_round=id_round).all()
+        return sum_of_chips_in_round
+
+    @staticmethod
+    def select_round_player_get_players_with_status_is_active_from_round_order_by_position(id_round,
+                                                                                           db_context: SQLAlchemy):
+        player = db_context.session.query(RoundPlayerDB).filter_by(id_round=id_round, is_active=True).order_by(
+            RoundPlayerDB.position).all()
+        return player
+
+    # Round Card
+    @staticmethod
+    def insert_round_cards_db(id_round, id_cards, position, db_context: SQLAlchemy):
         round_cards = RoundCardsDB(
             id_round=id_round,
             id_cards=id_cards,
@@ -90,70 +184,3 @@ class GameService:
             return True
         except:
             return False
-
-    @staticmethod
-    def create_round_player_cards_db(id_round_player, id_cards, db_context: SQLAlchemy):
-        round_player_cards = RoundPlayerCardsDB(
-            id_round_player=id_round_player,
-            id_cards=id_cards
-        )
-        try:
-            db_context.session.add(round_player_cards)
-            db_context.session.commit()
-            return True
-        except:
-            return False
-
-    @staticmethod
-    def get_all_games(db_context: SQLAlchemy):
-        games = db_context.session.query(GameDB).all()
-        return games
-
-    @staticmethod
-    def get_all_active_games(db_context: SQLAlchemy):
-        games = db_context.session.query(GameDB).filter_by(is_active=True).all()
-        return games
-
-    @staticmethod
-    def set_max_raise_round(id, max_raise, db_context: SQLAlchemy):
-        round = db_context.session.query(RoundDB).filter_by(id=id).all()
-        if len(round) == 0:
-            return False
-        round = round[0]
-        round.max_raise = max_raise
-        db_context.session.commit()
-        return True
-
-    @staticmethod
-    def set_chips_player(id, chips, db_context: SQLAlchemy):
-        player = db_context.session.query(PlayerDB).filter_by(id=id).all()
-        if len(player) == 0:
-            return False
-        player = player[0]
-        player.chips = chips
-        db_context.session.commit()
-        return True
-
-    @staticmethod
-    def set_at_play(id, at_play, db_context: SQLAlchemy):
-        round_player = db_context.session.query(RoundPlayerDB).filter_by(id=id).all()
-        if len(round_player) == 0:
-            return False
-        round_player = round_player[0]
-        round_player.at_play = at_play
-        db_context.session.commit()
-        return True
-
-    @staticmethod
-    def set_player_set_chips(id, set_chips, db_context: SQLAlchemy):
-        round_player = db_context.session.query(RoundPlayerDB).filter_by(id=id).all()
-        if len(round_player) == 0:
-            return False
-        round_player = round_player[0]
-        round_player.set_chips = set_chips
-        db_context.session.commit()
-        return True
-
-
-
-
