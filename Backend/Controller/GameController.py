@@ -40,18 +40,40 @@ class GameController(BaseController, SocketIOController):
 
 
 
-    @staticmethod
-    @jwt_required()
-    @game_controller.route('/hasActiveGame', methods=['GET'])
-    def get_active_game():
+    #@staticmethod
+    #@jwt_required()
+    #@game_controller.route('/hasActiveGame', methods=['GET'])
+    #def get_active_game():
         # Todo checks if user has a game -> if so check if game is running -> join_room else
-        return
-        raise NotImplementedError
+    #    return
+    #    raise NotImplementedError
+
+    @staticmethod
+    @SocketIOController.socketio.on('joinGame')
+    def join_game(data):
+        username = data['username']
+        room = data['room']
+        # Todo: add player to playerDB
+        BaseController.dependencies.poker_handler.join_game(username, room)
+
+        join_room(room)
+        send(username + " has joined the room.", to=room)
+
+    @staticmethod
+    @SocketIOController.socketio.on('startGame')
+    def start_game(data):
+        # Todo check if user reuqest is from host
+        room = data['room']
+        username = data['username']
+        BaseController.dependencies.poker_handler.run_game(username, room)
+
+        send("start game", to=room)
+
+
 
     @staticmethod
     @SocketIOController.socketio.on('message')
     def get_game(msg):
-
         print("Connected to game!", msg)
         return "Game", 200
 
@@ -62,6 +84,7 @@ class GameController(BaseController, SocketIOController):
         room = data["room"]
         join_room(room)
         send(username + " has joined the room.", to=room)
+
 
     @staticmethod
     @SocketIOController.socketio.on('connect')
@@ -78,3 +101,5 @@ class GameController(BaseController, SocketIOController):
         room = data['room']
         leave_room(room)
         send(username + ' has left the room.', to=room)
+
+

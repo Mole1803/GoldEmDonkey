@@ -1,7 +1,27 @@
 import math
+from Backend.Services.GameService import GameService
 
 
 class PokerHandler:
+    def __init__(self, db_context):
+        self.db_context = db_context
+    def join_game(self, player, game):
+        # Todo: implement join game
+        GameService.insert_player_db(player, game, self.db_context)
+        raise NotImplementedError
+
+    def run_game(self, game_id: str):
+        # Todo:
+        GameService.update_game_is_active(game_id,True, self.db_context)
+        self.create_round(game_id)
+
+
+        raise NotImplementedError
+
+    def create_round(self, game_id: str):
+
+        raise NotImplementedError
+
     def shuffle_cards(self, cards):
         raise NotImplementedError
 
@@ -12,6 +32,11 @@ class PokerHandler:
         raise NotImplementedError
 
     def get_hand_rank(self, cards):
+        raise NotImplementedError
+
+    def on_player_check(self, player):
+        # inform next player and set player to not active
+
         raise NotImplementedError
 
 
