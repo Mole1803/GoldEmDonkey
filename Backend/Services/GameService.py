@@ -1,5 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundPlayerCardsDB, RoundCardsDB, CardsDB, RoundPlayerDB
 import uuid
 from sqlalchemy import func
 from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundCardsDB, RoundPlayerDB
@@ -25,22 +24,22 @@ class GameService:
 
     @staticmethod
     def insert_round_db(id, game_id, status, db_context: SQLAlchemy):
-        round = RoundDB(
+        round_ = RoundDB(
             id=id,
             game_id=game_id,
             status=status
         )
         try:
-            db_context.session.add(round)
+            db_context.session.add(round_)
             db_context.session.commit()
             return True
         except:
             return False
 
     @staticmethod
-    def insert_player_db(id, position, chips, game_id, user_id, db_context: SQLAlchemy):
+    def insert_player_db(id_, position, chips, game_id, user_id, db_context: SQLAlchemy):
         player = PlayerDB(
-            id=id,
+            id=id_,
             position=position,
             chips=chips,
             game_id=game_id,
@@ -72,6 +71,16 @@ class GameService:
             return True
         except:
             return False
+
+    @staticmethod
+    def update_game_is_active(game_id: str, is_active: bool, db_context: SQLAlchemy):
+        game = db_context.session.query(GameDB).filter_by(id=game_id).all()
+        if len(game) == 0:
+            return False
+        game = game[0]
+        game.is_active = is_active
+        db_context.session.commit()
+        return True
 
     @staticmethod
     def insert_round_cards_db(id_round, id_cards, position, db_context: SQLAlchemy):
