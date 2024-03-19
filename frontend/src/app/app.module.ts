@@ -23,7 +23,8 @@ import {io} from "socket.io-client";
     FormsModule,
     AuthModule,
     GenericComponentsModule,
-    PokerModule
+    PokerModule,
+    FormsModule
   ],
   providers: [
     { provide: UrlSerializer, useClass: CustomUrlSerializer },
