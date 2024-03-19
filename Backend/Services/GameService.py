@@ -69,12 +69,11 @@ class GameService:
             game_id=game_id,
             user_id=user_id
         )
-        try:
-            db_context.session.add(player)
-            db_context.session.commit()
-            return player
-        except:
-            return
+
+        db_context.session.add(player)
+        db_context.session.commit()
+        return player
+
 
     @staticmethod
     def update_player_set_chips_player(id_player, chips, db_context: SQLAlchemy):
@@ -88,8 +87,8 @@ class GameService:
 
     @staticmethod
     def select_player_get_highest_position(id_game, db_context: SQLAlchemy):
-        player = db_context.session.query(func.max(PlayerDB.position)).filter_by(id_game=id_game).all()
-        return player
+        player = db_context.session.query(PlayerDB).filter_by(id=id_game).order_by(PlayerDB.position.desc()).first()
+        return player.position if player else 0
 
     @staticmethod
     def select_player_get_all_players_by_game(id_game, db_context: SQLAlchemy):

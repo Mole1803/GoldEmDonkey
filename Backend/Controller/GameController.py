@@ -1,3 +1,5 @@
+import functools
+
 from flask import Blueprint, jsonify
 
 from Backend.Controller.BaseController import BaseController
@@ -5,7 +7,7 @@ from Backend.Controller.SocketIOController import SocketIOController
 from Backend.Model.dto.Game import Game
 from Backend.Services.GameService import GameService
 from Backend._DatabaseCall import Serializer
-from flask_socketio import join_room, send, leave_room
+from flask_socketio import join_room, send, leave_room, emit
 from flask_jwt_extended import jwt_required
 
 game_controller = Blueprint('game_controller', __name__, url_prefix='/game')
@@ -15,18 +17,19 @@ class GameRouting:
     create_game = "/createGame"
     list_active_games = "/listActiveGames"
 
-
 class GameController(BaseController, SocketIOController):
     def __init__(self, app):
         app.register_blueprint(game_controller)
 
     @staticmethod
+    @jwt_required()
     @game_controller.route(GameRouting.list_active_games, methods=['GET'])
     def list_active_games():
         games = GameService.select_game_get_all_active_games(BaseController.dependencies.db_context)
         return Serializer.serialize_query_set(games), 200
 
     @staticmethod
+    @jwt_required()
     @game_controller.route(GameRouting.create_game, methods=['POST'])
     def create_game():
         BaseController.dependencies.db_context.session.flush()
@@ -49,24 +52,24 @@ class GameController(BaseController, SocketIOController):
     @staticmethod
     @SocketIOController.socketio.on('joinGame')
     def join_game(data):
+        print(data)
         username = data['username']
-        room = data['room']
+        gameId = data['gameId']
         # Todo: add player to playerDB
-        user = BaseController.dependencies.poker_handler.join_game(username, room)
+        user = BaseController.dependencies.poker_handler.join_game(username, gameId)
+        join_room(gameId)
+        json_ = {"player": Serializer.serialize(user), "room": gameId}
+        emit('joinGame', json_, room=gameId)
 
-        join_room(room)
-        json_ = {"user": Serializer.serialize(user), "room": room}
-        send(json_, to=room, json=True, namespace="gameJoined")
-
-    @staticmethod
-    @SocketIOController.socketio.on('startGame')
-    def start_game(data):
+    #@staticmethod
+    #@SocketIOController.socketio.on('startGame')
+    #def start_game(data):
         # Todo check if user reuqest is from host
-        room = data['room']
-        username = data['username']
-        BaseController.dependencies.poker_handler.run_game(username, room)
+    #    room = data['room']
+    #    username = data['username']
+    #    BaseController.dependencies.poker_handler.run_game(username, room)
 
-        send("start game", to=room)
+     #   send("start game", to=room)
 
 
     @staticmethod
