@@ -37,6 +37,14 @@ class GameController(BaseController, SocketIOController):
         game_ = Serializer.serialize(game)
         return jsonify(game_), 200
 
+    @staticmethod
+    @jwt_required()
+    @game_controller.route('/hasActiveGame', methods=['GET'])
+    def get_active_game():
+        # Todo checks if user has a game -> if so check if game is running -> join_room else
+
+        return jsonify(),200
+        raise NotImplementedError
 
 
 
@@ -58,17 +66,19 @@ class GameController(BaseController, SocketIOController):
         # Todo: add player to playerDB
         player = BaseController.dependencies.poker_handler.join_game(username, gameId)
         user_list = GameService.select_player_get_all_players_by_game(gameId, BaseController.dependencies.db_context)
+        game_ = GameService.select_game_by_id(gameId, BaseController.dependencies.db_context)
         join_room(gameId)
-        json_ = {"player": Serializer.serialize(player), "players": Serializer.serialize_query_set(user_list), "room": gameId}
+        json_ = {"player": Serializer.serialize(player),"game": Serializer.serialize(game_), "players": Serializer.serialize_query_set(user_list), "room": gameId}
         emit('joinGame', json_, room=gameId)
 
 
     @staticmethod
     @SocketIOController.socketio.on('startGame')
     def start_game(data):
-        room = data['room']
-        username = data['username']
-        BaseController.dependencies.poker_handler.run_game(username)
+        gameId = data['gameId']
+        #username = data['username']
+        BaseController.dependencies.poker_handler.run_game(gameId)
+        emit('startGame', room=gameId)
 
         #send("start game", to=room)
 
@@ -117,14 +127,6 @@ class GameController(BaseController, SocketIOController):
         # Todo: implement
         send(move, to=room)
 
-
-    @staticmethod
-    @SocketIOController.socketio.on('join')
-    def on_join_room(data):
-        username = data["username"]
-        room = data["room"]
-        join_room(room)
-        send(username + " has joined the room.", to=room)
 
 
     @staticmethod

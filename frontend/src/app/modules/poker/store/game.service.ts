@@ -5,6 +5,7 @@ import {GameDto} from "../models/game-dto";
 import {GameHttpService} from "../services/game-http.service";
 import {UserManagementService} from "../services/user-management.service";
 import {PlayerDto} from "../models/player-dto";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class GameService {
   public */
 
 
-  constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService) {
+  constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService, private router: Router) {
 
 
     // Todo check if player is in a game
@@ -38,17 +39,46 @@ export class GameService {
     this.initializeObservers()
   }
 
+    /**
+   * Check if the player is this client
+   * @param player
+   */
+
+  public createGame(): void {
+    this.gameHttpService.createGame().subscribe(
+      (game: GameDto) => {
+        console.debug("Game created", game);
+        this.game = game;
+      }
+    );
+  }
+
+  isSocketConnected(): boolean {
+    return this.socket.connected;
+  }
+
   public userHasActiveGame(): boolean {
+    this.gameHttpService.hasActiveGame().subscribe(
+      (game: GameDto) => {
+        this.game = game;
+      }
+    );
     return this.game !== undefined;
   }
 
   public initializeObservers(): void {
-    let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], room:string}>(observer => {
+    let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], room:string, game: GameDto}>(observer => {
       this.socket.on("joinGame", (data: any) => {
         console.log("gameJoined", data);
         observer.next(data);
       })
     });
+
+    let gameStarted = new Observable(observer => {
+      this.socket.on("startGame", () => {
+        observer.next();
+      })});
+
 
     let gameUpdated = new Observable(observer => {
       this.socket.on("performNextAction", (game: GameDto) => {
@@ -59,17 +89,30 @@ export class GameService {
     });
 
 
-    gameJoined.subscribe((data: {player: PlayerDto, players: PlayerDto[], room:string}) => {
+    gameJoined.subscribe((data: {player: PlayerDto, players: PlayerDto[], room:string, game: GameDto}) => {
         this.gameJoined.emit(data!.player as PlayerDto)
+        this.game = data.game
         this.playerList = data.players
       console.log("Received data in gameJoined Observable: ", data, data.players);
         console.log("Received data in gameJoined Observable: ", data, data.player);
+    });
+
+    gameStarted.subscribe(() => {
+      console.log("Game started");
+      // redirect to game view
+      this.router.navigate([{outlets: {pokeroutlet: ['game']}}]);
+
+      this.gameUpdated.emit();
     });
 
   }
 
   public joinGame(gameId: string): void {
     console.log("Joining game", gameId, this.username)
+    if (!this.socket.connected || this.username === undefined || gameId === "" || gameId === undefined) {
+      console.log("Socket not connected");
+      return;
+    }
     this.socket.emit("joinGame", {
       gameId: gameId,
       username: this.username
@@ -81,26 +124,7 @@ export class GameService {
 
   }
 
-  /**
-   * Check if the player is this client
-   * @param player
-   */
-  isPlayerMoveClient(player: PlayerDto): boolean {
-    return player.id === this.username;
-  }
 
-  public createGame(): void {
-    this.gameHttpService.createGame().subscribe(
-      (game: GameDto) => {
-        console.debug("Game created", game);
-        this.game = game;
-        this.joinGame(this.game.id)
-
-        // TOdo: join game
-        //this.joinGame(game.id);
-      }
-    );
-  }
 
   public sendPerformFold(): void {
     this.socket.emit("performFold");
@@ -142,8 +166,15 @@ export class GameService {
   }
 
   startGame(){
-    this.socket.emit("startGame");
+    this.socket.emit("startGame" ,{gameId: this.game!.id} );
   }
 
+
+
+  // region Utils --------------------------
+    isPlayerMoveClient(player: PlayerDto): boolean {
+    return player.id === this.username;
+  }
+  // endregion ------------------------------
 
 }

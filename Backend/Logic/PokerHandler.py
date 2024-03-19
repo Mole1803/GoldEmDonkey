@@ -13,12 +13,13 @@ class PokerHandler:
 
 
     def run_game(self, game_id: str):
+        return
         # Todo:
         GameService.update_game_is_active(game_id,True, self.db_context)
         self.create_round(game_id)
 
 
-        raise NotImplementedError
+        #raise NotImplementedError
 
     def create_round(self, game_id: str):
         round_ = GameService.insert_round_db(game_id=game_id,db_context=self.db_context)
