@@ -246,6 +246,9 @@ class GameService:
             id_cards=id_cards,
             position=position
         )
-        db_context.session.add(round_cards)
-        db_context.session.commit()
-        return True
+        try:
+            db_context.session.add(round_cards)
+            db_context.session.commit()
+            return True
+        except:
+            return False

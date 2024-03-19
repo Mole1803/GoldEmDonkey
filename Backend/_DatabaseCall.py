@@ -81,7 +81,7 @@ class GameDB(DatabaseManager.db.Model):
     name: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
     has_started: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=False)
     active_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=True, default=None)
-    dealer: Mapped[str] = mapped_column(DatabaseManager.db.String)
+    dealer: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=True, default=None)
 
     def serialize(self):
         return {
