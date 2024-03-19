@@ -87,12 +87,12 @@ class GameService:
 
     @staticmethod
     def select_player_get_highest_position(id_game, db_context: SQLAlchemy):
-        player = db_context.session.query(PlayerDB).filter_by(id=id_game).order_by(PlayerDB.position.desc()).first()
+        player = db_context.session.query(PlayerDB).filter_by(game_id=id_game).order_by(PlayerDB.position.desc()).first()
         return player.position if player else 0
 
     @staticmethod
     def select_player_get_all_players_by_game(id_game, db_context: SQLAlchemy):
-        players = db_context.session.query(PlayerDB).filter_by(id_game=id_game).all()
+        players = db_context.session.query(PlayerDB).filter_by(game_id=id_game).all()
         return players
 
     # Round Player

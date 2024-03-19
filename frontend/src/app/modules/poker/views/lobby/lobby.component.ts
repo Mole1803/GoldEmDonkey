@@ -15,8 +15,13 @@ export class LobbyComponent {
 
 
   constructor(private route: ActivatedRoute, public gameService: GameService) {
-    let gameId = this.route.snapshot.queryParams["gameId"];
-    console.log("GameId", gameId);
-    this.gameService.joinGame(gameId);
+    this.gameId = this.route.snapshot.queryParams["gameId"];
+    console.log("GameId", this.gameId);
+    this.initialize();
+  }
+
+  initialize(){
+    this.gameService.initializeGame();
+    this.gameService.joinGame(this.gameId);
   }
 }

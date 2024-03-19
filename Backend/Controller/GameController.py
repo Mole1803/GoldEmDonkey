@@ -56,20 +56,21 @@ class GameController(BaseController, SocketIOController):
         username = data['username']
         gameId = data['gameId']
         # Todo: add player to playerDB
-        user = BaseController.dependencies.poker_handler.join_game(username, gameId)
+        player = BaseController.dependencies.poker_handler.join_game(username, gameId)
+        user_list = GameService.select_player_get_all_players_by_game(gameId, BaseController.dependencies.db_context)
         join_room(gameId)
-        json_ = {"player": Serializer.serialize(user), "room": gameId}
+        json_ = {"player": Serializer.serialize(player),"players": Serializer.serialize_query_set(user_list), "room": gameId}
         emit('joinGame', json_, room=gameId)
 
-    #@staticmethod
-    #@SocketIOController.socketio.on('startGame')
-    #def start_game(data):
-        # Todo check if user reuqest is from host
-    #    room = data['room']
-    #    username = data['username']
-    #    BaseController.dependencies.poker_handler.run_game(username, room)
 
-     #   send("start game", to=room)
+    @staticmethod
+    @SocketIOController.socketio.on('startGame')
+    def start_game(data):
+        room = data['room']
+        username = data['username']
+        BaseController.dependencies.poker_handler.run_game(username)
+
+        #send("start game", to=room)
 
 
     @staticmethod
@@ -78,6 +79,7 @@ class GameController(BaseController, SocketIOController):
         room = data['room']
         username = data['username']
         BaseController.dependencies.poker_handler.on_player_check(username, room)
+        emit('performCheck', {"username": username}, room=room)
         # return next move
         #send("player checked", to=room)
 
@@ -117,12 +119,6 @@ class GameController(BaseController, SocketIOController):
 
 
     @staticmethod
-    @SocketIOController.socketio.on('message')
-    def get_game(msg):
-        print("Connected to game!", msg)
-        return "Game", 200
-
-    @staticmethod
     @SocketIOController.socketio.on('join')
     def on_join_room(data):
         username = data["username"]
@@ -130,13 +126,6 @@ class GameController(BaseController, SocketIOController):
         join_room(room)
         send(username + " has joined the room.", to=room)
 
-
-    @staticmethod
-    @SocketIOController.socketio.on('connect')
-    def on_connect(data):
-        # Todo checks if user has a game -> if so check if game is running -> join_room else
-        return
-        raise NotImplementedError
 
     @staticmethod
     @SocketIOController.socketio.on('leave')
@@ -147,4 +136,10 @@ class GameController(BaseController, SocketIOController):
         leave_room(room)
         send(username + ' has left the room.', to=room)
 
-
+    @staticmethod
+    @SocketIOController.socketio.on('disconnect')
+    def on_disconnect():
+        return
+        playerId = GameService
+        emit('disconnect', {'playerId': playerId})
+        print('Client disconnected')

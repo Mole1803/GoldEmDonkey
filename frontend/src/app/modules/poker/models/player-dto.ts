@@ -4,8 +4,8 @@ export class PlayerDto {
     cards: CardDto[]
     chips: number
     name: string
-    id: number
-  constructor(cards:CardDto[],chips:number,name:string,id:number) {
+    id: string
+  constructor(cards:CardDto[],chips:number,name:string,id:string) {
       this.cards=cards
       this.chips=chips
       this.name=name

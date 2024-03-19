@@ -60,6 +60,11 @@ class PokerHandler:
     def after_action(self):
         raise NotImplementedError
 
+    def after_round(self, game_id: str):
+        pass
+        # GameService.
+
+
 
 class BestHandEvaluator:
     @staticmethod
