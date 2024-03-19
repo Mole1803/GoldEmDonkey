@@ -7,21 +7,20 @@ from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundCardsDB, Round
 class GameService:
     # Game
     @staticmethod
-    def insert_game_db(is_active, name, has_started, dealer, db_context: SQLAlchemy):
+    def insert_game_db(db_context: SQLAlchemy):
         id_ = str(uuid.uuid4())
         game = GameDB(
             id=id_,
-            is_active=is_active,
-            name=name,
-            has_started=has_started,
-            dealer=dealer
+            is_active=True,
+            name="TestGame",
+            has_started=False,
+            dealer=None
         )
-        try:
-            db_context.session.add(game)
-            db_context.session.commit()
-            return game
-        except:
-            return None
+
+        db_context.session.add(game)
+        db_context.session.commit()
+        return game
+
 
     @staticmethod
     def update_game_is_active(game_id: str, is_active: bool, db_context: SQLAlchemy):
@@ -56,22 +55,24 @@ class GameService:
 
     # Round
     @staticmethod
-    def insert_round_db(id, game_id, status, db_context: SQLAlchemy):
+    def insert_round_db(game_id, db_context: SQLAlchemy) -> RoundDB or None:
+        id_ = str(uuid.uuid4())
         round_ = RoundDB(
-            id=id,
+            id=id_,
             game_id=game_id,
-            status=status
+            status=0
         )
         try:
             db_context.session.add(round_)
             db_context.session.commit()
-            return True
+            return round_
         except:
             return False
 
     # Player
     @staticmethod
-    def insert_player_db(id_, position, chips, game_id, user_id, db_context: SQLAlchemy):
+    def insert_player_db(position, chips, game_id, user_id, db_context: SQLAlchemy):
+        id_ = str(uuid.uuid4())
         player = PlayerDB(
             id=id_,
             position=position,
@@ -79,12 +80,11 @@ class GameService:
             game_id=game_id,
             user_id=user_id
         )
-        try:
-            db_context.session.add(player)
-            db_context.session.commit()
-            return True
-        except:
-            return False
+
+        db_context.session.add(player)
+        db_context.session.commit()
+        return player
+
 
     @staticmethod
     def update_player_set_chips_player(id_player, chips, db_context: SQLAlchemy):
@@ -98,8 +98,8 @@ class GameService:
 
     @staticmethod
     def select_player_get_highest_position(id_game, db_context: SQLAlchemy):
-        player = db_context.session.query(func.max(PlayerDB.position)).filter_by(id_game=id_game).all()
-        return player
+        player = db_context.session.query(PlayerDB).filter_by(id=id_game).order_by(PlayerDB.position.desc()).first()
+        return player.position if player else 0
 
     @staticmethod
     def select_player_get_all_players_by_game(id_game, db_context: SQLAlchemy):

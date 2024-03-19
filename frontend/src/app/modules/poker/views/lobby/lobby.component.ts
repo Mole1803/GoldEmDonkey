@@ -15,9 +15,8 @@ export class LobbyComponent {
 
 
   constructor(private route: ActivatedRoute, public gameService: GameService) {
-    this.route.queryParams.subscribe(
-      (params) => {
-        this.gameId = params["gameId"];
-      });
+    let gameId = this.route.snapshot.queryParams["gameId"];
+    console.log("GameId", gameId);
+    this.gameService.joinGame(gameId);
   }
 }
