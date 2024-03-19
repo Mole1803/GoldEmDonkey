@@ -67,7 +67,7 @@ export class GameService {
   }
 
   public initializeObservers(): void {
-    let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], room:string, game: GameDto}>(observer => {
+    let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}>(observer => {
       this.socket.on("joinGame", (data: any) => {
         console.log("gameJoined", data);
         observer.next(data);
@@ -88,8 +88,14 @@ export class GameService {
       })
     });
 
+    let instruction = new Observable<{gamestate: number, kwargs: {}}>(observer => {
+      this.socket.on("instruction", (instruction: {gamestate: number, kwargs: {}}) => {
+        console.log("instruction", instruction);
+        observer.next(instruction);
+      })
+    })
 
-    gameJoined.subscribe((data: {player: PlayerDto, players: PlayerDto[], room:string, game: GameDto}) => {
+    gameJoined.subscribe((data: {player: PlayerDto, players: PlayerDto[], gameId: string, game: GameDto}) => {
         this.gameJoined.emit(data!.player as PlayerDto)
         this.game = data.game
         this.playerList = data.players
@@ -105,6 +111,16 @@ export class GameService {
       this.gameUpdated.emit();
     });
 
+    instruction.subscribe((instruction: {gamestate: number, kwargs: {}}) => {
+      console.log("Instruction received", instruction);
+      if(instruction.gamestate === 0){
+        this.endOfRound.emit();
+
+      }
+      if(instruction.gamestate === 1){
+        this.clientAtMove.emit();
+      }
+    })
   }
 
   public joinGame(gameId: string): void {

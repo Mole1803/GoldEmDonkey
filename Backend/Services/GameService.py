@@ -97,6 +97,16 @@ class GameService:
         db_context.session.commit()
         return round
 
+    @staticmethod
+    def delete_round_by_round_id(round_id: str, db_context: SQLAlchemy):
+        rounds = db_context.session.query(RoundDB).filter_by(id_round=round_id).all()
+        if len(rounds) == 0:
+            return None
+        for round in rounds:
+            db_context.session.delete(rounds)
+        db_context.session.commit()
+        return rounds
+
     # Player
     @staticmethod
     def insert_player_db(position, chips, game_id, user_id, db_context: SQLAlchemy):
@@ -236,7 +246,7 @@ class GameService:
 
     @staticmethod
     def select_round_player_by_round_id(round_id: str, db_context: SQLAlchemy):
-        round_players = db_context.session.query(RoundPlayerDB).filter_by(id_round=round_id).all()
+        round_players = db_context.session.query(RoundPlayerDB).filter_by(id_round=round_id).order_by(RoundPlayerDB.position).all()
         return round_players
 
     @staticmethod
@@ -244,6 +254,7 @@ class GameService:
         round_player = db_context.session.query(RoundPlayerDB, PlayerDB).filter_by(id_round=round_id).join(PlayerDB,
                                                                                                            RoundPlayerDB.id_player == PlayerDB.id).all()
         return round_player
+
 
     @staticmethod
     def select_round_player_by_round_id_and_player_id(round_id: str, player_id: str, db_context: SQLAlchemy):
@@ -275,3 +286,17 @@ class GameService:
     def select_round_cards_by_round_id(id_round: str, db_context: SQLAlchemy):
         round_cards = db_context.session.query().filter_by(id_round=id_round).order_by(RoundCardsDB.position).all()
         return round_cards
+
+    @staticmethod
+    def delete_round_cards_by_round_id(round_id: str, db_context: SQLAlchemy):
+        round_cards = db_context.session.query(RoundCardsDB).filter_by(id_round=round_id).all()
+        if len(round_cards) == 0:
+            return None
+        for round_card in round_cards:
+            db_context.session.delete(round_card)
+        db_context.session.commit()
+        return round_cards
+
+
+
+
