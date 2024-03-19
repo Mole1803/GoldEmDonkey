@@ -11,7 +11,9 @@ import {GameService} from "../../store/game.service";
 export class IndexComponent {
   private socket = io('http://localhost:8080');
 
-  constructor(public gameService: GameService) {}
+  constructor(public gameService: GameService) {
+
+  }
 
   testSocketIo() {
     this.socket.emit('message', 'Hello, World!');
