@@ -29,7 +29,7 @@ export class GameComponent {
         this.drawCard('/assets/Media/Karten/'+cards[i]+'.svg',i+1)
       }
       for (let i = 0; i < players.length; i++) {
-        this.drawPlayer(player[i])
+        //this.drawPlayer(player[i])
       }
     })
   }
