@@ -15,7 +15,7 @@ class Base(DeclarativeBase):
 class Serializer:
     @staticmethod
     def serialize_query_set(query_set):
-        return [i.serialize() for i in query_set]
+        return [Serializer.serialize(i) for i in query_set]
 
     @staticmethod
     def serialize(self):
@@ -26,7 +26,6 @@ class Serializer:
                 continue
             copy_dict[Serializer.underscore_to_camel_case(key)] = value
         return copy_dict
-#{'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x110253d60>}
 
     @staticmethod
     def underscore_to_camel_case(key: str):

@@ -10,26 +10,32 @@ import {PlayerDto} from "../models/player-dto";
   providedIn: 'root'
 })
 export class GameService {
-  public socket: io.Socket;
+  public socket!: io.Socket;
   public game?: GameDto
-  public username: string;
+  public username!: string;
 
 
   gameJoined: EventEmitter<PlayerDto> = new EventEmitter<PlayerDto>()
   gameUpdated: EventEmitter<void> = new EventEmitter<void>()
-
+  endOfRound: EventEmitter<void> = new EventEmitter<void>()
+  clientAtMove: EventEmitter<void> = new EventEmitter<void>()
+  public playerList: PlayerDto[] = [];
   //public game: GameDto;
-  /*public playerList: PlayerDto[];
+  /*
   public cardList: CardDto[];
   public */
 
 
   constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService) {
-    this.username = this.userManagementService.getUser()
-    this.socket = io.connect(socketIo)
-    this.initializeObservers()
+
 
     // Todo check if player is in a game
+  }
+
+  initializeGame() {
+    this.username = this.userManagementService.getUser()
+    this.socket = io.connect(this.socketIo)
+    this.initializeObservers()
   }
 
   public userHasActiveGame(): boolean {
@@ -37,7 +43,7 @@ export class GameService {
   }
 
   public initializeObservers(): void {
-    let gameJoined = new Observable<{player: PlayerDto, room:string}>(observer => {
+    let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], room:string}>(observer => {
       this.socket.on("joinGame", (data: any) => {
         console.log("gameJoined", data);
         observer.next(data);
@@ -51,8 +57,12 @@ export class GameService {
         observer.next(game);
       })
     });
-    gameJoined.subscribe((data: {player: PlayerDto, room:string}) => {
+
+
+    gameJoined.subscribe((data: {player: PlayerDto, players: PlayerDto[], room:string}) => {
         this.gameJoined.emit(data!.player as PlayerDto)
+        this.playerList = data.players
+      console.log("Received data in gameJoined Observable: ", data, data.players);
         console.log("Received data in gameJoined Observable: ", data, data.player);
     });
 
@@ -64,6 +74,19 @@ export class GameService {
       gameId: gameId,
       username: this.username
     });
+  }
+
+  runNextMove(){
+
+
+  }
+
+  /**
+   * Check if the player is this client
+   * @param player
+   */
+  isPlayerMoveClient(player: PlayerDto): boolean {
+    return player.id === this.username;
   }
 
   public createGame(): void {
@@ -95,8 +118,10 @@ export class GameService {
     this.socket.emit("performRaise", amount);
   }
 
-  gameMove(action: string, player: string) {
-    //if(this.player)
+  gameMove(action: string, player: PlayerDto) {
+    if(!this.isPlayerMoveClient(player)){
+      return;
+    }
 
     switch (action) {
       case "fold":
@@ -114,6 +139,10 @@ export class GameService {
       default:
         console.log("Invalid action");
     }
+  }
+
+  startGame(){
+    this.socket.emit("startGame");
   }
 
 
