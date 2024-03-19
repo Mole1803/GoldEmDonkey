@@ -4,16 +4,16 @@ export class CardUtils {
     static getCardAsString(card:CardDto):string{
     let erg:string="";
     switch (card.colour){
-      case 1:
+      case 3:
         erg="kreuz";
         break;
       case 2:
         erg="pik";
         break;
-      case 3:
+      case 1:
         erg="herz";
         break;
-      case 4:
+      case 0:
         erg="karo";
         break;
     }
