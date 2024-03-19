@@ -159,6 +159,17 @@ class GameService:
         return True
 
     @staticmethod
+    def update_round_player_has_played(id_round, id_player, has_played, db_context: SQLAlchemy):
+        round_player = db_context.session.query(RoundPlayerDB).filter_by(id_round=id_round, id_player=id_player).all()
+        if len(round_player) == 0:
+            return False
+        round_player = round_player[0]
+        round_player.has_played = has_played
+        db_context.session.commit()
+        return round_player
+
+
+    @staticmethod
     def select_round_player_chips(id_round, id_player, db_context: SQLAlchemy):
         chips = db_context.session.query(RoundPlayerDB.set_chips).filter_by(id_round=id_round,
                                                                             id_player=id_player).all()

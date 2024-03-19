@@ -37,15 +37,15 @@ class PokerHandler:
         card_index=0
         dealer_index=0
 
-        game=GameService.select_game_get_game_by_round_id(round_id)
-        if game["dealer"] not None:
+        game=GameService.select_game_get_game_by_round_id(round_id,self.db_context)
+        if game["dealer"] is not None:
             for player in players:
                 if player["id"]==game["dealer"]:
                     dealer_index=player["position"]
         for player,i in enumerate(players):
             if i==dealer_index:
                 GameService.insert_round_player_db(round_id, player["id"], True, False, 0, True, 0, cards[card_index],
-                                                   cards[card_index + 1], self.db_context)
+                                                   cards[card_index+1], self.db_context)
             else:
                 GameService.insert_round_player_db(round_id, player["id"], False, False, 0, True,
                                                    (i-dealer_index+len(players))%len(players), cards[card_index],
@@ -53,6 +53,7 @@ class PokerHandler:
             card_index+=2
         for i in range(5):
             GameService.insert_round_cards_db(round_id,cards[card_index+i],i,self.db_context)
+
 
     def evaluate_winner(self, players):
         raise NotImplementedError
@@ -62,7 +63,6 @@ class PokerHandler:
 
     def on_player_check(self, player, game_id):
         # inform next player and set player to not active
-
         raise NotImplementedError
 
     def on_player_call(self, player, game_id):
@@ -77,9 +77,60 @@ class PokerHandler:
 
         raise NotImplementedError
 
-    def after_action(self):
-        raise NotImplementedError
+    def after_action(self,round_id,player_id):
+        round_player = GameService.update_round_player_has_played(round_id,player_id,True,self.db_context)
+        players = GameService.select_round_player_get_players_with_status_is_active_from_round_order_by_position(round_id,self.db_context)
+        for player in players:
+            if player.position>round_player.position:
+                if not player.has_played:
+                    return self.perform_next_action(player,round_id)
+        max_chips = GameService.select_round_player_current_max_set_chips(round_id,self.db_context)
+        for player in players:
+            if player.set_chips<max_chips:
+                return self.perform_next_action(player,round_id)
+        state = GameService.select_round_by_round_id(round_id,self.db_context).status
+        GameService.update_round_set_status(round_id,state+1, self.db_context)
+        self.perform_next_action(players[0],round_id)
 
+    def perform_next_action(self,player,round_id):
+        state = GameService.select_round_by_round_id(round_id, self.db_context).status
+        data={}
+        data["gamestate"]=state
+        players=GameService.select_round_player_by_round_id_inner_join_player(round_id,self.db_context)
+        data["args"]={}
+        data["args"]["players"]=[]
+        for player,i in enumerate(players):
+            data["args"]["players"][i]=player.serialize()
+        round_cards=GameService.select_round_cards_by_round_id(round_id,self.db_context)
+        data["args"]["cards"] = []
+        if state == 1:
+            data["args"]["cards"][0] = round_cards[0].id_cards
+            data["args"]["cards"][1] = round_cards[1].id_cards
+            data["args"]["cards"][2] = round_cards[2].id_cards
+        elif state == 2:
+            data["args"]["cards"][0] = round_cards[3].id_cards
+        elif state == 3:
+            data["args"]["cards"][0] = round_cards[4].id_cards
+        elif state == 4:
+            return self.perform_after_round(round_id,players,round_cards)
+        # TODO sende data an Mole Funktion
+    def perform_after_round(self,round_id,players,round_cards):
+        player_cards=[]
+        for player,i in enumerate(players):
+            player_cards[i]=[player.card1,player.card2]
+        best_players = BestHandEvaluator.evaluate_all_hands(round_cards,player_cards)
+        pott=GameService.select_round_player_get_all_set_chips(round_id,self.db_context)
+        for player_index in best_players:
+            player=players[player_index]
+            GameService.update_player_set_chips_player(player.id,player.chips+pott/len(best_players),self.db_context)
+        GameService.delete_round(round_id)
+        game = GameService.select_game_get_game_by_round_id(round_id,self.db_context)
+        for player,i in enumerate(players):
+            if player.id==game.dealer:
+                new_dealer=players[(i+1)%len(players)]
+                break
+        GameService.update_game_set_dealer(game.id,new_dealer,self.db_context)
+        self.create_round(game.id)
 
 class BestHandEvaluator:
     @staticmethod
