@@ -244,7 +244,7 @@ class GameService:
         if len(round_player) == 0:
             return None
         for round_play in round_player:
-            db_context.session.delete(round_player)
+            db_context.session.delete(round_play)
         db_context.session.commit()
         return round_player
 
