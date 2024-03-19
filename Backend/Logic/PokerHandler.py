@@ -98,6 +98,10 @@ class PokerHandler:
         data["gamestate"]=state
         players=GameService.select_round_player_by_round_id_inner_join_player(round_id,self.db_context)
         data["args"]={}
+        move={}
+        move["player_id"]=player.id
+
+        data["args"]["move"]=move
         data["args"]["players"]=[]
         for player,i in enumerate(players):
             data["args"]["players"][i]=player.serialize()
@@ -114,6 +118,8 @@ class PokerHandler:
         elif state == 4:
             return self.perform_after_round(round_id,players,round_cards)
         # TODO sende data an Mole Funktion
+
+
     def perform_after_round(self,round_id,players,round_cards):
         player_cards=[]
         for player,i in enumerate(players):

@@ -1,5 +1,7 @@
 
 import {Component, ViewChild} from '@angular/core';
+import {GameService} from "../../store/game.service";
+import {PlayerDto} from "../../models/player-dto";
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -12,6 +14,26 @@ export class GameComponent {
   public board_card_width:number;
   // @ts-ignore
   public board_card_height:number;
+
+  constructor(public gameService: GameService) {
+  }
+
+  initializeSubscriber(){
+    this.gameService.gameUpdated.subscribe((data) =>{
+      let player1=new PlayerDto("id1",1,1000,"game1","user1")
+      let player2=new PlayerDto("id2",2,578,"game1","user2")
+      let player3=new PlayerDto("id3",3,100,"game1","user3")
+      let players: PlayerDto[]=[player1,player2,player3]
+      let cards:String[]=["pik3","karo4","kreuzD"]
+      for (let i = 0; i < cards.length; i++) {
+        this.drawCard('/assets/Media/Karten/'+cards[i]+'.svg',i+1)
+      }
+      for (let i = 0; i < players.length; i++) {
+        this.drawPlayer(player[i])
+      }
+    })
+  }
+
   @ViewChild('gameTable') set content(content:any){
     console.log(content.nativeElement)
     this.ctx = content.nativeElement.getContext("2d")
@@ -34,11 +56,7 @@ export class GameComponent {
       this.drawPlayer("r",15,5,true,'/assets/Media/Karten/rueckseite.svg',"n")
       this.drawPlayer("r",15,6,true,'/assets/Media/Karten/rueckseite.svg',"n")
     }
-    this.drawCard('/assets/Media/Karten/rueckseite.svg',1)
-    this.drawCard('/assets/Media/Karten/pik3.svg',2)
-    this.drawCard('/assets/Media/Karten/karo4.svg',3)
-    this.drawCard('/assets/Media/Karten/kreuzD.svg',4)
-    this.drawCard('/assets/Media/Karten/herzK.svg',5)
+
 
   }
   drawCard(path:string,index:number){
