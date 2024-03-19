@@ -61,23 +61,23 @@ class PokerHandler:
     def get_hand_rank(self, cards):
         raise NotImplementedError
 
-    def on_player_check(self, player, game_id):
+    def on_player_check(self, player_id, game_id):
+        self.after_action(game_id,player_id)
+
+    def on_player_call(self, player_id, game_id):
         # inform next player and set player to not active
         raise NotImplementedError
 
-    def on_player_call(self, player, game_id):
+    def on_player_raise(self, player_id,game_id, amount):
         # inform next player and set player to not active
         raise NotImplementedError
 
-    def on_player_raise(self, player,game_id, amount):
-        # inform next player and set player to not active
-        raise NotImplementedError
-
-    def on_player_fold(self, player, game_id):
+    def on_player_fold(self, player_id, game_id):
 
         raise NotImplementedError
 
-    def after_action(self,round_id,player_id):
+    def after_action(self,game_id,player_id):
+        round_id=GameService.select_active_round_by_game_id(game_id,self.db_context)
         round_player = GameService.update_round_player_has_played(round_id,player_id,True,self.db_context)
         players = GameService.select_round_player_get_players_with_status_is_active_from_round_order_by_position(round_id,self.db_context)
         for player in players:
