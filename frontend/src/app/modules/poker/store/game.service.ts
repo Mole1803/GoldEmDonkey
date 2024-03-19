@@ -1,27 +1,41 @@
-import {Inject, Injectable} from '@angular/core';
+import {EventEmitter, Inject, Injectable} from '@angular/core';
 import * as io from "socket.io-client";
 import {Observable} from "rxjs";
 import {GameDto} from "../models/game-dto";
 import {GameHttpService} from "../services/game-http.service";
+import {UserManagementService} from "../services/user-management.service";
+import {PlayerDto} from "../models/player-dto";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  public socket: io.Socket;
+  public socket!: io.Socket;
   public game?: GameDto
+  public username!: string;
 
+
+  gameJoined: EventEmitter<PlayerDto> = new EventEmitter<PlayerDto>()
+  gameUpdated: EventEmitter<void> = new EventEmitter<void>()
+  endOfRound: EventEmitter<void> = new EventEmitter<void>()
+  clientAtMove: EventEmitter<void> = new EventEmitter<void>()
+  public playerList: PlayerDto[] = [];
   //public game: GameDto;
-  /*public playerList: PlayerDto[];
+  /*
   public cardList: CardDto[];
   public */
 
 
-  constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService) {
-    this.socket = io.connect(socketIo)
-    this.initializeObservers()
+  constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService) {
+
 
     // Todo check if player is in a game
+  }
+
+  initializeGame() {
+    this.username = this.userManagementService.getUser()
+    this.socket = io.connect(this.socketIo)
+    this.initializeObservers()
   }
 
   public userHasActiveGame(): boolean {
@@ -29,23 +43,50 @@ export class GameService {
   }
 
   public initializeObservers(): void {
-    let gameJoined = new Observable(observer => {this.socket.on("gameJoined", (gameId: string) => {
-      console.log("gameJoined", gameId);
-      observer.next(gameId);
-    })});
+    let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], room:string}>(observer => {
+      this.socket.on("joinGame", (data: any) => {
+        console.log("gameJoined", data);
+        observer.next(data);
+      })
+    });
 
-    let gameUpdated = new Observable(observer => {this.socket.on("performNextAction", (game: GameDto) => {
-      // Get Status of the round
-      console.log("performNextAction", game);
-      observer.next(game);
-    })});
+    let gameUpdated = new Observable(observer => {
+      this.socket.on("performNextAction", (game: GameDto) => {
+        // Get Status of the round
+        console.log("performNextAction", game);
+        observer.next(game);
+      })
+    });
 
+
+    gameJoined.subscribe((data: {player: PlayerDto, players: PlayerDto[], room:string}) => {
+        this.gameJoined.emit(data!.player as PlayerDto)
+        this.playerList = data.players
+      console.log("Received data in gameJoined Observable: ", data, data.players);
+        console.log("Received data in gameJoined Observable: ", data, data.player);
+    });
 
   }
 
   public joinGame(gameId: string): void {
-    console.log("Joining game", gameId)
-    this.socket.emit("joinGame", gameId);
+    console.log("Joining game", gameId, this.username)
+    this.socket.emit("joinGame", {
+      gameId: gameId,
+      username: this.username
+    });
+  }
+
+  runNextMove(){
+
+
+  }
+
+  /**
+   * Check if the player is this client
+   * @param player
+   */
+  isPlayerMoveClient(player: PlayerDto): boolean {
+    return player.id === this.username;
   }
 
   public createGame(): void {
@@ -61,26 +102,28 @@ export class GameService {
     );
   }
 
-  public sendPerformFold(): void{
+  public sendPerformFold(): void {
     this.socket.emit("performFold");
   }
 
-  public sendPerformCheck(): void{
+  public sendPerformCheck(): void {
     this.socket.emit("performCheck");
   }
 
-  public sendPerformCall(): void{
+  public sendPerformCall(): void {
     this.socket.emit("performCall");
   }
 
-  public sendPerformRaise(amount: number): void{
+  public sendPerformRaise(amount: number): void {
     this.socket.emit("performRaise", amount);
   }
 
-  gameMove(action: string, player: string){
-    //if(this.player)
+  gameMove(action: string, player: PlayerDto) {
+    if(!this.isPlayerMoveClient(player)){
+      return;
+    }
 
-    switch(action){
+    switch (action) {
       case "fold":
         this.sendPerformFold();
         break;
@@ -98,6 +141,9 @@ export class GameService {
     }
   }
 
+  startGame(){
+    this.socket.emit("startGame");
+  }
 
 
 }

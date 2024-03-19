@@ -2,6 +2,7 @@ import {AuthHttpService} from "../service/auth-http.service";
 import {TokenHandler} from "../utils/token-handler";
 import {AvailabilityCheckDto} from "../models/availability-check-dto";
 import {Router} from "@angular/router";
+import {Token} from "@angular/compiler";
 
   /**
    * Uses the LocalStorage to save the JWT_TOKEN
@@ -23,7 +24,10 @@ export class AuthStore {
     }
 
     this.authHttpService?.login(username, password).subscribe(jwt => {
+      console.log(jwt)
       TokenHandler.saveToken(jwt);
+      TokenHandler.storeUser(username);
+
       callback(true);
     }, error => {
       callback(false);

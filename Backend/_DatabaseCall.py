@@ -15,19 +15,17 @@ class Base(DeclarativeBase):
 class Serializer:
     @staticmethod
     def serialize_query_set(query_set):
-        return [i.serialize() for i in query_set]
+        return [Serializer.serialize(i) for i in query_set]
 
     @staticmethod
     def serialize(self):
         i: dict = {c.key: getattr(self, c.key) for c in inspect(self).mapper.column_attrs}#vars(self)
         copy_dict = {}
-        print(i)
         for key, value in i.items():
             if key == "_sa_instance_state":
                 continue
             copy_dict[Serializer.underscore_to_camel_case(key)] = value
         return copy_dict
-#{'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x110253d60>}
 
     @staticmethod
     def underscore_to_camel_case(key: str):
@@ -82,8 +80,8 @@ class GameDB(DatabaseManager.db.Model):
     is_active: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=True)
     name: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
     has_started: Mapped[bool] = mapped_column(DatabaseManager.db.Boolean, nullable=False, default=False)
+    active_round: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=True, default=None)
     dealer: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=True, default=None)
-    active_round_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=True, default=None)
 
     def serialize(self):
         return {
@@ -91,8 +89,8 @@ class GameDB(DatabaseManager.db.Model):
             'isActive': self.is_active,
             'name': self.name,
             'has_started': self.has_started,
-            'dealer': self.dealer,
-            'active_round_id': self.active_round_id
+            'active_round': self.active_round,
+            'dealer': self.dealer
         }
 
 

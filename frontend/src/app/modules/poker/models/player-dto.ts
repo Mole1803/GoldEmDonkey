@@ -1,14 +1,17 @@
 import {CardDto} from "./card-dto";
 
 export class PlayerDto {
-    cards: CardDto[]
-    chips: number
-    name: string
-    id: number
-  constructor(cards:CardDto[],chips:number,name:string,id:number) {
-      this.cards=cards
-      this.chips=chips
-      this.name=name
-      this.id=id
-  }
+    id: string;
+    position: number;
+    chips: number;
+    gameId: string;
+    userId: string
+
+    constructor(id: string, position: number, chips: number, gameId: string, userId: string) {
+        this.id = id;
+        this.position = position;
+        this.chips = chips;
+        this.gameId = gameId;
+        this.userId = userId;
+    }
 }
