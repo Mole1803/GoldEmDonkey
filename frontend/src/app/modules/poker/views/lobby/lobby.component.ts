@@ -24,4 +24,8 @@ export class LobbyComponent {
     this.gameService.initializeGame();
     this.gameService.joinGame(this.gameId);
   }
+
+  startGame(){
+    this.gameService.startGame();
+  }
 }

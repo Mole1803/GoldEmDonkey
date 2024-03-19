@@ -141,5 +141,9 @@ export class GameService {
     }
   }
 
+  startGame(){
+    this.socket.emit("startGame");
+  }
+
 
 }

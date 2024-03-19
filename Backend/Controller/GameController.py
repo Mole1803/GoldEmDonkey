@@ -59,7 +59,7 @@ class GameController(BaseController, SocketIOController):
         player = BaseController.dependencies.poker_handler.join_game(username, gameId)
         user_list = GameService.select_player_get_all_players_by_game(gameId, BaseController.dependencies.db_context)
         join_room(gameId)
-        json_ = {"player": Serializer.serialize(player),"players": Serializer.serialize_query_set(user_list), "room": gameId}
+        json_ = {"player": Serializer.serialize(player), "players": Serializer.serialize_query_set(user_list), "room": gameId}
         emit('joinGame', json_, room=gameId)
 
 
