@@ -1,16 +1,16 @@
 import math
 import random
-
 from Backend.Services.GameService import GameService
 
 
 class PokerHandler:
     def __init__(self, db_context):
         self.db_context = db_context
-    def join_game(self, player, game):
+    def join_game(self, player_id: str, game_id: str):
         # Todo: implement join game
-        GameService.insert_player_db(player, game, self.db_context)
-        raise NotImplementedError
+        position = GameService.select_player_get_highest_position(id_game=game_id,db_context= self.db_context)
+        return GameService.insert_player_db(position=position+1, user_id=player_id, game_id=game_id,chips=1000,db_context=self.db_context)
+
 
     def run_game(self, game_id: str):
         # Todo:
@@ -21,6 +21,11 @@ class PokerHandler:
         raise NotImplementedError
 
     def create_round(self, game_id: str):
+        round_ = GameService.insert_round_db(game_id=game_id,db_context=self.db_context)
+        players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
+
+        cards = self.shuffle_cards(len(players))
+        self.deal_cards(cards, players, round_.id)
 
         raise NotImplementedError
 
@@ -55,9 +60,24 @@ class PokerHandler:
     def get_hand_rank(self, cards):
         raise NotImplementedError
 
-    def on_player_check(self, player):
+    def on_player_check(self, player, game_id):
         # inform next player and set player to not active
 
+        raise NotImplementedError
+
+    def on_player_call(self, player, game_id):
+        # inform next player and set player to not active
+        raise NotImplementedError
+
+    def on_player_raise(self, player,game_id, amount):
+        # inform next player and set player to not active
+        raise NotImplementedError
+
+    def on_player_fold(self, player, game_id):
+
+        raise NotImplementedError
+
+    def after_action(self):
         raise NotImplementedError
 
 
