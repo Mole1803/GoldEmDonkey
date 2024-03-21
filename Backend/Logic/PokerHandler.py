@@ -33,7 +33,10 @@ class PokerHandler:
         game_ = GameService.get_game_by_id(game_id, self.db_context)
         round_ = GameService.insert_round_db(game_id=game_id, db_context=self.db_context)
         GameService.update_game_active_round(game_id,round_.id,self.db_context)
+
         players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
+        if game_.dealer is None:
+            GameService.update_game_set_dealer(game_id, players[0].id, self.db_context)
 
         cards = self.shuffle_cards(len(players))
         self.deal_cards(cards, players, round_.id, game_)
@@ -152,7 +155,10 @@ class PokerHandler:
         for i,player in enumerate(players):
             player_cards[i].append(CardService.parse_card_object_from_db(player.card_1))
             player_cards[i].append(CardService.parse_card_object_from_db(player.card_2))
-        best_players = BestHandEvaluator.evaluate_all_hands(round_cards, player_cards)
+        board_cards=[]
+        for card in round_cards:
+            board_cards.append(CardService.parse_card_object_from_db(card.id_cards))
+        best_players = BestHandEvaluator.evaluate_all_hands(board_cards, player_cards)
         pott = GameService.select_round_player_get_all_set_chips(round_id, self.db_context)
         for player_index in best_players:
             player = players[player_index]

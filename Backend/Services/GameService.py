@@ -115,11 +115,11 @@ class GameService:
 
     @staticmethod
     def delete_round_by_round_id(round_id: str, db_context: SQLAlchemy):
-        rounds = db_context.session.query(RoundDB).filter_by(id_round=round_id).all()
+        rounds = db_context.session.query(RoundDB).filter_by(id=round_id).all()
         if len(rounds) == 0:
             return None
         for round in rounds:
-            db_context.session.delete(rounds)
+            db_context.session.delete(round)
         db_context.session.commit()
         return rounds
 
@@ -270,7 +270,7 @@ class GameService:
     @staticmethod
     def select_round_player_get_all_set_chips(id_round: str, db_context: SQLAlchemy):
         sum_of_chips_in_round = db_context.session.query(func.sum(RoundPlayerDB.set_chips)).filter_by(
-            id_round=id_round).all()
+            id_round=id_round).first()[0]
         return sum_of_chips_in_round
 
     @staticmethod
