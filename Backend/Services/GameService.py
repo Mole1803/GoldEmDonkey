@@ -7,12 +7,12 @@ from Backend._DatabaseCall import ActiveUserSessionDB, GameDB, RoundDB, PlayerDB
 class GameService:
     # Game
     @staticmethod
-    def insert_game_db(db_context: SQLAlchemy):
+    def insert_game_db(db_context: SQLAlchemy, name: str="new Game"):
         id_ = str(uuid.uuid4())
         game = GameDB(
             id=id_,
             is_active=True,
-            name="TestGame",
+            name=name,
             has_started=False,
             active_round=None,
             dealer=None

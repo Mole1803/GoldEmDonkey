@@ -32,12 +32,14 @@ export class GameService {
 
   constructor(@Inject("SOCKET_IO") public socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService, private router: Router) {
     console.log("constructor", socketIo)
-    this.socket =  io.connect(socketIo)
-    this.init()
-    this.username = this.userManagementService.getUser()
-
-        // Todo check if player is in a game
+    //this.init()
   }
+
+  disconnect() {
+    if(this.socket !== undefined && this.socket.connected)
+      this.socket.disconnect();
+  }
+
 
   joinGameHttp(gameId: string)
   {
@@ -68,6 +70,9 @@ export class GameService {
 
 
   init(){
+    this.socket =  io.connect(this.socketIo)
+
+    this.username = this.userManagementService.getUser()
     this.socket.on("connect", () => {
       console.log("init")
       this.socket.on("joinedGame", (data: {player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}) => {
@@ -83,14 +88,16 @@ export class GameService {
         console.log("instruction", instruction);
         this.instructionFn(instruction)
       })
-
-
     });
   }
 
+
+
   gameJoinedFn(data:  {player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}){
+      console.log("gameJoined", data)
       this.game = data.game
       this.playerList = data.players
+
   }
 
   gameStartedFn(){
@@ -122,8 +129,8 @@ export class GameService {
    * @param player
    */
 
-  public createGame(): void {
-    this.gameHttpService.createGame().subscribe(
+  public createGame(gameName: string): void {
+    this.gameHttpService.createGame(gameName).subscribe(
       (game: GameDto) => {
         console.debug("Game created", game);
         this.game = game;
@@ -197,9 +204,7 @@ export class GameService {
     })
   }
 
-  disconnect(){
 
-  }
 
   initializeOnAny(){
     let onAny = new Observable(observer => {
@@ -266,7 +271,15 @@ export class GameService {
 
   }
 
+
+
   public joinGame(gameId: string): void {
+    /*if(this.game !== undefined && this.game!.id !== gameId){
+      this.socket.disconnect()
+      this.game = undefined
+      this.socket = io.connect(this.socketIo)
+
+    }*/
 
     /*if(this.socket.connected)
     {
@@ -289,23 +302,25 @@ export class GameService {
 
   public sendPerformFold(): void {
     console.log("Performing fold");
-    this.socket.emit("performFold");
+    this.socket.emit("performFold", {gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformCheck(): void {
     console.log("Performing check");
-    this.socket.emit("performCheck",);
+    this.socket.emit("performCheck",{gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformCall(): void {
     console.log("Performing call");
-    this.socket.emit("performCall");
+    this.socket.emit("performCall",{gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformRaise(amount: number): void {
     console.log("Performing raise", amount);
-    this.socket.emit("performRaise", amount);
+    this.socket.emit("performRaise",{gameId: this.game!.id, username: this.username, bet: amount});
   }
+
+
 
   gameMove(action: string, player: PlayerDto) {
     /*if(!this.isPlayerMoveClient(player)){
