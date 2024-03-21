@@ -19,6 +19,7 @@ export class GameComponent {
   public board_card_height:number;
 
   constructor(public gameService: GameService) {
+    this.initializeSubscriber()
   }
   onGameUpdate(){
     // @ts-ignore
@@ -42,7 +43,7 @@ export class GameComponent {
   }
 
   initializeSubscriber(){
-    this.gameService.gameUpdated.subscribe((data) =>{
+    this.gameService.gameUpdated.subscribe(() =>{
       this.onGameUpdate()
     })
   }

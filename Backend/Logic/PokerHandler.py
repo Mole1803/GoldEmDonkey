@@ -63,26 +63,33 @@ class PokerHandler:
         for i in range(5):
             GameService.insert_round_cards_db(round_id, cards[card_index + i], i, self.db_context)
 
-    def evaluate_winner(self, players):
-        raise NotImplementedError
-
-    def get_hand_rank(self, cards):
-        raise NotImplementedError
-
     def on_player_check(self, player_id, game_id):
-        return self.after_action(game_id, player_id)
+        self.after_action(game_id, player_id)
 
     def on_player_call(self, player_id, game_id):
-        # inform next player and set player to not active
-        raise NotImplementedError
+        game=GameService.select_game_by_id(game_id,self.db_context)
+        max_chips=GameService.select_round_player_current_max_set_chips(game.active_round,self.db_context)
+        player_round = GameService.select_round_player_by_round_id(game.active_round, self.db_context)
+        diff=max_chips-player_round.set_chips
+        player=GameService.select_player_by_player_id(player_round.id_player,self.db_context)
+        GameService.update_player_set_chips_player(player_round.id_player,player.chips-diff,self.db_context)
+        self.after_action(game_id, player_id)
 
     def on_player_raise(self, player_id, game_id, amount):
-        # inform next player and set player to not active
-        raise NotImplementedError
+        game = GameService.select_game_by_id(game_id, self.db_context)
+        max_chips = GameService.select_round_player_current_max_set_chips(game.active_round, self.db_context)
+        player_round = GameService.select_round_player_by_round_id(game.active_round, self.db_context)
+        diff = max_chips + amount - player_round.set_chips
+        player = GameService.select_player_by_player_id(player_round.id_player, self.db_context)
+        GameService.update_game_set_chips(game_id, max_chips+amount, self.db_context),
+        GameService.update_player_set_chips_player(player_round.id_player, player.chips - diff, self.db_context)
+        self.after_action(game_id, player_id)
 
     def on_player_fold(self, player_id, game_id):
+        game=GameService.select_game_by_id(game_id,self.db_context)
+        GameService.update_round_player_is_active(game.active_round,player_id,False,self.db_context)
+        self.after_action(game_id, player_id)
 
-        raise NotImplementedError
 
     def after_action(self, game_id, player_id):
         round_id = GameService.select_game_by_id(game_id, self.db_context).active_round
@@ -111,8 +118,6 @@ class PokerHandler:
         game_players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
         data = {"gamestate": state, "kwargs": {}}
 
-        # move={}
-        # move["player_id"]=player.id
 
         data["kwargs"]["nextPlayer"] = Serializer.serialize(player)
         data["kwargs"]["roundPlayers"] = Serializer.serialize_query_set(players)

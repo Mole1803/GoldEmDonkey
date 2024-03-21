@@ -168,6 +168,7 @@ export class GameService {
   initializePerformInstruction(){
     let instruction = new Observable<{gamestate: number, kwargs: {}}>(observer => {
       this.socket.on("instruction", (instruction: {gamestate: number, kwargs: {}}) => {
+        this.gameData=instruction
         console.log("instruction", instruction);
         observer.next(instruction);
       })
@@ -332,7 +333,7 @@ export class GameService {
 
   // region Utils --------------------------
     isPlayerMoveClient(player: PlayerDto): boolean {
-    return player.id === this.username;
+    return player.userId === this.username;
   }
   // endregion ------------------------------
 
