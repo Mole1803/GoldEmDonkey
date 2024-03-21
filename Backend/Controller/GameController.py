@@ -135,6 +135,14 @@ class GameController(BaseController, SocketIOController):
             return
         leave_room(room=session.game_id, sid=session.id)
         GameService.delete_player_by_user_id(session.user_id, BaseController.dependencies.db_context)
+
+        user_list = GameService.select_player_get_all_players_by_game(session.game_id, BaseController.dependencies.db_context)
+        game_ = GameService.select_game_by_id(session.game_id, BaseController.dependencies.db_context)
+
+        json_ = {"player": {}, "game": Serializer.serialize(game_),
+                 "players": Serializer.serialize_query_set(user_list), "gameId": session.game_id}
+        emit('joinedGame', json_, room=session.game_id, include_self=True)
+
         return
         playerId = GameService
         emit('disconnect', {'playerId': playerId})
