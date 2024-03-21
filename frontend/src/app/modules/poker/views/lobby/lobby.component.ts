@@ -17,18 +17,11 @@ export class LobbyComponent {
   constructor(private route: ActivatedRoute,public gameService: GameService) {
     this.gameId = this.route.snapshot.queryParams["gameId"];
     this.gameService.joinGame(this.gameId);
-    //this.initialize();
   }
 
-  /*initialize(){
-    console.log("Initializing game");
-    this.gameService.initializeGame();
-    return
-    this.gameService.joinGame(this.gameId);
-  }*/
+
 
   startGame(){
     this.gameService.startGame()
-   // this.longPollingGameService.startGame();
   }
 }

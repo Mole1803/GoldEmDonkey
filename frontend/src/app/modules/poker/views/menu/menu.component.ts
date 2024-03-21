@@ -18,6 +18,7 @@ export class MenuComponent implements OnDestroy{
   constructor(private gameHttpService: GameHttpService,public route: ActivatedRoute, public gameService: GameService, private router: Router) {
     this.listActiveGames();
     this.subscribeToGameCreated();
+
   }
 
   public subscribeToGameCreated(): void {

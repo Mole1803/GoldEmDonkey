@@ -52,3 +52,4 @@ class AuthService:
     def hash_password(password: str, salt: str) -> str:
         """Returns hashed pw"""
         return sha256(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
+

@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 import uuid
 from sqlalchemy import func
-from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundCardsDB, RoundPlayerDB
+from Backend._DatabaseCall import ActiveUserSessionDB, GameDB, RoundDB, PlayerDB, RoundCardsDB, RoundPlayerDB
 
 
 class GameService:
@@ -162,12 +162,22 @@ class GameService:
 
     @staticmethod
     def delete_player_by_player_id(id_player: str, db_context: SQLAlchemy):
-        player = db_context.session.query(PlayerDB).filter_by(id=id_player).first()
+        player = db_context.session.query(PlayerDB).filter_by(id=id_player).all()
         if player is None:
             return None
         db_context.session.delete(player)
         db_context.session.commit()
         return player
+    @staticmethod
+    def delete_player_by_user_id(user_id: str, db_context: SQLAlchemy):
+        players = db_context.session.query(PlayerDB).filter_by(user_id=user_id).all()
+        if players is None:
+            return None
+        for player in players:
+            db_context.session.delete(player)
+        db_context.session.commit()
+
+
 
     # Round Player
     @staticmethod
@@ -307,6 +317,36 @@ class GameService:
             db_context.session.delete(round_card)
         db_context.session.commit()
         return round_cards
+
+    @staticmethod
+    def create_session(user_id, session, game_id, db_context: SQLAlchemy):
+        session = ActiveUserSessionDB(
+            id=session,
+            user_id=user_id,
+            game_id=game_id
+
+        )
+        try:
+            db_context.session.add(session)
+            db_context.session.commit()
+            return session
+        except Exception as e:
+            print(e)
+            return None
+
+    @staticmethod
+    def get_session(session_id, db_context: SQLAlchemy):
+        session = db_context.session.query(ActiveUserSessionDB).filter_by(id=session_id).first()
+        return session
+
+    @staticmethod
+    def delete_session(session_id, db_context: SQLAlchemy):
+        session = db_context.session.query(ActiveUserSessionDB).filter_by(id=session_id).first()
+        if session is None:
+            return None
+        db_context.session.delete(session)
+        db_context.session.commit()
+        return session
 
 
 
