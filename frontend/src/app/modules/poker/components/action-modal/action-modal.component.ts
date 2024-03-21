@@ -10,7 +10,7 @@ import {PlayerDto} from "../../models/player-dto";
 })
 export class ActionModalComponent {
 
-  isVisible: boolean = true;
+  isVisible: boolean = false;
   options = [
     { id: 0, name: 'Fold' },
     { id: 1, name: 'Check' },

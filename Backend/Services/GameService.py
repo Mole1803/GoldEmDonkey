@@ -41,6 +41,15 @@ class GameService:
         return True
 
     @staticmethod
+    def update_game_has_started(game_id: str, has_started: bool, db_context: SQLAlchemy):
+        game = db_context.session.query(GameDB).filter_by(id=game_id).first()
+        if game is None:
+            return False
+        game.has_started = has_started
+        db_context.session.commit()
+        return True
+
+    @staticmethod
     def update_game_active_round(game_id: str, active_round: str, db_context: SQLAlchemy):
         game = db_context.session.query(GameDB).filter_by(id=game_id).first()
         if game is None:

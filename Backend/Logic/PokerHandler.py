@@ -24,7 +24,8 @@ class PokerHandler:
 
     def run_game(self, game_id: str):
         # Todo:
-        GameService.update_game_is_active(game_id, True, self.db_context)
+        #GameService.update_game_is_active(game_id, True, self.db_context)
+        GameService.update_game_has_started(game_id, True, self.db_context)
         self.create_round(game_id)
 
         # raise NotImplementedError

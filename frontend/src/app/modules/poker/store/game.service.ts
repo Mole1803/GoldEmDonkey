@@ -40,35 +40,6 @@ export class GameService {
       this.socket.disconnect();
   }
 
-
-  joinGameHttp(gameId: string)
-  {
-    this.gameHttpService.joinGame(gameId, this.username ).subscribe(
-      () => {
-       }
-    );
-  }
-
-  initializeGame() {
-    this.username = this.userManagementService.getUser()
-
-
-    setTimeout(()=> {
-    this.socket.on("connect_error", (err: any) => {
-      // the reason of the error, for example "xhr poll error"
-      console.log(err.message);
-      console.log(err)
-
-      // some additional description, for example the status code of the initial HTTP response
-      console.log(err.description);
-
-      // some additional context, for example the XMLHttpRequest object
-      console.log(err.context);
-    });
-    },10000)
-  }
-
-
   init(){
     this.socket =  io.connect(this.socketIo)
 
@@ -92,7 +63,6 @@ export class GameService {
   }
 
 
-
   gameJoinedFn(data:  {player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}){
       console.log("gameJoined", data)
       this.game = data.game
@@ -112,7 +82,6 @@ export class GameService {
 
       }
       if(instruction.gamestate >-1  && instruction.gamestate<4){
-        this.clientAtMove.emit();
         this.gameUpdated.emit();
         // is current player
         // @ts-ignore
@@ -148,145 +117,9 @@ export class GameService {
     return this.game !== undefined;
   }*/
 
-  initializeJoinGame(){
-    let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}>(observer => {
-      this.socket.on("joinedGame", (data: any) => {
-        console.log("gameJoined", data);
-        observer.next(data)
-      })
-    })
-
-    gameJoined.subscribe((data: {player: PlayerDto, players: PlayerDto[], gameId: string, game: GameDto}) => {
-      this.game = data.game
-      this.playerList = data.players
-      console.log("Received data in gameJoined Observable: ", data, data.players);
-      this.gameJoined.emit(data!.player as PlayerDto)
-    });
-  }
-
-
-  initializeGameStarted(){
-    let gameStarted = new Observable(observer => {
-      this.socket.on("startGame", () => {
-        observer.next();
-      })});
-
-    gameStarted.subscribe(() => {
-      console.log("Game started");
-      // redirect to game view
-      this.router.navigate([{outlets: {pokeroutlet: ['game']}}]);
-
-      this.gameUpdated.emit();
-    });
-  }
-
-  initializePerformInstruction(){
-    let instruction = new Observable<{gamestate: number, kwargs: {}}>(observer => {
-      this.socket.on("instruction", (instruction: {gamestate: number, kwargs: {}}) => {
-        this.gameData=instruction
-        console.log("instruction", instruction);
-        observer.next(instruction);
-      })
-    })
-
-
-
-
-    instruction.subscribe((instruction: {gamestate: number, kwargs: {}}) => {
-      console.log("Instruction received 2", instruction);
-      if(instruction.gamestate > 3){
-        this.endOfRound.emit();
-
-      }
-      if(instruction.gamestate < 4){
-        this.clientAtMove.emit();
-      }
-    })
-  }
-
-
-
-  initializeOnAny(){
-    let onAny = new Observable(observer => {
-      this.socket.onAny((event, ...args) => {
-        console.log(`Socket Event: ${event}`);
-        for (const arg of args) {
-            console.log(`Arg: ${JSON.stringify(arg)}`);
-        }
-      });
-    }
-    )
-
-    onAny.subscribe(() => {
-      console.log("onAny");
-    })
-  }
-
-  initializeOnConnectAndDisconnect(){
-    let onConnect = new Observable(observer => {
-      this.socket.on('connect', () => {
-        console.log('Connected to the server');
-        observer.next();
-      });
-    }
-    )
-
-    onConnect.subscribe(() => {
-      console.log("onConnect");
-    })
-
-    let onDisconnect = new Observable(observer => {
-      this.socket.on('disconnect', () => {
-        console.log('Disconnected from the server');
-        observer.next();
-      });
-    }
-    )
-
-    onDisconnect.subscribe(() => {
-      console.log("onDisconnect");
-    })
-
-  }
-
-
-
-
-
-  public initializeObservers(): void {
-    this.initializeJoinGame();
-    this.initializeGameStarted();
-    this.initializePerformInstruction();
-    this.initializeOnAny();
-    this.initializeOnConnectAndDisconnect();
-    console.log("observers initialized")
-    /*let gameUpdated = new Observable(observer => {
-      this.socket.on("performNextAction", (game: GameDto) => {
-        // Get Status of the round
-        console.log("performNextAction", game);
-        observer.next(game);
-      })
-    });*/
-
-
-  }
-
 
 
   public joinGame(gameId: string): void {
-    /*if(this.game !== undefined && this.game!.id !== gameId){
-      this.socket.disconnect()
-      this.game = undefined
-      this.socket = io.connect(this.socketIo)
-
-    }*/
-
-    /*if(this.socket.connected)
-    {
-      console.log("Socket connected");
-      return
-    }*/
-
     if ( this.username === undefined || gameId === "" || gameId === undefined) {
       console.log("Socket not connected");
       return;
@@ -356,7 +189,6 @@ export class GameService {
 
   // region Utils --------------------------
     isPlayerMoveClient(player: PlayerDto): boolean {
-    console.log(player.userId, this.username)
     return player.userId === this.username;
   }
   // endregion ------------------------------
