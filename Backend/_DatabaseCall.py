@@ -157,3 +157,8 @@ class RoundCardsDB(DatabaseManager.db.Model):
             'id_cards': CardService.parse_card_object_from_db(self.id_cards),
             'position': self.position,
         }
+
+class ActiveUserSessionDB(DatabaseManager.db.Model):
+    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    user_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    game_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)

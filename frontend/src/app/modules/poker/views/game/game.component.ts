@@ -5,6 +5,7 @@ import {PlayerDto} from "../../models/player-dto";
 import {RoundPlayerDto} from "../../models/round-player-dto";
 import {CardDto} from "../../models/card-dto";
 import {CardUtils} from "../../utils/card-utils";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -18,7 +19,10 @@ export class GameComponent {
   // @ts-ignore
   public board_card_height:number;
 
-  constructor(public gameService: GameService) {
+  constructor(public gameService: GameService, private router: Router) {
+    if(!gameService.socket.connected || gameService.game == undefined){
+      this.router.navigate([{outlets: {pokeroutlet: ['menu']}}])
+    }
     this.initializeSubscriber()
   }
   onGameUpdate(){
@@ -73,7 +77,6 @@ export class GameComponent {
       this.drawPlayer(playersRounds[i],players[i])
     }
   }
-
 
   @ViewChild('gameTable') set content(content:any){
     console.log(content.nativeElement)

@@ -7,7 +7,6 @@ import {GameComponent} from "./views/game/game.component";
 import {LobbyComponent} from "./views/lobby/lobby.component";
 
 const routes: Routes = [
-
   { path: '',  title: "Home", component: IndexComponent,   canActivate: [authGuard],
     children: [
     { path: 'lobby',  title: "Lobby", component: LobbyComponent, outlet: "pokeroutlet",  canActivate: [authGuard]},
