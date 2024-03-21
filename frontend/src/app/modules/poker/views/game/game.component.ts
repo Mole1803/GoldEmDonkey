@@ -144,17 +144,19 @@ export class GameComponent {
   }
 
   drawPlayerInfo(roundPlayer:RoundPlayerDto,gamePlayer:PlayerDto, x:number, y:number){
-    console.log("draw player info")
-    this.ctx.font = `${100}px Arial`;
-    this.ctx.fillStyle = "black"
-    this.ctx.fillRect(x, y, 600, 150)
-    this.ctx.fillStyle = "white"
+    setTimeout(()=> {
+      console.log("draw player info")
+      this.ctx.font = `${100}px Arial`;
+      this.ctx.fillStyle = "black"
+      this.ctx.fillRect(x, y, 600, 150)
+      this.ctx.fillStyle = "white"
 
-    let name = gamePlayer.userId
-    this.ctx.fillText(name, x+30, y+110, 330)
+      let name = gamePlayer.userId
+      this.ctx.fillText(name, x + 30, y + 110, 330)
 
-    let chipsValue: any = gamePlayer.chips
-    this.ctx.fillText(chipsValue as string, x+400, y+110, 180)
+      let chipsValue: any = gamePlayer.chips
+      this.ctx.fillText(chipsValue as string, x + 400, y + 110, 180)
+    },0)
   }
 
   drawPlayerCards(playerRound:RoundPlayerDto,nextPlayer:PlayerDto, x:number, y:number){
