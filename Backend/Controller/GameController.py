@@ -34,7 +34,8 @@ class GameController(BaseController, SocketIOController):
     @game_controller.route(GameRouting.create_game, methods=['POST'])
     def create_game():
         BaseController.dependencies.db_context.session.flush()
-        game = GameService.insert_game_db(db_context=BaseController.dependencies.db_context)
+        name = request.json['name']
+        game = GameService.insert_game_db(db_context=BaseController.dependencies.db_context, name=name)
         game_ = Serializer.serialize(game)
         return jsonify(game_), 200
 
@@ -118,12 +119,12 @@ class GameController(BaseController, SocketIOController):
     @staticmethod
     @SocketIOController.socketio.on('leave')
     def on_leave_room():
+        print("leave")
         session = GameService.delete_session(request.sid, BaseController.dependencies.db_context)
-        if session is None:
-            return
         leave_room(room=session.game_id, sid=session.id)
         GameService.delete_player_by_user_id(session.user_id, BaseController.dependencies.db_context)
         return
+
     @staticmethod
     @SocketIOController.socketio.on('disconnect')
     def on_disconnect():

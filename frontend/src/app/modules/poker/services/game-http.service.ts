@@ -16,8 +16,8 @@ export class GameHttpService {
     return this.http.get<GameDto[]>(this.baseUrl + "/game/listActiveGames");
   }
 
-  public createGame(): Observable<GameDto> {
-    return this.http.post<GameDto>(this.baseUrl + "/game/createGame", {});
+  public createGame(name: string): Observable<GameDto> {
+    return this.http.post<GameDto>(this.baseUrl + "/game/createGame", {name: name});
   }
 
   public hasActiveGame(): Observable<GameDto> {

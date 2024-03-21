@@ -16,7 +16,9 @@ export class LobbyComponent {
 //public gameService: GameService,
   constructor(private route: ActivatedRoute,public gameService: GameService) {
     this.gameId = this.route.snapshot.queryParams["gameId"];
+    this.gameService.init()
     this.gameService.joinGame(this.gameId);
+
   }
 
 
