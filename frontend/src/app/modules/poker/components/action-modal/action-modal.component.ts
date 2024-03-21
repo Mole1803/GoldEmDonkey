@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {GameService} from "../../store/game.service";
+import {PlayerDto} from "../../models/player-dto";
 
 @Component({
   selector: 'app-action-modal',
@@ -11,12 +12,12 @@ export class ActionModalComponent {
 
   isVisible: boolean = true;
   options = [
-    { name: 'Fold' },
-    { name: 'Raise' },
-    { name: 'Call' },
-    { name: 'All in' }
+    { id: 0, name: 'Fold' },
+    { id: 1, name: 'Check' },
+    { id: 2, name: 'All in' },
+    { id: 3, name: 'Raise' }
   ];
-  selectedOption = this.options[0].name;
+  selectedOption = this.options[0].id;
 
   form: FormGroup;
 
@@ -39,10 +40,33 @@ export class ActionModalComponent {
   }
 
   submit() {
-    if (this.form.valid) {
-      this.isVisible = false;
-      console.log(this.form.value);
+    this.isVisible = false;
+    this.gameMove(this.options[this.form.value.selectedOption].id, this.form.value.bet??0);
+    console.log(this.form.value);
       // todo send action to server
+
+  }
+
+    gameMove(action: number, value: number) {
+    /*if(!this.isPlayerMoveClient(player)){
+      return;
+    }*/
+
+    switch (action) {
+      case 0:
+        this.gameService.sendPerformFold();
+        break;
+      case 1:
+        this.gameService.sendPerformCheck();
+        break;
+      case 3:
+        this.gameService.sendPerformCall();
+        break;
+      case 4:
+        this.gameService.sendPerformRaise(value);
+        break;
+      default:
+        console.log("Invalid action");
     }
   }
 }

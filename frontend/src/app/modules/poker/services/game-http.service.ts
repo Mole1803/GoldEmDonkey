@@ -23,4 +23,8 @@ export class GameHttpService {
     return this.http.get<GameDto>(this.baseUrl + "/game/hasActiveGame");
   }
 
+
+  public joinGame(gameId: string, username: string): Observable<void> {
+    return this.http.post<void>(this.baseUrl + "/game/joinGame", {gameId, username});
+  }
 }

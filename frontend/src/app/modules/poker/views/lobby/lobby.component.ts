@@ -21,7 +21,9 @@ export class LobbyComponent {
   }
 
   initialize(){
+    console.log("Initializing game");
     this.gameService.initializeGame();
+    return
     this.gameService.joinGame(this.gameId);
   }
 
