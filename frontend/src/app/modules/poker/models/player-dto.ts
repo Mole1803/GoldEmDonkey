@@ -1,4 +1,3 @@
-import {CardDto} from "./card-dto";
 
 export class PlayerDto {
     id: string;

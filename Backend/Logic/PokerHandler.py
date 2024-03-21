@@ -123,13 +123,13 @@ class PokerHandler:
         round_cards = GameService.select_round_cards_by_round_id(round_id, self.db_context)
         data["kwargs"]["cards"] = []
         if state > 0:
-            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[0].id_cards))
-            data["kwargs"]["cards"][1] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[1].id_cards))
-            data["kwargs"]["cards"][2] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[2].id_cards))
+            data["kwargs"]["cards"][0] = Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[0].id_cards))
+            data["kwargs"]["cards"][1] = Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[1].id_cards))
+            data["kwargs"]["cards"][2] = Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[2].id_cards))
         if state > 1:
-            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[3].id_cards))
+            data["kwargs"]["cards"][0] = Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[3].id_cards))
         if state > 2:
-            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[4].id_cards))
+            data["kwargs"]["cards"][0] = Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[4].id_cards))
         if state == 4:
             self.perform_after_round(round_id, players, round_cards,data)
         # TODO sende data an Mole Funktion

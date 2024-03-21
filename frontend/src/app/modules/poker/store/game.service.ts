@@ -23,7 +23,7 @@ export class GameService {
   clientAtMove: EventEmitter<void> = new EventEmitter<void>()
   gameCreated: EventEmitter<string> = new EventEmitter<string>()
   public playerList: PlayerDto[] = [];
-
+  public gameData!: {gamestate: number, kwargs: {}}
   //public game: GameDto;
   /*
   public cardList: CardDto[];
