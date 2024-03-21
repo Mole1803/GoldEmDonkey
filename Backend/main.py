@@ -1,6 +1,8 @@
+from gevent import monkey
+monkey.patch_all()
 import os
-
 from dotenv import load_dotenv
+
 from flasgger import Swagger
 from flask import Flask
 from flask_cors import CORS
@@ -13,11 +15,9 @@ from Backend.Injector.DependencyInjector import DependencyInjector
 from _DatabaseCall import DatabaseManager, Serializer
 from Logic.PokerHandler import PokerHandler
 import logging
-#import eventlet
-#eventlet.monkey_patch()
+
 load_dotenv()
-from gevent import monkey
-monkey.patch_all()
+
 
 settings = {}
 

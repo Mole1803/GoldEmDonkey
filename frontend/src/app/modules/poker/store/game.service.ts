@@ -6,12 +6,13 @@ import {GameHttpService} from "../services/game-http.service";
 import {UserManagementService} from "../services/user-management.service";
 import {PlayerDto} from "../models/player-dto";
 import {Router} from "@angular/router";
+import {Socket} from "socket.io-client";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  public socket!: io.Socket;
+  public socket!: Socket;
   public game?: GameDto
   public username!: string;
 
@@ -30,9 +31,10 @@ export class GameService {
 
 
   constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService, private router: Router) {
-
+    console.log("constructor", socketIo)
     this.socket = io.connect(this.socketIo)
-    // Todo check if player is in a game
+    this.init()
+        // Todo check if player is in a game
   }
 
   joinGameHttp(gameId: string)
@@ -51,6 +53,7 @@ export class GameService {
     this.socket.on("connect_error", (err: any) => {
       // the reason of the error, for example "xhr poll error"
       console.log(err.message);
+      console.log(err)
 
       // some additional description, for example the status code of the initial HTTP response
       console.log(err.description);
@@ -58,7 +61,50 @@ export class GameService {
       // some additional context, for example the XMLHttpRequest object
       console.log(err.context);
     });
-    this.initializeObservers()},10000)
+    },10000)
+  }
+
+
+  init(){
+    this.socket.on("connect", () => {
+      console.log("init")
+      this.socket.on("joinedGame", (data: {player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}) => {
+        console.log("gameJoined", data);
+        this.gameJoinedFn(data)
+      });
+      this.socket.on("startGame", () => {
+        console.log("Game Started received")
+        this.gameStartedFn()
+      })
+
+      this.socket.on("instruction", (instruction: {gamestate: number, kwargs: {}}) => {
+        console.log("instruction", instruction);
+        this.instructionFn(instruction)
+      })
+
+
+    });
+  }
+
+  gameJoinedFn(data:  {player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}){
+          this.game = data.game
+      this.playerList = data.players
+  }
+
+  gameStartedFn(){
+    this.router.navigate([{outlets: {pokeroutlet: ['game']}}]);
+  }
+
+  instructionFn(instruction: {gamestate: number, kwargs: {}}){
+       console.log("Instruction received", instruction);
+      if(instruction.gamestate === 0){
+        this.endOfRound.emit();
+
+      }
+      if(instruction.gamestate === 1){
+        this.clientAtMove.emit();
+      }
+
   }
 
     /**
@@ -86,7 +132,6 @@ export class GameService {
   }*/
 
   initializeJoinGame(){
-    console.log("Initializing joinGame")
     let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}>(observer => {
       this.socket.on("joinedGame", (data: any) => {
         console.log("gameJoined", data);
@@ -198,6 +243,7 @@ export class GameService {
     this.initializePerformInstruction();
     this.initializeOnAny();
     this.initializeOnConnectAndDisconnect();
+    console.log("observers initialized")
     /*let gameUpdated = new Observable(observer => {
       this.socket.on("performNextAction", (game: GameDto) => {
         // Get Status of the round
