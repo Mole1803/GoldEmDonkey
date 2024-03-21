@@ -98,21 +98,13 @@ export class GameService {
   }
 
   instructionFn(instruction: {gamestate: number, kwargs: {}}){
-      console.log("Instruction received 1", instruction);
-      this.gameData=instruction
-      if(instruction.gamestate > 3){
+       console.log("Instruction received", instruction);
+      if(instruction.gamestate === 0){
         this.endOfRound.emit();
 
       }
-      if(instruction.gamestate >-1  && instruction.gamestate<4){
+      if(instruction.gamestate === 1){
         this.clientAtMove.emit();
-        this.gameUpdated.emit();
-        // is current player
-        // @ts-ignore
-        let activePlayer = instruction["kwargs"]["nextPlayer"]! as PlayerDto
-        if(this.isPlayerMoveClient(activePlayer)){
-          this.clientAtMove.emit()
-        }
       }
 
   }
@@ -176,7 +168,6 @@ export class GameService {
   initializePerformInstruction(){
     let instruction = new Observable<{gamestate: number, kwargs: {}}>(observer => {
       this.socket.on("instruction", (instruction: {gamestate: number, kwargs: {}}) => {
-        this.gameData=instruction
         console.log("instruction", instruction);
         observer.next(instruction);
       })
@@ -186,12 +177,12 @@ export class GameService {
 
 
     instruction.subscribe((instruction: {gamestate: number, kwargs: {}}) => {
-      console.log("Instruction received 2", instruction);
-      if(instruction.gamestate > 3){
+      console.log("Instruction received", instruction);
+      if(instruction.gamestate === 0){
         this.endOfRound.emit();
 
       }
-      if(instruction.gamestate < 4){
+      if(instruction.gamestate === 1){
         this.clientAtMove.emit();
       }
     })
@@ -289,23 +280,25 @@ export class GameService {
 
   public sendPerformFold(): void {
     console.log("Performing fold");
-    this.socket.emit("performFold");
+    this.socket.emit("performFold", {gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformCheck(): void {
     console.log("Performing check");
-    this.socket.emit("performCheck",);
+    this.socket.emit("performCheck",{gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformCall(): void {
     console.log("Performing call");
-    this.socket.emit("performCall");
+    this.socket.emit("performCall",{gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformRaise(amount: number): void {
     console.log("Performing raise", amount);
-    this.socket.emit("performRaise", amount);
+    this.socket.emit("performRaise",{gameId: this.game!.id, username: this.username, bet: amount});
   }
+
+
 
   gameMove(action: string, player: PlayerDto) {
     /*if(!this.isPlayerMoveClient(player)){
