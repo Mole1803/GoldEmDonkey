@@ -29,7 +29,7 @@ import {io} from "socket.io-client";
   providers: [
     { provide: UrlSerializer, useClass: CustomUrlSerializer },
     { provide: "BASE_URL", useValue: environment.BASE_URL },
-    { provide: "SOCKET_IO", useValue: io(environment.BASE_URL) }],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

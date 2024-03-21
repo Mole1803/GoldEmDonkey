@@ -13,21 +13,22 @@ export class LobbyComponent {
   gameId: string = "";
 
 
-
-  constructor(private route: ActivatedRoute, public gameService: GameService) {
+//public gameService: GameService,
+  constructor(private route: ActivatedRoute,public gameService: GameService) {
     this.gameId = this.route.snapshot.queryParams["gameId"];
     console.log("GameId", this.gameId);
-    this.initialize();
+    //this.initialize();
   }
 
-  initialize(){
+  /*initialize(){
     console.log("Initializing game");
     this.gameService.initializeGame();
     return
     this.gameService.joinGame(this.gameId);
-  }
+  }*/
 
   startGame(){
-    this.gameService.startGame();
+    this.gameService.startGame()
+   // this.longPollingGameService.startGame();
   }
 }
