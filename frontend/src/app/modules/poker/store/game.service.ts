@@ -36,7 +36,8 @@ export class GameService {
   }
 
   disconnect() {
-    this.socket.disconnect();
+    if(this.socket !== undefined && this.socket.connected)
+      this.socket.disconnect();
   }
 
 
