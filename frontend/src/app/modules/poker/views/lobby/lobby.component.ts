@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
 import * as io from "socket.io-client";
 import {GameService} from "../../store/game.service";
+import {LongPollingGameService} from "../../store/long-polling-game.service";
 
 @Component({
   selector: 'app-lobby',
@@ -13,21 +14,22 @@ export class LobbyComponent {
   gameId: string = "";
 
 
-
-  constructor(private route: ActivatedRoute, public gameService: GameService) {
+//public gameService: GameService,
+  constructor(private route: ActivatedRoute,public gameService: GameService,  public longPollingGameService: LongPollingGameService) {
     this.gameId = this.route.snapshot.queryParams["gameId"];
     console.log("GameId", this.gameId);
-    this.initialize();
+    //this.initialize();
   }
 
-  initialize(){
+  /*initialize(){
     console.log("Initializing game");
     this.gameService.initializeGame();
     return
     this.gameService.joinGame(this.gameId);
-  }
+  }*/
 
   startGame(){
-    this.gameService.startGame();
+    this.gameService.startGame()
+   // this.longPollingGameService.startGame();
   }
 }

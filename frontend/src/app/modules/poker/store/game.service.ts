@@ -34,6 +34,8 @@ export class GameService {
     console.log("constructor", socketIo)
     this.socket = io.connect(this.socketIo)
     this.init()
+    this.username = this.userManagementService.getUser()
+
         // Todo check if player is in a game
   }
 
