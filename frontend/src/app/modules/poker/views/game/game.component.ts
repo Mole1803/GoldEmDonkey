@@ -138,7 +138,7 @@ export class GameComponent {
     this.ctx.fillStyle = "white"
 
     let name = playerRound.player.userId
-    this.ctx.fillText(name, x+50, y+110, 400)
+    this.ctx.fillText(name, x+30, y+110, 330)
 
     let chipsValue: any = playerRound.player.chips
     this.ctx.fillText(chipsValue as string, x+400, y+110, 180)
