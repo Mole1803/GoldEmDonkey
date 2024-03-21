@@ -13,7 +13,6 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {io} from "socket.io-client";
 import {environment} from "../../../environments/environment";
-import {LongPollingGameService} from "./store/long-polling-game.service";
 
 
 @NgModule({
@@ -35,8 +34,7 @@ import {LongPollingGameService} from "./store/long-polling-game.service";
   ],
   providers: [
     GameService,
-    LongPollingGameService,
-    { provide: "SOCKET_IO", useValue: io(environment.BASE_URL) }
+    { provide: "SOCKET_IO", useValue: environment.BASE_URL}
   ]
 })
 export class PokerModule { }

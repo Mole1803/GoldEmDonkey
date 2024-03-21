@@ -30,9 +30,9 @@ export class GameService {
   public */
 
 
-  constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService, private router: Router) {
+  constructor(@Inject("SOCKET_IO") public socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService, private router: Router) {
     console.log("constructor", socketIo)
-    this.socket = io.connect(this.socketIo)
+    this.socket =  io.connect(socketIo)
     this.init()
     this.username = this.userManagementService.getUser()
 

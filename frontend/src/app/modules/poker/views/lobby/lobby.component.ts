@@ -3,7 +3,6 @@ import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
 import * as io from "socket.io-client";
 import {GameService} from "../../store/game.service";
-import {LongPollingGameService} from "../../store/long-polling-game.service";
 
 @Component({
   selector: 'app-lobby',
@@ -15,7 +14,7 @@ export class LobbyComponent {
 
 
 //public gameService: GameService,
-  constructor(private route: ActivatedRoute,public gameService: GameService,  public longPollingGameService: LongPollingGameService) {
+  constructor(private route: ActivatedRoute,public gameService: GameService) {
     this.gameId = this.route.snapshot.queryParams["gameId"];
     console.log("GameId", this.gameId);
     //this.initialize();

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {io} from "socket.io-client";
 import {GameDto} from "../../models/game-dto";
 import {GameService} from "../../store/game.service";
-import {LongPollingGameService} from "../../store/long-polling-game.service";
 
 @Component({
   selector: 'app-index',
@@ -10,10 +9,8 @@ import {LongPollingGameService} from "../../store/long-polling-game.service";
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
-  private socket = io('http://localhost:8080');
 
   constructor( ) {//public gameService: GameService,
-
   }
 
 
