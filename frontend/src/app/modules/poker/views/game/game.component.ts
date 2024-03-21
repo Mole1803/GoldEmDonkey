@@ -102,7 +102,7 @@ export class GameComponent {
         x=mid+600
         y=yPositions[2]
         break
-      case 7:
+      case 2:
         x=mid+1200
         y=yPositions[1]
         break
@@ -110,11 +110,11 @@ export class GameComponent {
         x=mid+800
         y=yPositions[0]
         break
-      case 5:
+      case 4:
         x=mid-300
         y=yPositions[0]
         break
-      case 4:
+      case 5:
         x=mid-1400
         y=yPositions[0]
         break
@@ -122,7 +122,7 @@ export class GameComponent {
         x=mid-1800
         y=yPositions[1]
         break
-      case 2:
+      case 7:
         x=mid-1200
         y=yPositions[2]
         break
