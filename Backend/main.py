@@ -5,34 +5,40 @@ from flasgger import Swagger
 from flask import Flask
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, join_room, emit
 
 from Backend.Controller.BaseController import BaseController
 from Backend.Controller.SocketIOController import SocketIOController
 from Backend.Injector.DependencyInjector import DependencyInjector
-from _DatabaseCall import DatabaseManager
+from _DatabaseCall import DatabaseManager, Serializer
 from Logic.PokerHandler import PokerHandler
-
+import logging
+#import eventlet
+#eventlet.monkey_patch()
 load_dotenv()
+#from gevent import monkey
+#monkey.patch_all()
 
 settings = {}
 
+logging.basicConfig(filename='socketio.log', level=logging.DEBUG)
+
 
 class GoldEmDonkeyMain:
-    def __init__(self):
+    def __init__(self, socketio: SocketIO = None):
         self.app = Flask(__name__)
         self.swagger = None
         self.db = None
         self.jwt = None
-        self.socketio = None
+        self.socketio = socketio
 
         self.module_controllers: list[BaseController] = []
         self.dependencyInjector = DependencyInjector()
         self.DatabaseManager: DatabaseManager = DatabaseManager(self.app)
         self.PokerHandler: PokerHandler = PokerHandler(self.DatabaseManager.db)
 
+
     def run(self):
-        self.configure()
         self.socketio.run(self.app, port=8080)
         # self.app.run(debug=True, host="0.0.0.0", port=8080)
 
@@ -55,8 +61,10 @@ class GoldEmDonkeyMain:
         self.jwt = JWTManager(self.app)
 
     def setup_socketio(self):
+        self.app.config['DEBUG'] = True
         self.app.config['SECRET_KEY'] = os.environ.get("JWT_SECRET_KEY")
-        self.socketio = SocketIO(self.app, cors_allowed_origins="*") #, cors_allowed_origins="*"
+        if self.socketio is None:
+            self.socketio = SocketIO(self.app,ping_timeout=60, ping_interval=30, cors_allowed_origins="*",always_connect=False,  manage_session=False, engineio_logger=True ) #, cors_allowed_origins="*"
 
     def setup_database(self):
         self.DatabaseManager.init_database()
@@ -96,6 +104,10 @@ class GoldEmDonkeyMain:
         self.module_controllers.append(GameController.GameController(self.app))
 
 
+
+
+
 if __name__ == '__main__':
     gold_em_donkey = GoldEmDonkeyMain()
+    gold_em_donkey.configure()
     gold_em_donkey.run()

@@ -4,7 +4,7 @@ import random
 
 from Backend.Services.CardService import CardService
 from Backend.Services.GameService import GameService
-from Backend._DatabaseCall import Serializer
+from Backend._DatabaseCall import Serializer, GameDB
 
 
 class PokerHandler:
@@ -13,6 +13,10 @@ class PokerHandler:
         self.instructionQueue = queue.Queue()
 
     def join_game(self, player_id: str, game_id: str):
+        # check if user is already in game
+        player = GameService.is_player_in_game(player_id, game_id, self.db_context)
+        if player is not None:
+            return player
         # Todo: implement join game
         position = GameService.select_player_get_highest_position(id_game=game_id, db_context=self.db_context)
         return GameService.insert_player_db(position=position + 1, user_id=player_id, game_id=game_id, chips=1000,
@@ -26,32 +30,33 @@ class PokerHandler:
         # raise NotImplementedError
 
     def create_round(self, game_id: str):
+        game_ = GameService.get_game_by_id(game_id, self.db_context)
         round_ = GameService.insert_round_db(game_id=game_id, db_context=self.db_context)
         players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
 
         cards = self.shuffle_cards(len(players))
-        self.deal_cards(cards, players, round_.id)
+        self.deal_cards(cards, players, round_.id, game_)
+        self.instructionQueue.put({"gamestate": 0, "kwargs": {}})
         self.perform_next_action(players[0], round_.id, game_id=game_id)
 
     def shuffle_cards(self, num_players):
         erg = random.sample(range(0, 52), 2 * num_players + 5)
         return erg
 
-    def deal_cards(self, cards, players, round_id):
+    def deal_cards(self, cards, players, round_id, game: GameDB):
         card_index = 0
         dealer_index = 0
 
-        game = GameService.select_game_get_game_by_round_id(round_id, self.db_context)
-        if game["dealer"] is not None:
+        if game.dealer is not None:
             for player in players:
-                if player["id"] == game["dealer"]:
-                    dealer_index = player["position"]
-        for i,player in enumerate(players):
+                if player.id == game.dealer:
+                    dealer_index = player.position
+        for i, player in enumerate(players):
             if i == dealer_index:
-                GameService.insert_round_player_db(round_id, player["id"], True, False, 0, True, 0, cards[card_index],
+                GameService.insert_round_player_db(round_id, player.id, True, False, 0, True, 0, cards[card_index],
                                                    cards[card_index + 1], self.db_context)
             else:
-                GameService.insert_round_player_db(round_id, player["id"], False, False, 0, True,
+                GameService.insert_round_player_db(round_id, player.id, False, False, 0, True,
                                                    (i - dealer_index + len(players)) % len(players), cards[card_index],
                                                    cards[card_index + 1], self.db_context)
             card_index += 2
@@ -129,7 +134,7 @@ class PokerHandler:
             self.perform_after_round(round_id, players, round_cards,data)
         # TODO sende data an Mole Funktion
 
-        self.instructionQueue.queue(data)
+        self.instructionQueue.put(data)
 
     def perform_after_round(self, round_id, players, round_cards,data):
         player_cards = []
@@ -154,7 +159,7 @@ class PokerHandler:
         GameService.update_game_set_dealer(game.id, new_dealer, self.db_context)
 
         data["args"]["round_winner"]=winner.id_player
-        self.instructionQueue.queue()
+        #self.instructionQueue.queue()
 
         self.create_round(game.id)
 
