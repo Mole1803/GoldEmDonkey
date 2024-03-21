@@ -1,60 +1,67 @@
 import math
+import queue
 import random
+
+from Backend.Services.CardService import CardService
 from Backend.Services.GameService import GameService
+from Backend._DatabaseCall import Serializer, GameDB
 
 
 class PokerHandler:
     def __init__(self, db_context):
         self.db_context = db_context
-    def join_game(self, player_id: str, game_id: str):
-        # Todo: implement join game
-        position = GameService.select_player_get_highest_position(id_game=game_id,db_context= self.db_context)
-        return GameService.insert_player_db(position=position+1, user_id=player_id, game_id=game_id,chips=1000,db_context=self.db_context)
+        self.instructionQueue = queue.Queue()
 
+    def join_game(self, player_id: str, game_id: str):
+        # check if user is already in game
+        player = GameService.is_player_in_game(player_id, game_id, self.db_context)
+        if player is not None:
+            return player
+        # Todo: implement join game
+        position = GameService.select_player_get_highest_position(id_game=game_id, db_context=self.db_context)
+        return GameService.insert_player_db(position=position + 1, user_id=player_id, game_id=game_id, chips=1000,
+                                            db_context=self.db_context)
 
     def run_game(self, game_id: str):
-        return
         # Todo:
-        GameService.update_game_is_active(game_id,True, self.db_context)
+        GameService.update_game_is_active(game_id, True, self.db_context)
         self.create_round(game_id)
 
-
-        #raise NotImplementedError
+        # raise NotImplementedError
 
     def create_round(self, game_id: str):
-        round_ = GameService.insert_round_db(game_id=game_id,db_context=self.db_context)
+        game_ = GameService.get_game_by_id(game_id, self.db_context)
+        round_ = GameService.insert_round_db(game_id=game_id, db_context=self.db_context)
         players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
 
         cards = self.shuffle_cards(len(players))
-        self.deal_cards(cards, players, round_.id)
-
-        raise NotImplementedError
+        self.deal_cards(cards, players, round_.id, game_)
+        self.instructionQueue.put({"gamestate": 0, "kwargs": {}})
+        self.perform_next_action(players[0], round_.id, game_id=game_id)
 
     def shuffle_cards(self, num_players):
-        erg=random.sample(range(0, 52), 2*num_players+5)
+        erg = random.sample(range(0, 52), 2 * num_players + 5)
         return erg
 
-    def deal_cards(self, cards, players, round_id):
-        card_index=0
-        dealer_index=0
+    def deal_cards(self, cards, players, round_id, game: GameDB):
+        card_index = 0
+        dealer_index = 0
 
-        game=GameService.select_game_get_game_by_round_id(round_id,self.db_context)
-        if game["dealer"] is not None:
+        if game.dealer is not None:
             for player in players:
-                if player["id"]==game["dealer"]:
-                    dealer_index=player["position"]
-        for player,i in enumerate(players):
-            if i==dealer_index:
-                GameService.insert_round_player_db(round_id, player["id"], True, False, 0, True, 0, cards[card_index],
-                                                   cards[card_index+1], self.db_context)
+                if player.id == game.dealer:
+                    dealer_index = player.position
+        for i, player in enumerate(players):
+            if i == dealer_index:
+                GameService.insert_round_player_db(round_id, player.id, True, False, 0, True, 0, cards[card_index],
+                                                   cards[card_index + 1], self.db_context)
             else:
-                GameService.insert_round_player_db(round_id, player["id"], False, False, 0, True,
-                                                   (i-dealer_index+len(players))%len(players), cards[card_index],
-                                                   cards[card_index+1], self.db_context)
-            card_index+=2
+                GameService.insert_round_player_db(round_id, player.id, False, False, 0, True,
+                                                   (i - dealer_index + len(players)) % len(players), cards[card_index],
+                                                   cards[card_index + 1], self.db_context)
+            card_index += 2
         for i in range(5):
-            GameService.insert_round_cards_db(round_id,cards[card_index+i],i,self.db_context)
-
+            GameService.insert_round_cards_db(round_id, cards[card_index + i], i, self.db_context)
 
     def evaluate_winner(self, players):
         raise NotImplementedError
@@ -63,13 +70,13 @@ class PokerHandler:
         raise NotImplementedError
 
     def on_player_check(self, player_id, game_id):
-        self.after_action(game_id,player_id)
+        return self.after_action(game_id, player_id)
 
     def on_player_call(self, player_id, game_id):
         # inform next player and set player to not active
         raise NotImplementedError
 
-    def on_player_raise(self, player_id,game_id, amount):
+    def on_player_raise(self, player_id, game_id, amount):
         # inform next player and set player to not active
         raise NotImplementedError
 
@@ -77,67 +84,85 @@ class PokerHandler:
 
         raise NotImplementedError
 
-    def after_action(self,game_id,player_id):
-        round_id=GameService.select_active_round_by_game_id(game_id,self.db_context)
-        round_player = GameService.update_round_player_has_played(round_id,player_id,True,self.db_context)
-        players = GameService.select_round_player_get_players_with_status_is_active_from_round_order_by_position(round_id,self.db_context)
+    def after_action(self, game_id, player_id):
+        round_id = GameService.select_game_by_id(game_id, self.db_context).active_round
+        round_player = GameService.update_round_player_has_played(round_id, player_id, True, self.db_context)
+        players = GameService.select_round_player_get_players_with_status_is_active_from_round_order_by_position(
+            round_id, self.db_context)
+        max_chips = GameService.select_round_player_current_max_set_chips(round_id, self.db_context)
         for player in players:
-            if player.position>round_player.position:
-                if not player.has_played:
-                    return self.perform_next_action(player,round_id)
-        max_chips = GameService.select_round_player_current_max_set_chips(round_id,self.db_context)
+            if player.position > round_player.position:
+                if not player.has_played or player.set_chips < max_chips:
+                    return self.perform_next_action(player, round_id, game_id=game_id)
         for player in players:
-            if player.set_chips<max_chips:
-                return self.perform_next_action(player,round_id)
-        state = GameService.select_round_by_round_id(round_id,self.db_context).status
-        GameService.update_round_set_status(round_id,state+1, self.db_context)
-        self.perform_next_action(players[0],round_id)
-
-    def perform_next_action(self,player,round_id):
+            if player.set_chips < max_chips:
+                return self.perform_next_action(player, round_id, game_id=game_id)
         state = GameService.select_round_by_round_id(round_id, self.db_context).status
-        data={}
-        data["gamestate"]=state
-        players=GameService.select_round_player_by_round_id_inner_join_player(round_id,self.db_context)
-        data["args"]={}
-        move={}
-        move["player_id"]=player.id
+        GameService.update_round_set_status(round_id, state + 1, self.db_context)
+        self.perform_next_action(players[0], round_id, game_id=game_id)
 
-        data["args"]["move"]=move
-        data["args"]["players"]=[]
-        for player,i in enumerate(players):
-            data["args"]["players"][i]=player.serialize()
-        round_cards=GameService.select_round_cards_by_round_id(round_id,self.db_context)
-        data["args"]["cards"] = []
-        if state == 1:
-            data["args"]["cards"][0] = round_cards[0].id_cards
-            data["args"]["cards"][1] = round_cards[1].id_cards
-            data["args"]["cards"][2] = round_cards[2].id_cards
-        elif state == 2:
-            data["args"]["cards"][0] = round_cards[3].id_cards
-        elif state == 3:
-            data["args"]["cards"][0] = round_cards[4].id_cards
-        elif state == 4:
-            return self.perform_after_round(round_id,players,round_cards)
+    def perform_next_action(self, player, round_id, game_id: str):
+
+        state = GameService.select_round_by_round_id(round_id, self.db_context).status
+
+        # Todo: implement
+        players = GameService.select_round_player_by_round_id(round_id, self.db_context)
+
+        game_players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
+        data = {"gamestate": state, "kwargs": {}}
+
+        # move={}
+        # move["player_id"]=player.id
+
+        data["kwargs"]["nextPlayer"] = Serializer.serialize(player)
+        data["kwargs"]["roundPlayers"] = Serializer.serialize_query_set(players)
+        data["kwargs"]["gamePlayers"] = Serializer.serialize_query_set(game_players)
+        # for i,player in enumerate(players):
+        #    data["kwargs"]["players"][i]=Serializer.serialize(player)
+
+        round_cards = GameService.select_round_cards_by_round_id(round_id, self.db_context)
+        data["kwargs"]["cards"] = []
+        if state > 0:
+            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[0].id_cards))
+            data["kwargs"]["cards"][1] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[1].id_cards))
+            data["kwargs"]["cards"][2] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[2].id_cards))
+        if state > 1:
+            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[3].id_cards))
+        if state > 2:
+            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[4].id_cards))
+        if state == 4:
+            self.perform_after_round(round_id, players, round_cards,data)
         # TODO sende data an Mole Funktion
 
+        self.instructionQueue.put(data)
 
-    def perform_after_round(self,round_id,players,round_cards):
-        player_cards=[]
-        for player,i in enumerate(players):
-            player_cards[i]=[player.card1,player.card2]
-        best_players = BestHandEvaluator.evaluate_all_hands(round_cards,player_cards)
-        pott=GameService.select_round_player_get_all_set_chips(round_id,self.db_context)
+    def perform_after_round(self, round_id, players, round_cards,data):
+        player_cards = []
+        for i,player in enumerate(players):
+            player_cards[i] = [CardService.parse_card_object_from_db(player.card1), CardService.parse_card_object_from_db(player.card2)]
+        best_players = BestHandEvaluator.evaluate_all_hands(round_cards, player_cards)
+        pott = GameService.select_round_player_get_all_set_chips(round_id, self.db_context)
         for player_index in best_players:
-            player=players[player_index]
-            GameService.update_player_set_chips_player(player.id,player.chips+pott/len(best_players),self.db_context)
-        GameService.delete_round(round_id)
-        game = GameService.select_game_get_game_by_round_id(round_id,self.db_context)
-        for player,i in enumerate(players):
-            if player.id==game.dealer:
-                new_dealer=players[(i+1)%len(players)]
+            player = players[player_index]
+            winner=player
+            chips=GameService.select_player_by_player_id(player.id_player,self.db_context).chips
+            GameService.update_player_set_chips_player(player.id_player, chips + pott / len(best_players),
+                                                       self.db_context)
+        GameService.delete_round_player_by_round_id(round_id,self.db_context)
+        GameService.delete_round_cards_by_round_id(round_id,self.db_context)
+        GameService.delete_round_by_round_id(round_id,self.db_context)
+        game = GameService.select_game_get_game_by_round_id(round_id, self.db_context)
+        for i,player in enumerate(players):
+            if player.id_player == game.dealer:
+                new_dealer = players[(i + 1) % len(players)]
                 break
-        GameService.update_game_set_dealer(game.id,new_dealer,self.db_context)
+        GameService.update_game_set_dealer(game.id, new_dealer, self.db_context)
+
+        data["args"]["round_winner"]=winner.id_player
+        #self.instructionQueue.queue()
+
         self.create_round(game.id)
+
 
 class BestHandEvaluator:
     @staticmethod

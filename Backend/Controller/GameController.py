@@ -1,6 +1,6 @@
 import functools
 
-from flask import Blueprint, jsonify
+from flask import request,Blueprint, jsonify
 
 from Backend.Controller.BaseController import BaseController
 from Backend.Controller.SocketIOController import SocketIOController
@@ -46,86 +46,89 @@ class GameController(BaseController, SocketIOController):
         return jsonify(),200
         raise NotImplementedError
 
-
-
-
-    #@staticmethod
-    #@jwt_required()
-    #@game_controller.route('/hasActiveGame', methods=['GET'])
-    #def get_active_game():
-        # Todo checks if user has a game -> if so check if game is running -> join_room else
-    #    return
-    #    raise NotImplementedError
+    @staticmethod
+    @jwt_required()
+    @game_controller.route('/joinGame', methods=['POST'])
+    def join_game_http():
+        username = request.json['username']
+        gameId = request.json['gameId']
+        player = BaseController.dependencies.poker_handler.join_game(username, gameId)
+        user_list = GameService.select_player_get_all_players_by_game(gameId, BaseController.dependencies.db_context)
+        game_ = GameService.select_game_by_id(gameId, BaseController.dependencies.db_context)
+        join_room(room=gameId)
+        json_ = {"player": Serializer.serialize(player),"game": Serializer.serialize(game_), "players": Serializer.serialize_query_set(user_list), "gameId": gameId}
+        emit('joinGame', json_, room=gameId,include_self=True)
+        return "Joined game successfully.", 200
 
     @staticmethod
     @SocketIOController.socketio.on('joinGame')
     def join_game(data):
         print(data)
+        #if "username" not in data or "gameId" not in data:
+        #    return
         username = data['username']
         gameId = data['gameId']
-        # Todo: add player to playerDB
         player = BaseController.dependencies.poker_handler.join_game(username, gameId)
         user_list = GameService.select_player_get_all_players_by_game(gameId, BaseController.dependencies.db_context)
         game_ = GameService.select_game_by_id(gameId, BaseController.dependencies.db_context)
-        join_room(gameId)
-        json_ = {"player": Serializer.serialize(player),"game": Serializer.serialize(game_), "players": Serializer.serialize_query_set(user_list), "room": gameId}
-        emit('joinGame', json_, room=gameId)
-
+        join_room(room=gameId)
+        json_ = {"player": Serializer.serialize(player),"game": Serializer.serialize(game_), "players": Serializer.serialize_query_set(user_list), "gameId": gameId}
+        emit('joinGame', json_, room=gameId,include_self=True)
+        #return "Joined game successfully."
 
     @staticmethod
     @SocketIOController.socketio.on('startGame')
     def start_game(data):
+        print("startGame", data)
         gameId = data['gameId']
         #username = data['username']
         BaseController.dependencies.poker_handler.run_game(gameId)
         emit('startGame', room=gameId)
+        GameController.send_instruction_messages(gameId)
 
-        #send("start game", to=room)
 
 
     @staticmethod
     @SocketIOController.socketio.on('performCheck')
     def receive_perform_check(data):
-        room = data['room']
+        print("performCheck", data)
+        gameId = data['gameId']
         username = data['username']
-        BaseController.dependencies.poker_handler.on_player_check(username, room)
-        emit('performCheck', {"username": username}, room=room)
-        # return next move
-        #send("player checked", to=room)
+        BaseController.dependencies.poker_handler.on_player_check(username, gameId)
+        emit('performCheck', {"username": username}, room=gameId)
+        GameController.send_instruction_messages(gameId)
+
+
 
     @staticmethod
     @SocketIOController.socketio.on('performFold')
     def receive_perform_fold(data):
-        room = data['room']
+        print("performFold", data)
+        gameId = data['gameId']
         username = data['username']
-        BaseController.dependencies.poker_handler.on_player_fold(username, room)
-        # return next move
-        #send("player folded", to=room)
+        BaseController.dependencies.poker_handler.on_player_fold(username, gameId)
+        GameController.send_instruction_messages(gameId)
+
 
     @staticmethod
     @SocketIOController.socketio.on('performRaise')
     def receive_perform_raise(data):
-        room = data['room']
+        print("performRaise", data)
+        gameId = data['gameId']
         username = data['username']
         raise_value = data['raise_value']
-        BaseController.dependencies.poker_handler.on_player_raise(username, room, raise_value)
-        # return next move
-        #send("player raised", to=room)
+        BaseController.dependencies.poker_handler.on_player_raise(username, gameId, raise_value)
+        GameController.send_instruction_messages(gameId)
+
 
     @staticmethod
     @SocketIOController.socketio.on('performCall')
     def receive_perform_call(data):
-        room = data['room']
+        print("performCall", data)
+        gameId = data['gameId']
         username = data['username']
-        BaseController.dependencies.poker_handler.on_player_call(username, room)
-        # return next move
-        #send("player called", to=room)
-
-
-    @staticmethod
-    def perform_next_action(move, room):
-        # Todo: implement
-        send(move, to=room)
+        BaseController.dependencies.poker_handler.on_player_call(username, gameId)
+        GameController.send_instruction_messages(gameId)
 
 
 
@@ -134,9 +137,9 @@ class GameController(BaseController, SocketIOController):
     def on_leave_room(data):
         username = data['username']
         # Todo find active room and disconnect
-        room = data['room']
-        leave_room(room)
-        send(username + ' has left the room.', to=room)
+        gameId = data['gameId']
+        leave_room(gameId)
+        send(username + ' has left the room.', to=gameId)
 
     @staticmethod
     @SocketIOController.socketio.on('disconnect')
@@ -145,3 +148,9 @@ class GameController(BaseController, SocketIOController):
         playerId = GameService
         emit('disconnect', {'playerId': playerId})
         print('Client disconnected')
+
+    @staticmethod
+    def send_instruction_messages(gameId):
+        while BaseController.dependencies.poker_handler.instructionQueue.not_empty:
+            instruction = BaseController.dependencies.poker_handler.instructionQueue.get()
+            emit('instruction', instruction, room=gameId)

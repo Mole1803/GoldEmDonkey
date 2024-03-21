@@ -8,6 +8,9 @@ import { LobbyComponent } from './views/lobby/lobby.component';
 import { MenuComponent } from './views/menu/menu.component';
 import {GenericComponentsModule} from "../generic-components/generic-components.module";
 import {GameService} from "./store/game.service";
+import { ActionModalComponent } from './components/action-modal/action-modal.component';
+import {NgSelectModule} from "@ng-select/ng-select";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -15,12 +18,17 @@ import {GameService} from "./store/game.service";
     IndexComponent,
     GameComponent,
     LobbyComponent,
-    MenuComponent
+    MenuComponent,
+    ActionModalComponent
   ],
   imports: [
     CommonModule,
     PokerRoutingModule,
-    GenericComponentsModule
+    GenericComponentsModule,
+    NgSelectModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [
     GameService
