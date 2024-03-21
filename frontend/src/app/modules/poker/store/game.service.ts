@@ -23,7 +23,7 @@ export class GameService {
   clientAtMove: EventEmitter<void> = new EventEmitter<void>()
   gameCreated: EventEmitter<string> = new EventEmitter<string>()
   public playerList: PlayerDto[] = [];
-
+  public gameData!: {gamestate: number, kwargs: {}}
   //public game: GameDto;
   /*
   public cardList: CardDto[];
@@ -75,13 +75,21 @@ export class GameService {
   }
 
   instructionFn(instruction: {gamestate: number, kwargs: {}}){
-       console.log("Instruction received", instruction);
-      if(instruction.gamestate === 0){
+      console.log("Instruction received 1", instruction);
+      this.gameData=instruction
+      if(instruction.gamestate > 3){
         this.endOfRound.emit();
 
       }
-      if(instruction.gamestate === 1){
+      if(instruction.gamestate >-1  && instruction.gamestate<4){
         this.clientAtMove.emit();
+        this.gameUpdated.emit();
+        // is current player
+        // @ts-ignore
+        let activePlayer = instruction["kwargs"]["nextPlayer"]! as PlayerDto
+        if(this.isPlayerMoveClient(activePlayer)){
+          this.clientAtMove.emit()
+        }
       }
 
   }
@@ -143,7 +151,7 @@ export class GameService {
 
   public sendPerformRaise(amount: number): void {
     console.log("Performing raise", amount);
-    this.socket.emit("performRaise",{gameId: this.game!.id, username: this.username, bet: amount});
+    this.socket.emit("performRaise",{gameId: this.game!.id, username: this.username, raise_value: amount});
   }
 
 
@@ -182,7 +190,8 @@ export class GameService {
 
   // region Utils --------------------------
     isPlayerMoveClient(player: PlayerDto): boolean {
-    return player.id === this.username;
+    console.log(player.userId, this.username)
+    return player.userId === this.username;
   }
   // endregion ------------------------------
 

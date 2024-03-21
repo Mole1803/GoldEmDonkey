@@ -76,6 +76,7 @@ class GameController(BaseController, SocketIOController):
         # username = data['username']
         BaseController.dependencies.poker_handler.run_game(gameId)
         emit('startGame', room=gameId)
+        print(gameId)
         GameController.send_instruction_messages(gameId)
 
     @staticmethod
@@ -141,6 +142,6 @@ class GameController(BaseController, SocketIOController):
 
     @staticmethod
     def send_instruction_messages(gameId):
-        while BaseController.dependencies.poker_handler.instructionQueue.not_empty():
+        while not BaseController.dependencies.poker_handler.instructionQueue.empty():
             instruction = BaseController.dependencies.poker_handler.instructionQueue.get()
             emit('instruction', instruction, room=gameId)

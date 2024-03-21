@@ -27,6 +27,17 @@ class Serializer:
             copy_dict[Serializer.underscore_to_camel_case(key)] = value
         return copy_dict
 
+
+    @staticmethod
+    def serializeDTO(self):
+        i = vars(self)
+        copy_dict = {}
+        for key, value in i.items():
+            if key == "_sa_instance_state":
+                continue
+            copy_dict[Serializer.underscore_to_camel_case(key)] = value
+        return copy_dict
+
     @staticmethod
     def underscore_to_camel_case(key: str):
         # find underscore and convert next letter to uppercase

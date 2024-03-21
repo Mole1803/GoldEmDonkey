@@ -33,6 +33,7 @@ class PokerHandler:
     def create_round(self, game_id: str):
         game_ = GameService.get_game_by_id(game_id, self.db_context)
         round_ = GameService.insert_round_db(game_id=game_id, db_context=self.db_context)
+        GameService.update_game_active_round(game_id,round_.id,self.db_context)
         players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
 
         cards = self.shuffle_cards(len(players))
@@ -64,26 +65,37 @@ class PokerHandler:
         for i in range(5):
             GameService.insert_round_cards_db(round_id, cards[card_index + i], i, self.db_context)
 
-    def evaluate_winner(self, players):
-        raise NotImplementedError
+    def on_player_check(self, user_id, game_id):
+        player=GameService.select_player_by_user_id_and_game_id(user_id,game_id,self.db_context)
+        self.after_action(game_id, player.id)
 
-    def get_hand_rank(self, cards):
-        raise NotImplementedError
+    def on_player_call(self, user_id, game_id):
+        player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
+        game=GameService.select_game_by_id(game_id,self.db_context)
+        max_chips=GameService.select_round_player_current_max_set_chips(game.active_round,self.db_context)
+        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player_id, self.db_context)
+        diff=max_chips-player_round.set_chips
+        player=GameService.select_player_by_player_id(player_round.id_player,self.db_context)
+        GameService.update_player_set_chips_player(player_round.id_player,player.chips-diff,self.db_context)
+        self.after_action(game_id, player_id)
 
-    def on_player_check(self, player_id, game_id):
-        return self.after_action(game_id, player_id)
+    def on_player_raise(self, user_id, game_id, amount):
+        player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
+        game = GameService.select_game_by_id(game_id, self.db_context)
+        max_chips = GameService.select_round_player_current_max_set_chips(game.active_round, self.db_context)
+        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player_id, self.db_context)
+        diff = max_chips + amount - player_round.set_chips
+        player = GameService.select_player_by_player_id(player_round.id_player, self.db_context)
+        GameService.update_game_set_chips(game_id, max_chips+amount, self.db_context),
+        GameService.update_player_set_chips_player(player_round.id_player, player.chips - diff, self.db_context)
+        self.after_action(game_id, player_id)
 
-    def on_player_call(self, player_id, game_id):
-        # inform next player and set player to not active
-        raise NotImplementedError
+    def on_player_fold(self, user_id, game_id):
+        player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
+        game=GameService.select_game_by_id(game_id,self.db_context)
+        GameService.update_round_player_is_active(game.active_round,player_id,False,self.db_context)
+        self.after_action(game_id, player_id)
 
-    def on_player_raise(self, player_id, game_id, amount):
-        # inform next player and set player to not active
-        raise NotImplementedError
-
-    def on_player_fold(self, player_id, game_id):
-
-        raise NotImplementedError
 
     def after_action(self, game_id, player_id):
         round_id = GameService.select_game_by_id(game_id, self.db_context).active_round
@@ -92,28 +104,27 @@ class PokerHandler:
             round_id, self.db_context)
         max_chips = GameService.select_round_player_current_max_set_chips(round_id, self.db_context)
         for player in players:
+            print("player:",player,"roundPlayer:",round_player)
             if player.position > round_player.position:
                 if not player.has_played or player.set_chips < max_chips:
                     return self.perform_next_action(player, round_id, game_id=game_id)
         for player in players:
             if player.set_chips < max_chips:
                 return self.perform_next_action(player, round_id, game_id=game_id)
-        state = GameService.select_round_by_round_id(round_id, self.db_context).status
-        GameService.update_round_set_status(round_id, state + 1, self.db_context)
+        round = GameService.select_round_by_round_id(round_id, self.db_context)
+        GameService.update_round_set_status(round_id, round.status + 1, self.db_context)
         self.perform_next_action(players[0], round_id, game_id=game_id)
 
     def perform_next_action(self, player, round_id, game_id: str):
 
-        state = GameService.select_round_by_round_id(round_id, self.db_context).status
+        round = GameService.select_round_by_round_id(round_id, self.db_context)
 
         # Todo: implement
         players = GameService.select_round_player_by_round_id(round_id, self.db_context)
 
         game_players = GameService.select_player_get_all_players_by_game(id_game=game_id, db_context=self.db_context)
-        data = {"gamestate": state, "kwargs": {}}
+        data = {"gamestate": round.status, "kwargs": {}}
 
-        # move={}
-        # move["player_id"]=player.id
 
         data["kwargs"]["nextPlayer"] = Serializer.serialize(player)
         data["kwargs"]["roundPlayers"] = Serializer.serialize_query_set(players)
@@ -123,24 +134,25 @@ class PokerHandler:
 
         round_cards = GameService.select_round_cards_by_round_id(round_id, self.db_context)
         data["kwargs"]["cards"] = []
-        if state > 0:
-            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[0].id_cards))
-            data["kwargs"]["cards"][1] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[1].id_cards))
-            data["kwargs"]["cards"][2] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[2].id_cards))
-        if state > 1:
-            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[3].id_cards))
-        if state > 2:
-            data["kwargs"]["cards"][0] = Serializer.serialize(CardService.parse_card_object_from_db(round_cards[4].id_cards))
-        if state == 4:
+        if round.status > 0:
+            data["kwargs"]["cards"].append(Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[0].id_cards)))
+            data["kwargs"]["cards"].append(Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[1].id_cards)))
+            data["kwargs"]["cards"].append(Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[2].id_cards)))
+        if round.status > 1:
+            data["kwargs"]["cards"].append(Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[3].id_cards)))
+        if round.status > 2:
+            data["kwargs"]["cards"].append(Serializer.serializeDTO(CardService.parse_card_object_from_db(round_cards[4].id_cards)))
+        if round.status == 4:
             self.perform_after_round(round_id, players, round_cards,data)
         # TODO sende data an Mole Funktion
 
         self.instructionQueue.put(data)
 
     def perform_after_round(self, round_id, players, round_cards,data):
-        player_cards = []
+        player_cards = [[]for i in range(len(players))]
         for i,player in enumerate(players):
-            player_cards[i] = [CardService.parse_card_object_from_db(player.card1), CardService.parse_card_object_from_db(player.card2)]
+            player_cards[i].append(CardService.parse_card_object_from_db(player.card_1))
+            player_cards[i].append(CardService.parse_card_object_from_db(player.card_2))
         best_players = BestHandEvaluator.evaluate_all_hands(round_cards, player_cards)
         pott = GameService.select_round_player_get_all_set_chips(round_id, self.db_context)
         for player_index in best_players:
