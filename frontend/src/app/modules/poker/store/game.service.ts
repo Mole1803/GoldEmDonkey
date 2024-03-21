@@ -82,7 +82,6 @@ export class GameService {
 
       }
       if(instruction.gamestate >-1  && instruction.gamestate<4){
-        this.clientAtMove.emit();
         this.gameUpdated.emit();
         // is current player
         // @ts-ignore
@@ -190,7 +189,6 @@ export class GameService {
 
   // region Utils --------------------------
     isPlayerMoveClient(player: PlayerDto): boolean {
-    console.log(player.userId, this.username)
     return player.userId === this.username;
   }
   // endregion ------------------------------
