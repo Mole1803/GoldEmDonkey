@@ -17042,3 +17042,1340 @@ INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet MESSAGE data 2["joinG
 DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
 DEBUG:geventwebsocket.handler:Closed WebSocket
 INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"7b9dbf19-7a6b-4a00-8dbf-9fa3c5990361","position":40,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},"game":{"id":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"ce61b9a6-acb6-4e88-8dbf-61bc10591adc","position":1,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"213c74f0-6dab-4ab3-bdc7-058e30823861","position":2,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"7c322408-4e30-420e-8595-24727911d3e8","position":3,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"987a2f60-755f-490e-a252-5687649ef48f","position":4,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"c44ff3ea-6132-44a7-84fa-9dcccbd85ffe","position":5,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"c6dd19b1-03f9-4c31-851b-3c88493a098f","position":6,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e0d33a41-abc4-4b23-a050-ac7441b962c1","position":7,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"4fbd8f39-cecf-4300-bf8a-52c176e91010","position":8,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"43a32879-fad6-4145-8f35-8eb827c74860","position":9,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"43683331-7879-4cf4-8bdd-1b8b765030cb","position":10,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"87c0a75d-c4fd-4065-9f1b-ddb6c24b22a9","position":11,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9749fe07-6752-4fca-902d-f851877687ef","position":12,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"230df160-40c6-4c85-a0ed-0b93d6cb485e","position":13,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6e213917-fa99-4ca0-9a33-5b0ca3767c67","position":14,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e012b4e1-d307-42f2-b158-9fe74d632e87","position":15,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6c155326-9fa9-4478-83db-3787a7493e3d","position":16,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6fcf70c3-3d1d-4d2f-a58f-99d8c45c1c70","position":17,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"89b9b6a2-5a39-4e72-b6fb-9aa1e31b2d50","position":18,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9ec802df-c8d5-470e-9c3a-9c2d1898236d","position":19,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6a7b9278-f0a0-4858-8bf2-c3b5fc4dc6d9","position":20,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9c5f8290-e607-4c88-9e5c-900c6c1c63e8","position":21,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9186962b-1b0d-47c7-a8fb-7ac019802466","position":22,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"ab8a8eb9-3548-402c-8dee-0164a90433a6","position":23,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"7b81f62e-4aef-4fb6-817b-79d6b6034374","position":24,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"550db174-b079-4afd-9d8b-cf436f67cb14","position":25,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"de3f4253-6ed3-4b22-92cb-9f6222e63c8c","position":26,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"f8ea8a50-592f-4e11-8f0a-043672d996c8","position":27,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"3a489e60-0d76-4ac2-af8a-c8e52a32e36d","position":28,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"a4dc8f21-c9a5-4360-b18b-15f2cb1c804c","position":29,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"b0316f66-74d7-4163-84c5-eb9fe3d8ec42","position":30,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e81e9241-4cdd-475a-b6d0-0d7139ff120d","position":31,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6b1b5540-4afc-4dbc-8772-cded6bac5460","position":32,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"71528276-4016-45d0-9745-da063b765168","position":33,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"60c02e93-e3d6-4252-80c1-b742fb2128f2","position":34,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"596c1a9a-22be-4650-adc5-95c470f62896","position":35,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"c53dad40-1a5d-4e71-9826-c8829a1ac523","position":36,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e1bc5c74-7f1e-4a84-8f0c-0bbd9f4d5e5e","position":37,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"0735488f-4411-4b55-bb24-88a587455bd2","position":38,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"8d6c7110-aee7-4906-9fd4-3ef1e141abe3","position":39,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"7b9dbf19-7a6b-4a00-8dbf-9fa3c5990361","position":40,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"}],"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c"}]
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet PING data None
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet PING data None
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet PING data None
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet PING data None
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet PING data None
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet PING data None
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Sending packet PING data None
+INFO:engineio.server:J-CagloD1jiwq66iAAAQ: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:52] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.003418
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:52] "GET /game/listActiveGames HTTP/1.1" 200 338 0.007306
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet OPEN data {'sid': 'T6ozR4AirJpJEz7RAAAS', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYGL-v HTTP/1.1" 200 306 0.001272
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:55] "GET /game/listActiveGames HTTP/1.1" 200 338 0.002781
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet MESSAGE data 0
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet MESSAGE data 0{"sid":"nBqDLBUL-Q2naptaAAAT"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:55] "POST /socket.io/?EIO=4&transport=polling&t=OvYGL_c&sid=T6ozR4AirJpJEz7RAAAS HTTP/1.1" 200 195 0.006369
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYGL_d&sid=T6ozR4AirJpJEz7RAAAS HTTP/1.1" 200 241 0.000347
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYGM00&sid=T6ozR4AirJpJEz7RAAAS HTTP/1.1" 200 209 0.000619
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:23:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYGM05&sid=T6ozR4AirJpJEz7RAAAS HTTP/1.1" 200 209 0.000474
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Upgrade to websocket successful
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet MESSAGE data 2["joinGame",{"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","username":"Test"}]
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"57147948-fbd9-4766-b065-8b6c8402c9cb","position":41,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},"game":{"id":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"ce61b9a6-acb6-4e88-8dbf-61bc10591adc","position":1,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"213c74f0-6dab-4ab3-bdc7-058e30823861","position":2,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"7c322408-4e30-420e-8595-24727911d3e8","position":3,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"987a2f60-755f-490e-a252-5687649ef48f","position":4,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"c44ff3ea-6132-44a7-84fa-9dcccbd85ffe","position":5,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"c6dd19b1-03f9-4c31-851b-3c88493a098f","position":6,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e0d33a41-abc4-4b23-a050-ac7441b962c1","position":7,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"4fbd8f39-cecf-4300-bf8a-52c176e91010","position":8,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"43a32879-fad6-4145-8f35-8eb827c74860","position":9,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"43683331-7879-4cf4-8bdd-1b8b765030cb","position":10,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"87c0a75d-c4fd-4065-9f1b-ddb6c24b22a9","position":11,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9749fe07-6752-4fca-902d-f851877687ef","position":12,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"230df160-40c6-4c85-a0ed-0b93d6cb485e","position":13,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6e213917-fa99-4ca0-9a33-5b0ca3767c67","position":14,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e012b4e1-d307-42f2-b158-9fe74d632e87","position":15,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6c155326-9fa9-4478-83db-3787a7493e3d","position":16,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6fcf70c3-3d1d-4d2f-a58f-99d8c45c1c70","position":17,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"89b9b6a2-5a39-4e72-b6fb-9aa1e31b2d50","position":18,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9ec802df-c8d5-470e-9c3a-9c2d1898236d","position":19,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6a7b9278-f0a0-4858-8bf2-c3b5fc4dc6d9","position":20,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9c5f8290-e607-4c88-9e5c-900c6c1c63e8","position":21,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"9186962b-1b0d-47c7-a8fb-7ac019802466","position":22,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"ab8a8eb9-3548-402c-8dee-0164a90433a6","position":23,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"7b81f62e-4aef-4fb6-817b-79d6b6034374","position":24,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"550db174-b079-4afd-9d8b-cf436f67cb14","position":25,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"de3f4253-6ed3-4b22-92cb-9f6222e63c8c","position":26,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"f8ea8a50-592f-4e11-8f0a-043672d996c8","position":27,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"3a489e60-0d76-4ac2-af8a-c8e52a32e36d","position":28,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"a4dc8f21-c9a5-4360-b18b-15f2cb1c804c","position":29,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"b0316f66-74d7-4163-84c5-eb9fe3d8ec42","position":30,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e81e9241-4cdd-475a-b6d0-0d7139ff120d","position":31,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"6b1b5540-4afc-4dbc-8772-cded6bac5460","position":32,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"71528276-4016-45d0-9745-da063b765168","position":33,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"60c02e93-e3d6-4252-80c1-b742fb2128f2","position":34,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"596c1a9a-22be-4650-adc5-95c470f62896","position":35,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"c53dad40-1a5d-4e71-9826-c8829a1ac523","position":36,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"e1bc5c74-7f1e-4a84-8f0c-0bbd9f4d5e5e","position":37,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"0735488f-4411-4b55-bb24-88a587455bd2","position":38,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"8d6c7110-aee7-4906-9fd4-3ef1e141abe3","position":39,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"7b9dbf19-7a6b-4a00-8dbf-9fa3c5990361","position":40,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"},{"id":"57147948-fbd9-4766-b065-8b6c8402c9cb","position":41,"chips":1000,"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","userId":"Test"}],"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c"}]
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Sending packet PING data None
+INFO:engineio.server:T6ozR4AirJpJEz7RAAAS: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:46] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.000916
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:46] "GET /game/listActiveGames HTTP/1.1" 200 162 0.002239
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:48] "OPTIONS /game/createGame HTTP/1.1" 200 324 0.003248
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:48] "POST /game/createGame HTTP/1.1" 200 318 0.017685
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:50] "GET /game/listActiveGames HTTP/1.1" 200 338 0.005743
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Sending packet OPEN data {'sid': '8mkrITGoPCFDV3P3AAAU', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:57] "GET /socket.io/?EIO=4&transport=polling&t=OvYIQRr HTTP/1.1" 200 306 0.002111
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:57] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.001072
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:57] "GET /game/listActiveGames HTTP/1.1" 200 338 0.002984
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Received packet MESSAGE data 0
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Sending packet MESSAGE data 0{"sid":"y5GNI1Ve0bhRUIAPAAAV"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:57] "POST /socket.io/?EIO=4&transport=polling&t=OvYIQS3&sid=8mkrITGoPCFDV3P3AAAU HTTP/1.1" 200 195 0.001364
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:57] "GET /socket.io/?EIO=4&transport=polling&t=OvYIQS4&sid=8mkrITGoPCFDV3P3AAAU HTTP/1.1" 200 241 0.000268
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:57] "GET /socket.io/?EIO=4&transport=polling&t=OvYIQSH&sid=8mkrITGoPCFDV3P3AAAU HTTP/1.1" 200 209 0.000668
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:32:57] "GET /socket.io/?EIO=4&transport=polling&t=OvYIQSL&sid=8mkrITGoPCFDV3P3AAAU HTTP/1.1" 200 209 0.000330
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Upgrade to websocket successful
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Received packet MESSAGE data 2["joinGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","username":"Test"}]
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},"game":{"id":"45477e5d-2e34-4022-8517-3cede0ec8c9f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"}],"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Received packet MESSAGE data 20["startGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]
+INFO:engineio.server:8mkrITGoPCFDV3P3AAAU: Sending packet MESSAGE data 2["startGame"]
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet OPEN data {'sid': 'UNYJic2Tbce6RKI_AAAW', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:32] "GET /socket.io/?EIO=4&transport=polling&t=OvYInVb HTTP/1.1" 200 306 0.001337
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:32] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.001226
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:32] "GET /game/listActiveGames HTTP/1.1" 200 338 0.002138
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet MESSAGE data 0
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet MESSAGE data 0{"sid":"h6BUaqffyr6HziJ0AAAX"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:32] "POST /socket.io/?EIO=4&transport=polling&t=OvYInVo&sid=UNYJic2Tbce6RKI_AAAW HTTP/1.1" 200 195 0.001000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:32] "GET /socket.io/?EIO=4&transport=polling&t=OvYInVp&sid=UNYJic2Tbce6RKI_AAAW HTTP/1.1" 200 241 0.000346
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:32] "GET /socket.io/?EIO=4&transport=polling&t=OvYInVy&sid=UNYJic2Tbce6RKI_AAAW HTTP/1.1" 200 209 0.000530
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:32] "GET /socket.io/?EIO=4&transport=polling&t=OvYInV-&sid=UNYJic2Tbce6RKI_AAAW HTTP/1.1" 200 209 0.000275
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Upgrade to websocket successful
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet MESSAGE data 2["joinGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","username":"Test"}]
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"10cce97b-5d38-4d7c-a02f-7ecc03c41dc2","position":2,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},"game":{"id":"45477e5d-2e34-4022-8517-3cede0ec8c9f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"10cce97b-5d38-4d7c-a02f-7ecc03c41dc2","position":2,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"}],"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:37] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.001526
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:34:37] "GET /game/listActiveGames HTTP/1.1" 200 338 0.002423
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet PING data None
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet PING data None
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet PING data None
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet PING data None
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet PING data None
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet PING data None
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Sending packet PING data None
+INFO:engineio.server:UNYJic2Tbce6RKI_AAAW: Received packet PONG data 
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Sending packet PING data None
+INFO:engineio.server:Sc1ggcx67grmSC-yAAAO: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Sending packet OPEN data {'sid': 'tyrcXjyAAMT-evK9AAAY', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "GET /socket.io/?EIO=4&transport=polling&t=OvYJhpm HTTP/1.1" 200 306 0.019449
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Received packet MESSAGE data 0
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Sending packet MESSAGE data 0{"sid":"ZrqZpBpP4nBwQgK4AAAZ"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "POST /socket.io/?EIO=4&transport=polling&t=OvYJhqe&sid=tyrcXjyAAMT-evK9AAAY HTTP/1.1" 200 195 0.010158
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "GET /socket.io/?EIO=4&transport=polling&t=OvYJhqe.0&sid=tyrcXjyAAMT-evK9AAAY HTTP/1.1" 200 209 0.001611
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Sending packet OPEN data {'sid': 'r9ZHy6wZmcK1izUlAAAa', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "GET /socket.io/?EIO=4&transport=polling&t=OvYJhqr HTTP/1.1" 200 306 0.000883
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "GET /socket.io/?EIO=4&transport=polling&t=OvYJhrD&sid=tyrcXjyAAMT-evK9AAAY HTTP/1.1" 200 209 0.000415
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Received packet MESSAGE data 0
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Sending packet MESSAGE data 0{"sid":"QHnCjKfppqcVHPnnAAAb"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "POST /socket.io/?EIO=4&transport=polling&t=OvYJhrD&sid=r9ZHy6wZmcK1izUlAAAa HTTP/1.1" 200 195 0.000835
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "GET /socket.io/?EIO=4&transport=polling&t=OvYJhrE&sid=r9ZHy6wZmcK1izUlAAAa HTTP/1.1" 200 209 0.000147
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:31] "GET /socket.io/?EIO=4&transport=polling&t=OvYJhrJ&sid=tyrcXjyAAMT-evK9AAAY HTTP/1.1" 200 209 0.000218
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Upgrade to websocket successful
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:35] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.003191
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:35] "GET /game/listActiveGames HTTP/1.1" 200 338 0.005119
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:38:37] "GET /game/listActiveGames HTTP/1.1" 200 338 0.007437
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Sending packet PING data None
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Received packet PONG data 
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Sending packet PING data None
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Received packet PONG data 
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Sending packet PING data None
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Received packet PONG data 
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Sending packet PING data None
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Received packet PONG data 
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Sending packet PING data None
+INFO:engineio.server:tyrcXjyAAMT-evK9AAAY: Received packet PONG data 
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Sending packet PING data None
+INFO:engineio.server:r9ZHy6wZmcK1izUlAAAa: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:771CWFtLA4gBQvsyAAAc: Sending packet OPEN data {'sid': '771CWFtLA4gBQvsyAAAc', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYK4ZR HTTP/1.1" 200 306 0.000370
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:771CWFtLA4gBQvsyAAAc: Received packet MESSAGE data 0
+INFO:engineio.server:771CWFtLA4gBQvsyAAAc: Sending packet MESSAGE data 0{"sid":"P8shPUrwcxcNWu3zAAAd"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "POST /socket.io/?EIO=4&transport=polling&t=OvYK4Zg&sid=771CWFtLA4gBQvsyAAAc HTTP/1.1" 200 195 0.004140
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:771CWFtLA4gBQvsyAAAc: Received request to upgrade to websocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYK4Zh&sid=771CWFtLA4gBQvsyAAAc HTTP/1.1" 200 241 0.007087
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYK4Zt&sid=771CWFtLA4gBQvsyAAAc HTTP/1.1" 200 209 0.000211
+INFO:engineio.server:771CWFtLA4gBQvsyAAAc: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:o816diDP_-CXLTi0AAAe: Sending packet OPEN data {'sid': 'o816diDP_-CXLTi0AAAe', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYK4ek HTTP/1.1" 200 306 0.000338
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:o816diDP_-CXLTi0AAAe: Received packet MESSAGE data 0
+INFO:engineio.server:o816diDP_-CXLTi0AAAe: Sending packet MESSAGE data 0{"sid":"LMhrPYgSLG7NMwlTAAAf"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "POST /socket.io/?EIO=4&transport=polling&t=OvYK4ew&sid=o816diDP_-CXLTi0AAAe HTTP/1.1" 200 195 0.000587
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:o816diDP_-CXLTi0AAAe: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYK4ex&sid=o816diDP_-CXLTi0AAAe HTTP/1.1" 200 209 0.000177
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYK4f2&sid=o816diDP_-CXLTi0AAAe HTTP/1.1" 200 209 0.000266
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYK4fE&sid=o816diDP_-CXLTi0AAAe HTTP/1.1" 200 209 0.000509
+INFO:engineio.server:o816diDP_-CXLTi0AAAe: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:15] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.001819
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:15] "GET /game/listActiveGames HTTP/1.1" 200 338 0.003984
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:40:17] "GET /game/listActiveGames HTTP/1.1" 200 338 0.012387
+INFO:engineio.server:771CWFtLA4gBQvsyAAAc: Sending packet PING data None
+INFO:engineio.server:771CWFtLA4gBQvsyAAAc: Received packet PONG data 
+INFO:engineio.server:o816diDP_-CXLTi0AAAe: Sending packet PING data None
+INFO:engineio.server:o816diDP_-CXLTi0AAAe: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Sending packet OPEN data {'sid': 'efXTkmciXONlbk32AAAg', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:11] "GET /socket.io/?EIO=4&transport=polling&t=OvYKJ0b HTTP/1.1" 200 306 0.002781
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Received packet MESSAGE data 0
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Sending packet MESSAGE data 0{"sid":"M7hY_HlDWLuB_bEvAAAh"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:11] "POST /socket.io/?EIO=4&transport=polling&t=OvYKJ0o&sid=efXTkmciXONlbk32AAAg HTTP/1.1" 200 195 0.001624
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:11] "GET /socket.io/?EIO=4&transport=polling&t=OvYKJ0p&sid=efXTkmciXONlbk32AAAg HTTP/1.1" 200 209 0.000509
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:11] "GET /socket.io/?EIO=4&transport=polling&t=OvYKJ0y&sid=efXTkmciXONlbk32AAAg HTTP/1.1" 200 209 0.000948
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:djuRt6BnDY8gT0ucAAAi: Sending packet OPEN data {'sid': 'djuRt6BnDY8gT0ucAAAi', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYKJ6Q HTTP/1.1" 200 306 0.000392
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:12] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.000427
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:12] "GET /game/listActiveGames HTTP/1.1" 200 338 0.001320
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:djuRt6BnDY8gT0ucAAAi: Received packet MESSAGE data 0
+INFO:engineio.server:djuRt6BnDY8gT0ucAAAi: Sending packet MESSAGE data 0{"sid":"YpqN5GmTAOOpjVIHAAAj"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:12] "POST /socket.io/?EIO=4&transport=polling&t=OvYKJ6W&sid=djuRt6BnDY8gT0ucAAAi HTTP/1.1" 200 195 0.001040
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYKJ6X&sid=djuRt6BnDY8gT0ucAAAi HTTP/1.1" 200 241 0.000896
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:djuRt6BnDY8gT0ucAAAi: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYKJ6f&sid=djuRt6BnDY8gT0ucAAAi HTTP/1.1" 200 209 0.000393
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:12] "GET /socket.io/?EIO=4&transport=polling&t=OvYKJ6i&sid=djuRt6BnDY8gT0ucAAAi HTTP/1.1" 200 209 0.000180
+INFO:engineio.server:djuRt6BnDY8gT0ucAAAi: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Sending packet OPEN data {'sid': 'QOHh06_edq4b__RyAAAk', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:16] "GET /socket.io/?EIO=4&transport=polling&t=OvYKK8i HTTP/1.1" 200 306 0.000804
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:16] "GET /game/listActiveGames HTTP/1.1" 200 338 0.002451
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Received packet MESSAGE data 0
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Sending packet MESSAGE data 0{"sid":"QsWGEepTZk3BTUaDAAAl"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:16] "POST /socket.io/?EIO=4&transport=polling&t=OvYKK8s&sid=QOHh06_edq4b__RyAAAk HTTP/1.1" 200 195 0.001869
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:16] "GET /socket.io/?EIO=4&transport=polling&t=OvYKK8s.0&sid=QOHh06_edq4b__RyAAAk HTTP/1.1" 200 241 0.000555
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:16] "GET /socket.io/?EIO=4&transport=polling&t=OvYKK8z&sid=QOHh06_edq4b__RyAAAk HTTP/1.1" 200 209 0.000279
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:16] "GET /socket.io/?EIO=4&transport=polling&t=OvYKK90&sid=QOHh06_edq4b__RyAAAk HTTP/1.1" 200 209 0.000258
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:18] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.002682
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:18] "GET /game/listActiveGames HTTP/1.1" 200 338 0.007092
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:19] "GET /game/listActiveGames HTTP/1.1" 200 338 0.004902
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:41:20] "GET /game/listActiveGames HTTP/1.1" 200 338 0.004810
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Sending packet PING data None
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Received packet PONG data 
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Sending packet PING data None
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Received packet PONG data 
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Sending packet PING data None
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Received packet PONG data 
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Sending packet PING data None
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Received packet PONG data 
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Sending packet PING data None
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Received packet PONG data 
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Sending packet PING data None
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Received packet PONG data 
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Sending packet PING data None
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Received packet PONG data 
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Sending packet PING data None
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Received packet PONG data 
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Sending packet PING data None
+INFO:engineio.server:efXTkmciXONlbk32AAAg: Received packet PONG data 
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Sending packet PING data None
+INFO:engineio.server:QOHh06_edq4b__RyAAAk: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Sending packet OPEN data {'sid': 's-YWQEPN5ifYBVVIAAAm', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYKwvg HTTP/1.1" 200 306 0.011293
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Received packet MESSAGE data 0
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Sending packet MESSAGE data 0{"sid":"mzM2FrP1ISrb7elkAAAn"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "POST /socket.io/?EIO=4&transport=polling&t=OvYKwwI&sid=s-YWQEPN5ifYBVVIAAAm HTTP/1.1" 200 195 0.000497
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYKwwJ&sid=s-YWQEPN5ifYBVVIAAAm HTTP/1.1" 200 241 0.000115
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYKwwe&sid=s-YWQEPN5ifYBVVIAAAm HTTP/1.1" 200 209 0.004678
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Sending packet OPEN data {'sid': 'cvlXESR4pgn9W3InAAAo', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYKx08 HTTP/1.1" 200 306 0.000769
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.000660
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /game/listActiveGames HTTP/1.1" 200 338 0.001230
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Received packet MESSAGE data 0
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Sending packet MESSAGE data 0{"sid":"OYTgU9qgf2Hkb2v7AAAp"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "POST /socket.io/?EIO=4&transport=polling&t=OvYKx0M&sid=cvlXESR4pgn9W3InAAAo HTTP/1.1" 200 195 0.000522
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYKx0N&sid=cvlXESR4pgn9W3InAAAo HTTP/1.1" 200 241 0.000108
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYKx0Z&sid=cvlXESR4pgn9W3InAAAo HTTP/1.1" 200 209 0.000238
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:55] "GET /socket.io/?EIO=4&transport=polling&t=OvYKx0h&sid=cvlXESR4pgn9W3InAAAo HTTP/1.1" 200 209 0.000232
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:43:59] "GET /game/listActiveGames HTTP/1.1" 200 338 0.004285
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Sending packet PING data None
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Received packet PONG data 
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Sending packet PING data None
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Received packet PONG data 
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Sending packet PING data None
+INFO:engineio.server:s-YWQEPN5ifYBVVIAAAm: Received packet PONG data 
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Sending packet PING data None
+INFO:engineio.server:cvlXESR4pgn9W3InAAAo: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:DeCMExL2LKRUpOKJAAAq: Sending packet OPEN data {'sid': 'DeCMExL2LKRUpOKJAAAq', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB6K HTTP/1.1" 200 306 0.000353
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.005352
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:DeCMExL2LKRUpOKJAAAq: Received packet MESSAGE data 0
+INFO:engineio.server:DeCMExL2LKRUpOKJAAAq: Sending packet MESSAGE data 0{"sid":"HGHcx0YnJvxnGCeCAAAr"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "POST /socket.io/?EIO=4&transport=polling&t=OvYLB6d&sid=DeCMExL2LKRUpOKJAAAq HTTP/1.1" 200 195 0.000491
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:DeCMExL2LKRUpOKJAAAq: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB6d.0&sid=DeCMExL2LKRUpOKJAAAq HTTP/1.1" 200 209 0.000142
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /game/listActiveGames HTTP/1.1" 200 338 0.008388
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB6o&sid=DeCMExL2LKRUpOKJAAAq HTTP/1.1" 200 209 0.002479
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB6y&sid=DeCMExL2LKRUpOKJAAAq HTTP/1.1" 200 209 0.003902
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB76&sid=DeCMExL2LKRUpOKJAAAq HTTP/1.1" 200 209 0.003076
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB7E&sid=DeCMExL2LKRUpOKJAAAq HTTP/1.1" 200 209 0.002265
+INFO:engineio.server:DeCMExL2LKRUpOKJAAAq: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:CjzxH36KhsxHB16CAAAs: Sending packet OPEN data {'sid': 'CjzxH36KhsxHB16CAAAs', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB7Y HTTP/1.1" 200 306 0.004571
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:CjzxH36KhsxHB16CAAAs: Received packet MESSAGE data 0
+INFO:engineio.server:CjzxH36KhsxHB16CAAAs: Sending packet MESSAGE data 0{"sid":"_yMdnnL1F3khhsA5AAAt"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "POST /socket.io/?EIO=4&transport=polling&t=OvYLB7-&sid=CjzxH36KhsxHB16CAAAs HTTP/1.1" 200 195 0.000742
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:CjzxH36KhsxHB16CAAAs: Received request to upgrade to websocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB7_&sid=CjzxH36KhsxHB16CAAAs HTTP/1.1" 200 241 0.003172
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:01] "GET /socket.io/?EIO=4&transport=polling&t=OvYLB8A&sid=CjzxH36KhsxHB16CAAAs HTTP/1.1" 200 209 0.010792
+INFO:engineio.server:CjzxH36KhsxHB16CAAAs: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:f7FOuFkepe0z8DAiAAAu: Sending packet OPEN data {'sid': 'f7FOuFkepe0z8DAiAAAu', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /socket.io/?EIO=4&transport=polling&t=OvYLFX- HTTP/1.1" 200 306 0.000362
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.001045
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /game/listActiveGames HTTP/1.1" 200 338 0.005708
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:f7FOuFkepe0z8DAiAAAu: Received packet MESSAGE data 0
+INFO:engineio.server:f7FOuFkepe0z8DAiAAAu: Sending packet MESSAGE data 0{"sid":"hyPOKciO776-2FQuAAAv"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "POST /socket.io/?EIO=4&transport=polling&t=OvYLFYC&sid=f7FOuFkepe0z8DAiAAAu HTTP/1.1" 200 195 0.000632
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /socket.io/?EIO=4&transport=polling&t=OvYLFYE&sid=f7FOuFkepe0z8DAiAAAu HTTP/1.1" 200 241 0.000180
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:f7FOuFkepe0z8DAiAAAu: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /socket.io/?EIO=4&transport=polling&t=OvYLFYV&sid=f7FOuFkepe0z8DAiAAAu HTTP/1.1" 200 209 0.000327
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /socket.io/?EIO=4&transport=polling&t=OvYLFYb&sid=f7FOuFkepe0z8DAiAAAu HTTP/1.1" 200 209 0.000214
+INFO:engineio.server:f7FOuFkepe0z8DAiAAAu: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:7fMKYxDNTkcrjQscAAAw: Sending packet OPEN data {'sid': '7fMKYxDNTkcrjQscAAAw', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /socket.io/?EIO=4&transport=polling&t=OvYLFZs HTTP/1.1" 200 306 0.000337
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:7fMKYxDNTkcrjQscAAAw: Received packet MESSAGE data 0
+INFO:engineio.server:7fMKYxDNTkcrjQscAAAw: Sending packet MESSAGE data 0{"sid":"y3bc_EkTt0f3E5jlAAAx"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "POST /socket.io/?EIO=4&transport=polling&t=OvYLFZ_&sid=7fMKYxDNTkcrjQscAAAw HTTP/1.1" 200 195 0.000509
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:7fMKYxDNTkcrjQscAAAw: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /socket.io/?EIO=4&transport=polling&t=OvYLFa0&sid=7fMKYxDNTkcrjQscAAAw HTTP/1.1" 200 209 0.000402
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:19] "GET /socket.io/?EIO=4&transport=polling&t=OvYLFa4&sid=7fMKYxDNTkcrjQscAAAw HTTP/1.1" 200 209 0.000190
+INFO:engineio.server:7fMKYxDNTkcrjQscAAAw: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:21] "GET /game/listActiveGames HTTP/1.1" 200 338 0.009389
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet OPEN data {'sid': 'FQ2usaefPd6AS3peAAAy', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLQt HTTP/1.1" 200 306 0.003040
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet MESSAGE data 0
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet MESSAGE data 0{"sid":"5VatghbAnjnxxJ04AAAz"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "POST /socket.io/?EIO=4&transport=polling&t=OvYLLR8&sid=FQ2usaefPd6AS3peAAAy HTTP/1.1" 200 195 0.000714
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLR9&sid=FQ2usaefPd6AS3peAAAy HTTP/1.1" 200 241 0.001184
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLRH&sid=FQ2usaefPd6AS3peAAAy HTTP/1.1" 200 209 0.000225
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLRL&sid=FQ2usaefPd6AS3peAAAy HTTP/1.1" 200 209 0.003282
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet OPEN data {'sid': '8fYhUmB95ofoxAdtAAA0', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLRb HTTP/1.1" 200 306 0.000373
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet MESSAGE data 0
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet MESSAGE data 0{"sid":"x37iADc0RLMMZOXQAAA1"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "POST /socket.io/?EIO=4&transport=polling&t=OvYLLRj&sid=8fYhUmB95ofoxAdtAAA0 HTTP/1.1" 200 195 0.000536
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLRk&sid=8fYhUmB95ofoxAdtAAA0 HTTP/1.1" 200 241 0.000136
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLRs&sid=8fYhUmB95ofoxAdtAAA0 HTTP/1.1" 200 209 0.000251
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:43] "GET /socket.io/?EIO=4&transport=polling&t=OvYLLRz&sid=8fYhUmB95ofoxAdtAAA0 HTTP/1.1" 200 209 0.000238
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:48] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.002452
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:45:48] "GET /game/listActiveGames HTTP/1.1" 200 338 0.003982
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Sending packet PING data None
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Sending packet PING data None
+INFO:engineio.server:FQ2usaefPd6AS3peAAAy: Received packet PONG data 
+INFO:engineio.server:8fYhUmB95ofoxAdtAAA0: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Sending packet OPEN data {'sid': 'ihomwe2qQq75SqqbAAA2', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "GET /socket.io/?EIO=4&transport=polling&t=OvYNKAF HTTP/1.1" 200 306 0.018621
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Sending packet OPEN data {'sid': 'stEAIOgcbBKUBkM7AAA3', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "GET /socket.io/?EIO=4&transport=polling&t=OvYNKAU HTTP/1.1" 200 306 0.000478
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Received packet MESSAGE data 0
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Sending packet MESSAGE data 0{"sid":"3i9omzxjjubNHNUyAAA4"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "POST /socket.io/?EIO=4&transport=polling&t=OvYNKAf&sid=ihomwe2qQq75SqqbAAA2 HTTP/1.1" 200 195 0.000546
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Received packet MESSAGE data 0
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Sending packet MESSAGE data 0{"sid":"hFczbTqO9F8H-IcEAAA5"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "POST /socket.io/?EIO=4&transport=polling&t=OvYNKAh&sid=stEAIOgcbBKUBkM7AAA3 HTTP/1.1" 200 195 0.000270
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "GET /socket.io/?EIO=4&transport=polling&t=OvYNKAi&sid=stEAIOgcbBKUBkM7AAA3 HTTP/1.1" 200 209 0.000292
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "GET /socket.io/?EIO=4&transport=polling&t=OvYNKAg&sid=ihomwe2qQq75SqqbAAA2 HTTP/1.1" 200 209 0.000256
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "GET /socket.io/?EIO=4&transport=polling&t=OvYNKAo&sid=stEAIOgcbBKUBkM7AAA3 HTTP/1.1" 200 209 0.000967
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:22] "GET /socket.io/?EIO=4&transport=polling&t=OvYNKAq&sid=ihomwe2qQq75SqqbAAA2 HTTP/1.1" 200 209 0.000269
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Upgrade to websocket successful
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Received packet MESSAGE data 2["joinGame",{"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","username":"Test"}]
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:28] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.003696
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:54:28] "GET /game/listActiveGames HTTP/1.1" 200 338 0.003702
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Received packet MESSAGE data 2["joinGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","username":"Test"}]
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"193f1e4c-50a9-41c8-98b7-5b56fbebb3bb","position":3,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},"game":{"id":"45477e5d-2e34-4022-8517-3cede0ec8c9f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"10cce97b-5d38-4d7c-a02f-7ecc03c41dc2","position":2,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"193f1e4c-50a9-41c8-98b7-5b56fbebb3bb","position":3,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"}],"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Sending packet PING data None
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Sending packet PING data None
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Received packet PONG data 
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Received packet PONG data 
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Sending packet PING data None
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Sending packet PING data None
+INFO:engineio.server:stEAIOgcbBKUBkM7AAA3: Received packet PONG data 
+INFO:engineio.server:ihomwe2qQq75SqqbAAA2: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:n9uW7L52OClJmnUHAAA6: Sending packet OPEN data {'sid': 'n9uW7L52OClJmnUHAAA6', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "GET /socket.io/?EIO=4&transport=polling&t=OvYNe3d HTTP/1.1" 200 306 0.000349
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:n9uW7L52OClJmnUHAAA6: Received packet MESSAGE data 0
+INFO:engineio.server:n9uW7L52OClJmnUHAAA6: Sending packet MESSAGE data 0{"sid":"584ruhMX-i6PzrOOAAA7"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "POST /socket.io/?EIO=4&transport=polling&t=OvYNe3x&sid=n9uW7L52OClJmnUHAAA6 HTTP/1.1" 200 195 0.005143
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:n9uW7L52OClJmnUHAAA6: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "GET /socket.io/?EIO=4&transport=polling&t=OvYNe3y&sid=n9uW7L52OClJmnUHAAA6 HTTP/1.1" 200 209 0.000195
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "GET /socket.io/?EIO=4&transport=polling&t=OvYNe4C&sid=n9uW7L52OClJmnUHAAA6 HTTP/1.1" 200 209 0.000251
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "GET /socket.io/?EIO=4&transport=polling&t=OvYNe4L&sid=n9uW7L52OClJmnUHAAA6 HTTP/1.1" 200 209 0.001161
+INFO:engineio.server:n9uW7L52OClJmnUHAAA6: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Sending packet OPEN data {'sid': 't0_OwAZrYFmocrqYAAA8', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "GET /socket.io/?EIO=4&transport=polling&t=OvYNe4Y HTTP/1.1" 200 306 0.002043
+INFO:engineio.server:n9uW7L52OClJmnUHAAA6: Received packet MESSAGE data 2["joinGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","username":"Test"}]
+INFO:engineio.server:n9uW7L52OClJmnUHAAA6: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"af3bb238-a3c9-4bcd-b341-005121b8f5f4","position":4,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},"game":{"id":"45477e5d-2e34-4022-8517-3cede0ec8c9f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"10cce97b-5d38-4d7c-a02f-7ecc03c41dc2","position":2,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"193f1e4c-50a9-41c8-98b7-5b56fbebb3bb","position":3,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"af3bb238-a3c9-4bcd-b341-005121b8f5f4","position":4,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"}],"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Received packet MESSAGE data 0
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Sending packet MESSAGE data 0{"sid":"ionRoyIiqqJob7afAAA9"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "POST /socket.io/?EIO=4&transport=polling&t=OvYNe4n&sid=t0_OwAZrYFmocrqYAAA8 HTTP/1.1" 200 195 0.002689
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Received request to upgrade to websocket
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "GET /socket.io/?EIO=4&transport=polling&t=OvYNe4o&sid=t0_OwAZrYFmocrqYAAA8 HTTP/1.1" 200 241 0.005669
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Received packet MESSAGE data 2["joinGame",{"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","username":"Test"}]
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "POST /socket.io/?EIO=4&transport=polling&t=OvYNe5K&sid=t0_OwAZrYFmocrqYAAA8 HTTP/1.1" 200 195 0.000375
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:44] "GET /socket.io/?EIO=4&transport=polling&t=OvYNe5J&sid=t0_OwAZrYFmocrqYAAA8 HTTP/1.1" 200 209 0.000240
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Sending packet OPEN data {'sid': '-MjFj84hXjAP6HwLAAA-', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:49] "GET /socket.io/?EIO=4&transport=polling&t=OvYNfKp HTTP/1.1" 200 306 0.000942
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Received packet MESSAGE data 0
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Sending packet MESSAGE data 0{"sid":"rYb4-SaRCy-ssD-OAAA_"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:49] "POST /socket.io/?EIO=4&transport=polling&t=OvYNfKw&sid=-MjFj84hXjAP6HwLAAA- HTTP/1.1" 200 195 0.001686
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:49] "GET /socket.io/?EIO=4&transport=polling&t=OvYNfKx&sid=-MjFj84hXjAP6HwLAAA- HTTP/1.1" 200 241 0.000439
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:49] "GET /socket.io/?EIO=4&transport=polling&t=OvYNfL0&sid=-MjFj84hXjAP6HwLAAA- HTTP/1.1" 200 209 0.000385
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Received packet MESSAGE data 2["joinGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","username":"Test"}]
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:49] "POST /socket.io/?EIO=4&transport=polling&t=OvYNfL0.0&sid=-MjFj84hXjAP6HwLAAA- HTTP/1.1" 200 195 0.000500
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"497c5015-1ab7-4381-9bef-a43fe394af41","position":5,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},"game":{"id":"45477e5d-2e34-4022-8517-3cede0ec8c9f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"10cce97b-5d38-4d7c-a02f-7ecc03c41dc2","position":2,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"193f1e4c-50a9-41c8-98b7-5b56fbebb3bb","position":3,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"af3bb238-a3c9-4bcd-b341-005121b8f5f4","position":4,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"497c5015-1ab7-4381-9bef-a43fe394af41","position":5,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"}],"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:55:49] "GET /socket.io/?EIO=4&transport=polling&t=OvYNfL4&sid=-MjFj84hXjAP6HwLAAA- HTTP/1.1" 200 209 0.000460
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Upgrade to websocket successful
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Sending packet PING data None
+INFO:engineio.server:t0_OwAZrYFmocrqYAAA8: Received packet PONG data 
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Sending packet PING data None
+INFO:engineio.server:-MjFj84hXjAP6HwLAAA-: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet OPEN data {'sid': 'nuUE15jhlLAxEfSWAABA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpPj HTTP/1.1" 200 306 0.000398
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet MESSAGE data 0
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet MESSAGE data 0{"sid":"S3zEjt3bRmAEEwqUAABB"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "POST /socket.io/?EIO=4&transport=polling&t=OvYNpPs&sid=nuUE15jhlLAxEfSWAABA HTTP/1.1" 200 195 0.008832
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpPt&sid=nuUE15jhlLAxEfSWAABA HTTP/1.1" 200 241 0.000470
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpQE&sid=nuUE15jhlLAxEfSWAABA HTTP/1.1" 200 209 0.000739
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet MESSAGE data 2["joinGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","username":"Test"}]
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "POST /socket.io/?EIO=4&transport=polling&t=OvYNpQF&sid=nuUE15jhlLAxEfSWAABA HTTP/1.1" 200 195 0.001908
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"77424f86-afab-4481-ae73-1f52397c842b","position":6,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},"game":{"id":"45477e5d-2e34-4022-8517-3cede0ec8c9f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"10cce97b-5d38-4d7c-a02f-7ecc03c41dc2","position":2,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"193f1e4c-50a9-41c8-98b7-5b56fbebb3bb","position":3,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"af3bb238-a3c9-4bcd-b341-005121b8f5f4","position":4,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"497c5015-1ab7-4381-9bef-a43fe394af41","position":5,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"77424f86-afab-4481-ae73-1f52397c842b","position":6,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"}],"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpQT&sid=nuUE15jhlLAxEfSWAABA HTTP/1.1" 200 209 0.000212
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpQk&sid=nuUE15jhlLAxEfSWAABA HTTP/1.1" 200 209 0.000242
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet OPEN data {'sid': 'sbr5nK4wAcZlLz58AABC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpR3 HTTP/1.1" 200 306 0.018856
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet MESSAGE data 0
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet MESSAGE data 0{"sid":"sO-1_fqMH5rBffo7AABD"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "POST /socket.io/?EIO=4&transport=polling&t=OvYNpRd&sid=sbr5nK4wAcZlLz58AABC HTTP/1.1" 200 195 0.002079
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpRe&sid=sbr5nK4wAcZlLz58AABC HTTP/1.1" 200 241 0.000266
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet MESSAGE data 2["joinGame",{"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","username":"Test"}]
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "POST /socket.io/?EIO=4&transport=polling&t=OvYNpRk.0&sid=sbr5nK4wAcZlLz58AABC HTTP/1.1" 200 195 0.000410
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:56:30] "GET /socket.io/?EIO=4&transport=polling&t=OvYNpRk&sid=sbr5nK4wAcZlLz58AABC HTTP/1.1" 200 209 0.000472
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Upgrade to websocket successful
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:57:24] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.001582
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 19:57:24] "GET /game/listActiveGames HTTP/1.1" 200 338 0.002918
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Sending packet PING data None
+INFO:engineio.server:nuUE15jhlLAxEfSWAABA: Received packet PONG data 
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Sending packet PING data None
+INFO:engineio.server:sbr5nK4wAcZlLz58AABC: Received packet PONG data 
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:eW7_-pLPac-_QdaKAABE: Sending packet OPEN data {'sid': 'eW7_-pLPac-_QdaKAABE', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "GET /socket.io/?EIO=4&transport=polling&t=OvYR1j5 HTTP/1.1" 200 306 0.000854
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:eW7_-pLPac-_QdaKAABE: Received packet MESSAGE data 0
+INFO:engineio.server:eW7_-pLPac-_QdaKAABE: Sending packet MESSAGE data 0{"sid":"u7hRQcnImoNOljyzAABF"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "POST /socket.io/?EIO=4&transport=polling&t=OvYR1jH&sid=eW7_-pLPac-_QdaKAABE HTTP/1.1" 200 195 0.003340
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:eW7_-pLPac-_QdaKAABE: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "GET /socket.io/?EIO=4&transport=polling&t=OvYR1jI&sid=eW7_-pLPac-_QdaKAABE HTTP/1.1" 200 209 0.000144
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "GET /socket.io/?EIO=4&transport=polling&t=OvYR1jR&sid=eW7_-pLPac-_QdaKAABE HTTP/1.1" 200 209 0.000281
+INFO:engineio.server:eW7_-pLPac-_QdaKAABE: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:engineio.server:skHk5CvZNwoCFGUtAABG: Sending packet OPEN data {'sid': 'skHk5CvZNwoCFGUtAABG', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "GET /socket.io/?EIO=4&transport=polling&t=OvYR1kA HTTP/1.1" 200 306 0.000340
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:engineio.server:skHk5CvZNwoCFGUtAABG: Received packet MESSAGE data 0
+INFO:engineio.server:skHk5CvZNwoCFGUtAABG: Sending packet MESSAGE data 0{"sid":"pY48vfux0_d13pAVAABH"}
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "POST /socket.io/?EIO=4&transport=polling&t=OvYR1kV&sid=skHk5CvZNwoCFGUtAABG HTTP/1.1" 200 195 0.000714
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:engineio.server:skHk5CvZNwoCFGUtAABG: Received request to upgrade to websocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "GET /socket.io/?EIO=4&transport=polling&t=OvYR1kW&sid=skHk5CvZNwoCFGUtAABG HTTP/1.1" 200 209 0.000163
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:35] "GET /socket.io/?EIO=4&transport=polling&t=OvYR1kZ&sid=skHk5CvZNwoCFGUtAABG HTTP/1.1" 200 209 0.000272
+INFO:engineio.server:skHk5CvZNwoCFGUtAABG: Upgrade to websocket successful
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+INFO:engineio.server:skHk5CvZNwoCFGUtAABG: Received packet MESSAGE data 2["joinGame",{"gameId":"09d44e88-5d7e-4ff7-b5db-0702e28e288c","username":"Test"}]
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Can only upgrade connection if using GET method.
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:38] "OPTIONS /game/listActiveGames HTTP/1.1" 200 315 0.003493
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2024-03-21 20:10:38] "GET /game/listActiveGames HTTP/1.1" 200 338 0.005612
+INFO:engineio.server:eW7_-pLPac-_QdaKAABE: Received packet MESSAGE data 2["joinGame",{"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","username":"Test"}]
+INFO:engineio.server:eW7_-pLPac-_QdaKAABE: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"9bde9623-3c95-4925-a2ff-1237c59c0425","position":7,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},"game":{"id":"45477e5d-2e34-4022-8517-3cede0ec8c9f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5fddbec0-e6d5-49fe-bbf5-0cea81b08de9","position":1,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"10cce97b-5d38-4d7c-a02f-7ecc03c41dc2","position":2,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"193f1e4c-50a9-41c8-98b7-5b56fbebb3bb","position":3,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"af3bb238-a3c9-4bcd-b341-005121b8f5f4","position":4,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"497c5015-1ab7-4381-9bef-a43fe394af41","position":5,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"77424f86-afab-4481-ae73-1f52397c842b","position":6,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"},{"id":"9bde9623-3c95-4925-a2ff-1237c59c0425","position":7,"chips":1000,"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f","userId":"Test"}],"gameId":"45477e5d-2e34-4022-8517-3cede0ec8c9f"}]

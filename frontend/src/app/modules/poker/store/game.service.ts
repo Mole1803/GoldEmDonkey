@@ -89,7 +89,7 @@ export class GameService {
   }
 
   gameJoinedFn(data:  {player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}){
-          this.game = data.game
+      this.game = data.game
       this.playerList = data.players
   }
 

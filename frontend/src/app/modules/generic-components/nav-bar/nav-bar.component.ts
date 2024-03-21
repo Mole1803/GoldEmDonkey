@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class NavBarComponent {
   constructor(private router: Router) { }
+  isOpen:boolean = false
 
   logout() {
     AuthStore.logout()
