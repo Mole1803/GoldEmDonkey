@@ -72,7 +72,7 @@ class PokerHandler:
         player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
         game=GameService.select_game_by_id(game_id,self.db_context)
         max_chips=GameService.select_round_player_current_max_set_chips(game.active_round,self.db_context)
-        player_round = GameService.select_round_player_by_round_id(game.active_round, self.db_context)
+        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player_id, self.db_context)
         diff=max_chips-player_round.set_chips
         player=GameService.select_player_by_player_id(player_round.id_player,self.db_context)
         GameService.update_player_set_chips_player(player_round.id_player,player.chips-diff,self.db_context)
@@ -82,7 +82,7 @@ class PokerHandler:
         player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
         game = GameService.select_game_by_id(game_id, self.db_context)
         max_chips = GameService.select_round_player_current_max_set_chips(game.active_round, self.db_context)
-        player_round = GameService.select_round_player_by_round_id(game.active_round, self.db_context)
+        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player_id, self.db_context)
         diff = max_chips + amount - player_round.set_chips
         player = GameService.select_player_by_player_id(player_round.id_player, self.db_context)
         GameService.update_game_set_chips(game_id, max_chips+amount, self.db_context),
@@ -148,9 +148,10 @@ class PokerHandler:
         self.instructionQueue.put(data)
 
     def perform_after_round(self, round_id, players, round_cards,data):
-        player_cards = []
+        player_cards = [[]for i in range(len(players))]
         for i,player in enumerate(players):
-            player_cards[i] = [CardService.parse_card_object_from_db(player.card1), CardService.parse_card_object_from_db(player.card2)]
+            player_cards[i].append(CardService.parse_card_object_from_db(player.card_1))
+            player_cards[i].append(CardService.parse_card_object_from_db(player.card_2))
         best_players = BestHandEvaluator.evaluate_all_hands(round_cards, player_cards)
         pott = GameService.select_round_player_get_all_set_chips(round_id, self.db_context)
         for player_index in best_players:

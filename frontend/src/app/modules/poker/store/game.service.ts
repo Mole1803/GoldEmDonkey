@@ -317,7 +317,7 @@ export class GameService {
 
   public sendPerformRaise(amount: number): void {
     console.log("Performing raise", amount);
-    this.socket.emit("performRaise",{gameId: this.game!.id, username: this.username, bet: amount});
+    this.socket.emit("performRaise",{gameId: this.game!.id, username: this.username, raise_value: amount});
   }
 
 

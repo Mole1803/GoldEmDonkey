@@ -294,7 +294,9 @@ class GameService:
 
     @staticmethod
     def select_round_player_by_round_id_and_player_id(round_id: str, player_id: str, db_context: SQLAlchemy):
-        raise NotImplementedError
+        round_players = db_context.session.query(RoundPlayerDB).filter_by(id_round=round_id,id_player=player_id).order_by(
+            RoundPlayerDB.position).first()
+        return round_players
 
     @staticmethod
     def delete_round_player_by_round_id(round_id: str, db_context: SQLAlchemy):
