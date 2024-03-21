@@ -2994,3 +2994,665 @@ INFO:engineio.server:RWlzwsc8NSnPd1DZAAA6: Sending packet PING data None
 INFO:engineio.server:RWlzwsc8NSnPd1DZAAA6: Received packet PONG data 
 INFO:engineio.server:RWlzwsc8NSnPd1DZAAA6: Sending packet PING data None
 INFO:engineio.server:RWlzwsc8NSnPd1DZAAA6: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:HiclljVwJwJlKDZCAAAA: Sending packet OPEN data {'sid': 'HiclljVwJwJlKDZCAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:HiclljVwJwJlKDZCAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:HiclljVwJwJlKDZCAAAA: Sending packet MESSAGE data 0{"sid":"7ye9oEpCNLfBNycjAAAB"}
+INFO:engineio.server:HiclljVwJwJlKDZCAAAA: Received request to upgrade to websocket
+INFO:engineio.server:HiclljVwJwJlKDZCAAAA: Upgrade to websocket successful
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet OPEN data {'sid': 'SMpG9BViAyLjsyYHAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet MESSAGE data 0{"sid":"xkZV14x69xY5p9v7AAAD"}
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received request to upgrade to websocket
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Upgrade to websocket successful
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet MESSAGE data 2["joinGame",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","username":"Ruben"}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},"game":{"id":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"}],"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f"}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet PING data None
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet PONG data 
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet OPEN data {'sid': 'FudUerqu_sIGjnB7AAAE', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet MESSAGE data 0
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet MESSAGE data 0{"sid":"2Rg_ffnaDSL7-d3WAAAF"}
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received request to upgrade to websocket
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Upgrade to websocket successful
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"42fccb7b-862f-4ca9-ace1-033fb1b796b8","username":"Test"}]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"9df50ce9-5ad0-443f-a9e8-37b0d2d19196","position":1,"chips":1000,"gameId":"42fccb7b-862f-4ca9-ace1-033fb1b796b8","userId":"Test"},"game":{"id":"42fccb7b-862f-4ca9-ace1-033fb1b796b8","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"9df50ce9-5ad0-443f-a9e8-37b0d2d19196","position":1,"chips":1000,"gameId":"42fccb7b-862f-4ca9-ace1-033fb1b796b8","userId":"Test"}],"gameId":"42fccb7b-862f-4ca9-ace1-033fb1b796b8"}]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"288d14b6-0814-4bbd-a97c-1562a34c75a2","username":"Test"}]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"a53b24f7-532c-402a-a8be-c214d5c0c7cf","username":"Test"}]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","username":"Test"}]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"42fccb7b-862f-4ca9-ace1-033fb1b796b8","username":"Test"}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet PING data None
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet PONG data 
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet PING data None
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet PONG data 
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","username":"Test"}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet MESSAGE data 20["startGame",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f"}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},"roundPlayers":[{"idRound":"d460299f-d1c2-421c-891a-2505fe803217","idPlayer":"163cb9ee-f049-43c3-adc3-ab924c90caf2","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":5,"card2":35},{"idRound":"d460299f-d1c2-421c-891a-2505fe803217","idPlayer":"d8e4823f-c4d8-4811-94f2-5ba9bc38af59","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":1,"card1":32,"card2":21},{"idRound":"d460299f-d1c2-421c-891a-2505fe803217","idPlayer":"31b9f4d8-5348-4bdb-b492-208c24b7cbcc","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":2,"card1":4,"card2":36}],"gamePlayers":[{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},{"id":"d8e4823f-c4d8-4811-94f2-5ba9bc38af59","position":2,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"},{"id":"31b9f4d8-5348-4bdb-b492-208c24b7cbcc","position":3,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"}],"cards":[]}}]
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},"roundPlayers":[{"idRound":"d460299f-d1c2-421c-891a-2505fe803217","idPlayer":"163cb9ee-f049-43c3-adc3-ab924c90caf2","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":5,"card2":35},{"idRound":"d460299f-d1c2-421c-891a-2505fe803217","idPlayer":"d8e4823f-c4d8-4811-94f2-5ba9bc38af59","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":1,"card1":32,"card2":21},{"idRound":"d460299f-d1c2-421c-891a-2505fe803217","idPlayer":"31b9f4d8-5348-4bdb-b492-208c24b7cbcc","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":2,"card1":4,"card2":36}],"gamePlayers":[{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},{"id":"d8e4823f-c4d8-4811-94f2-5ba9bc38af59","position":2,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"},{"id":"31b9f4d8-5348-4bdb-b492-208c24b7cbcc","position":3,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"}],"cards":[]}}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet MESSAGE data 30[]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet MESSAGE data 2["performCheck",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","username":"Ruben"}]
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet PING data None
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet PONG data 
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet PING data None
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet PONG data 
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet PING data None
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet PONG data 
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet PING data None
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet PONG data 
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet PING data None
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet PONG data 
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet PING data None
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet PONG data 
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Sending packet PING data None
+INFO:engineio.server:SMpG9BViAyLjsyYHAAAC: Received packet PONG data 
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Sending packet PING data None
+INFO:engineio.server:FudUerqu_sIGjnB7AAAE: Received packet PONG data 
+INFO:werkzeug: * Detected change in 'C:\\Users\\Reset\\git_repos\\GoldEmDonkey\\Backend\\Logic\\PokerHandler.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:bW2a6K1zKw6MAR2EAAAA: Sending packet OPEN data {'sid': 'bW2a6K1zKw6MAR2EAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:DkayWwEHAB-V5xwJAAAB: Sending packet OPEN data {'sid': 'DkayWwEHAB-V5xwJAAAB', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:DkayWwEHAB-V5xwJAAAB: Received packet MESSAGE data 0
+INFO:engineio.server:DkayWwEHAB-V5xwJAAAB: Sending packet MESSAGE data 0{"sid":"kYVyOW5O7aqg2AloAAAC"}
+INFO:engineio.server:bW2a6K1zKw6MAR2EAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:bW2a6K1zKw6MAR2EAAAA: Sending packet MESSAGE data 0{"sid":"FHkyZoNYkk4Gk36YAAAD"}
+INFO:engineio.server:DkayWwEHAB-V5xwJAAAB: Received request to upgrade to websocket
+INFO:engineio.server:bW2a6K1zKw6MAR2EAAAA: Received request to upgrade to websocket
+INFO:engineio.server:DkayWwEHAB-V5xwJAAAB: Upgrade to websocket successful
+INFO:engineio.server:bW2a6K1zKw6MAR2EAAAA: Upgrade to websocket successful
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet OPEN data {'sid': 'B8rW8BWyTdwwPnrkAAAE', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Received packet MESSAGE data 0
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet MESSAGE data 0{"sid":"tscQrGvcwWMyaoU0AAAF"}
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Received request to upgrade to websocket
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Upgrade to websocket successful
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407","username":"Ruben"}]
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"b97cc150-2b4c-43ba-93f8-90a624389aea","position":1,"chips":1000,"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407","userId":"Ruben"},"game":{"id":"45cb2bf5-e7be-480a-a036-2313c08e4407","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"b97cc150-2b4c-43ba-93f8-90a624389aea","position":1,"chips":1000,"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407","userId":"Ruben"}],"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407"}]
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Received packet MESSAGE data 20["startGame",{"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407"}]
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"b97cc150-2b4c-43ba-93f8-90a624389aea","position":1,"chips":1000,"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407","userId":"Ruben"},"roundPlayers":[{"idRound":"2200c19c-c7f9-489f-a3bd-e9368f7b7a22","idPlayer":"b97cc150-2b4c-43ba-93f8-90a624389aea","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":35,"card2":4}],"gamePlayers":[{"id":"b97cc150-2b4c-43ba-93f8-90a624389aea","position":1,"chips":1000,"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet MESSAGE data 30[]
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Received packet MESSAGE data 2["performCheck",{"gameId":"45cb2bf5-e7be-480a-a036-2313c08e4407","username":"Ruben"}]
+INFO:engineio.server:DkayWwEHAB-V5xwJAAAB: Sending packet PING data None
+INFO:engineio.server:DkayWwEHAB-V5xwJAAAB: Received packet PONG data 
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Sending packet PING data None
+INFO:engineio.server:B8rW8BWyTdwwPnrkAAAE: Received packet PONG data 
+INFO:werkzeug: * Detected change in 'C:\\Users\\Reset\\git_repos\\GoldEmDonkey\\Backend\\Services\\GameService.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:YWx7BW3Rx6S4864HAAAA: Sending packet OPEN data {'sid': 'YWx7BW3Rx6S4864HAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:1SaGmjUU5B-CkL4iAAAB: Sending packet OPEN data {'sid': '1SaGmjUU5B-CkL4iAAAB', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:1SaGmjUU5B-CkL4iAAAB: Received packet MESSAGE data 0
+INFO:engineio.server:1SaGmjUU5B-CkL4iAAAB: Sending packet MESSAGE data 0{"sid":"Ic6Ki2DNKUaaHdj2AAAC"}
+INFO:engineio.server:YWx7BW3Rx6S4864HAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:YWx7BW3Rx6S4864HAAAA: Sending packet MESSAGE data 0{"sid":"IMBFiyVWnsufxY9qAAAD"}
+INFO:engineio.server:1SaGmjUU5B-CkL4iAAAB: Received request to upgrade to websocket
+INFO:engineio.server:1SaGmjUU5B-CkL4iAAAB: Upgrade to websocket successful
+INFO:engineio.server:YWx7BW3Rx6S4864HAAAA: Received request to upgrade to websocket
+INFO:engineio.server:YWx7BW3Rx6S4864HAAAA: Upgrade to websocket successful
+INFO:werkzeug: * Detected change in 'C:\\Users\\Reset\\git_repos\\GoldEmDonkey\\Backend\\Services\\GameService.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:QY2wE27j3tN4T47RAAAA: Sending packet OPEN data {'sid': 'QY2wE27j3tN4T47RAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:QY2wE27j3tN4T47RAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:QY2wE27j3tN4T47RAAAA: Sending packet MESSAGE data 0{"sid":"FzJOC0xDB1CbruMlAAAB"}
+INFO:engineio.server:QY2wE27j3tN4T47RAAAA: Received request to upgrade to websocket
+INFO:engineio.server:QY2wE27j3tN4T47RAAAA: Upgrade to websocket successful
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Sending packet OPEN data {'sid': 'dOPPlN_BfRLezdFvAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Sending packet MESSAGE data 0{"sid":"6mp9UzshkyG7E_SsAAAD"}
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Received request to upgrade to websocket
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Upgrade to websocket successful
+INFO:engineio.server:QY2wE27j3tN4T47RAAAA: Sending packet PING data None
+INFO:engineio.server:QY2wE27j3tN4T47RAAAA: Received packet PONG data 
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Sending packet PING data None
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Received packet PONG data 
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet OPEN data {'sid': 'AM1WrK273Jo5BNdYAAAE', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Received packet MESSAGE data 0
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet MESSAGE data 0{"sid":"FLojAwDDkTaRcbnwAAAF"}
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Received request to upgrade to websocket
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Upgrade to websocket successful
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c","username":"Ruben"}]
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"291c16da-e66f-43e4-a61e-f0dcb4294f32","position":1,"chips":1000,"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c","userId":"Ruben"},"game":{"id":"13410616-62ed-4889-9e18-0ad1c552fd5c","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"291c16da-e66f-43e4-a61e-f0dcb4294f32","position":1,"chips":1000,"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c","userId":"Ruben"}],"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c"}]
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Sending packet PING data None
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Received packet PONG data 
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Received packet MESSAGE data 20["startGame",{"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c"}]
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"291c16da-e66f-43e4-a61e-f0dcb4294f32","position":1,"chips":1000,"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c","userId":"Ruben"},"roundPlayers":[{"idRound":"24335fbd-6018-4d9a-93fe-23720e179246","idPlayer":"291c16da-e66f-43e4-a61e-f0dcb4294f32","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":19,"card2":31}],"gamePlayers":[{"id":"291c16da-e66f-43e4-a61e-f0dcb4294f32","position":1,"chips":1000,"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet MESSAGE data 30[]
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Received packet MESSAGE data 2["performCheck",{"gameId":"13410616-62ed-4889-9e18-0ad1c552fd5c","username":"Ruben"}]
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Sending packet PING data None
+INFO:engineio.server:AM1WrK273Jo5BNdYAAAE: Received packet PONG data 
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Sending packet PING data None
+INFO:engineio.server:dOPPlN_BfRLezdFvAAAC: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Sending packet OPEN data {'sid': 'xFbTvarbE78se8suAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Sending packet MESSAGE data 0{"sid":"gU_ER1PsE90FonjnAAAB"}
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Received request to upgrade to websocket
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Upgrade to websocket successful
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet OPEN data {'sid': 'VG3AKLl49SAWIDciAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet MESSAGE data 0{"sid":"m5JAvUalBnLdEu6YAAAD"}
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Received request to upgrade to websocket
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Upgrade to websocket successful
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Received packet MESSAGE data 2["joinGame",{"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03","username":"Ruben"}]
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"8e978bb5-0977-4e5e-a5f9-7d4cab1bb3bb","position":1,"chips":1000,"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03","userId":"Ruben"},"game":{"id":"cb4615dc-c6ba-4c44-8084-ef4096efdc03","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"8e978bb5-0977-4e5e-a5f9-7d4cab1bb3bb","position":1,"chips":1000,"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03","userId":"Ruben"}],"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03"}]
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Received packet MESSAGE data 21["startGame",{"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03"}]
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"8e978bb5-0977-4e5e-a5f9-7d4cab1bb3bb","position":1,"chips":1000,"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03","userId":"Ruben"},"roundPlayers":[{"idRound":"f4d56393-38f5-47dd-b8a0-7ef972730ba8","idPlayer":"8e978bb5-0977-4e5e-a5f9-7d4cab1bb3bb","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":28,"card2":5}],"gamePlayers":[{"id":"8e978bb5-0977-4e5e-a5f9-7d4cab1bb3bb","position":1,"chips":1000,"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet MESSAGE data 31[]
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Received packet MESSAGE data 2["performCheck",{"gameId":"cb4615dc-c6ba-4c44-8084-ef4096efdc03","username":"Ruben"}]
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Sending packet PING data None
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Received packet PONG data 
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet PING data None
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Received packet PONG data 
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Sending packet PING data None
+INFO:engineio.server:xFbTvarbE78se8suAAAA: Received packet PONG data 
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Sending packet PING data None
+INFO:engineio.server:VG3AKLl49SAWIDciAAAC: Received packet PONG data 
+INFO:werkzeug: * Detected change in 'C:\\Users\\Reset\\git_repos\\GoldEmDonkey\\Backend\\Logic\\PokerHandler.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:jAZA3s4SWTHQNv5oAAAA: Sending packet OPEN data {'sid': 'jAZA3s4SWTHQNv5oAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:jAZA3s4SWTHQNv5oAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:jAZA3s4SWTHQNv5oAAAA: Sending packet MESSAGE data 0{"sid":"VL8yAEJHQK9h8VD0AAAB"}
+INFO:engineio.server:18MKVfymdjok-qg7AAAC: Sending packet OPEN data {'sid': '18MKVfymdjok-qg7AAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:18MKVfymdjok-qg7AAAC: Received packet MESSAGE data 0
+INFO:engineio.server:18MKVfymdjok-qg7AAAC: Sending packet MESSAGE data 0{"sid":"32kmoUJgs2LuNvn-AAAD"}
+INFO:engineio.server:jAZA3s4SWTHQNv5oAAAA: Received request to upgrade to websocket
+INFO:engineio.server:jAZA3s4SWTHQNv5oAAAA: Upgrade to websocket successful
+INFO:engineio.server:18MKVfymdjok-qg7AAAC: Received request to upgrade to websocket
+INFO:engineio.server:18MKVfymdjok-qg7AAAC: Upgrade to websocket successful
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Sending packet OPEN data {'sid': 'fi-Bjpya-yKNmD64AAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Received packet MESSAGE data 0
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Sending packet MESSAGE data 0{"sid":"kFf_0HANG_6OA4rbAAAB"}
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Received request to upgrade to websocket
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Upgrade to websocket successful
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet OPEN data {'sid': 'KJ76guZGZA16iKQKAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet MESSAGE data 0{"sid":"afVHFcA1dF4GbHPyAAAD"}
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received request to upgrade to websocket
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Upgrade to websocket successful
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received packet MESSAGE data 2["joinGame",{"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350","username":"Ruben"}]
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"3600615d-8896-4634-a8b5-a39e0bbcec06","position":1,"chips":1000,"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350","userId":"Ruben"},"game":{"id":"599fb27a-122a-4005-8689-4e0e50bfa350","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"3600615d-8896-4634-a8b5-a39e0bbcec06","position":1,"chips":1000,"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350","userId":"Ruben"}],"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350"}]
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received packet MESSAGE data 20["startGame",{"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350"}]
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"3600615d-8896-4634-a8b5-a39e0bbcec06","position":1,"chips":1000,"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350","userId":"Ruben"},"roundPlayers":[{"idRound":"f4e1973e-2aa3-43bb-9a9e-218b63071f48","idPlayer":"3600615d-8896-4634-a8b5-a39e0bbcec06","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":1,"card2":40}],"gamePlayers":[{"id":"3600615d-8896-4634-a8b5-a39e0bbcec06","position":1,"chips":1000,"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet MESSAGE data 30[]
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received packet MESSAGE data 2["performCheck",{"gameId":"599fb27a-122a-4005-8689-4e0e50bfa350","username":"Ruben"}]
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Sending packet PING data None
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Received packet PONG data 
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet PING data None
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received packet PONG data 
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Sending packet PING data None
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Received packet PONG data 
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet PING data None
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received packet PONG data 
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Sending packet PING data None
+INFO:engineio.server:fi-Bjpya-yKNmD64AAAA: Received packet PONG data 
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Sending packet PING data None
+INFO:engineio.server:KJ76guZGZA16iKQKAAAC: Received packet PONG data 
+INFO:werkzeug: * Detected change in 'C:\\Users\\Reset\\git_repos\\GoldEmDonkey\\Backend\\Logic\\PokerHandler.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Sending packet OPEN data {'sid': '1S5dvpKthphpvRWUAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Sending packet OPEN data {'sid': 'P7nKwLHh-GMmHhd5AAAB', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Sending packet MESSAGE data 0{"sid":"g4gSfUgoKKld-Wy5AAAC"}
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Received packet MESSAGE data 0
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Sending packet MESSAGE data 0{"sid":"W6yaQFych4XVaTcqAAAD"}
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Received request to upgrade to websocket
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Upgrade to websocket successful
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Received request to upgrade to websocket
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Upgrade to websocket successful
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Sending packet PING data None
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Sending packet PING data None
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Received packet PONG data 
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Received packet PONG data 
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Sending packet PING data None
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Sending packet PING data None
+INFO:engineio.server:1S5dvpKthphpvRWUAAAA: Received packet PONG data 
+INFO:engineio.server:P7nKwLHh-GMmHhd5AAAB: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet OPEN data {'sid': 'OUKI1x-7AhwoHCz3AAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:FrvwhPRWCGnlnP-cAAAB: Sending packet OPEN data {'sid': 'FrvwhPRWCGnlnP-cAAAB', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received packet MESSAGE data 0
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet MESSAGE data 0{"sid":"e6WK6-h3YgDem-FwAAAC"}
+INFO:engineio.server:FrvwhPRWCGnlnP-cAAAB: Received packet MESSAGE data 0
+INFO:engineio.server:FrvwhPRWCGnlnP-cAAAB: Sending packet MESSAGE data 0{"sid":"q3LQvgT9y0WlcGKDAAAD"}
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received request to upgrade to websocket
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Upgrade to websocket successful
+INFO:engineio.server:FrvwhPRWCGnlnP-cAAAB: Received request to upgrade to websocket
+INFO:engineio.server:FrvwhPRWCGnlnP-cAAAB: Upgrade to websocket successful
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet OPEN data {'sid': 'FBX7Tn08GY3k8vf_AAAE', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet MESSAGE data 0
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet MESSAGE data 0{"sid":"2zR44SLB36B54qILAAAF"}
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received request to upgrade to websocket
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Upgrade to websocket successful
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet MESSAGE data 2["joinGame",{"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b","username":"Ruben"}]
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"61bd5583-9fa1-4c3d-8d2b-0f3c3a584293","position":1,"chips":1000,"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b","userId":"Ruben"},"game":{"id":"9336b77c-0499-4fa7-a197-c4b996306f3b","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"61bd5583-9fa1-4c3d-8d2b-0f3c3a584293","position":1,"chips":1000,"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b","userId":"Ruben"}],"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b"}]
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet MESSAGE data 20["startGame",{"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b"}]
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"61bd5583-9fa1-4c3d-8d2b-0f3c3a584293","position":1,"chips":1000,"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b","userId":"Ruben"},"roundPlayers":[{"idRound":"b2bde8a5-fc69-4731-a1f6-fa69bfcb35a3","idPlayer":"61bd5583-9fa1-4c3d-8d2b-0f3c3a584293","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":36,"card2":47}],"gamePlayers":[{"id":"61bd5583-9fa1-4c3d-8d2b-0f3c3a584293","position":1,"chips":1000,"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet MESSAGE data 30[]
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet MESSAGE data 2["performCheck",{"gameId":"9336b77c-0499-4fa7-a197-c4b996306f3b","username":"Ruben"}]
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet PING data None
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received packet PONG data 
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet PING data None
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet PONG data 
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet PING data None
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received packet PONG data 
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet PING data None
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet PONG data 
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet PING data None
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received packet PONG data 
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet PING data None
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet PONG data 
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet PING data None
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received packet PONG data 
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet PING data None
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet PONG data 
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet PING data None
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received packet PONG data 
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet PING data None
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet PONG data 
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Sending packet PING data None
+INFO:engineio.server:OUKI1x-7AhwoHCz3AAAA: Received packet PONG data 
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Sending packet PING data None
+INFO:engineio.server:FBX7Tn08GY3k8vf_AAAE: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet OPEN data {'sid': 'hlTBoTBkg69GstclAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet MESSAGE data 0{"sid":"DNwYTl7aYmryh7X2AAAB"}
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Received request to upgrade to websocket
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Upgrade to websocket successful
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Sending packet OPEN data {'sid': 'GWIRaA8jfpQnVKIsAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Sending packet MESSAGE data 0{"sid":"0kLSwD8IX3Oksz8xAAAD"}
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Received request to upgrade to websocket
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Upgrade to websocket successful
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Received packet MESSAGE data 2["joinGame",{"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863","username":"Ruben"}]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"5e5ef74b-a431-4563-b4c2-2c8909e0480b","position":1,"chips":1000,"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863","userId":"Ruben"},"game":{"id":"e129297b-fd05-40d8-a426-c1e7b35ef863","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"5e5ef74b-a431-4563-b4c2-2c8909e0480b","position":1,"chips":1000,"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863","userId":"Ruben"}],"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863"}]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Received packet MESSAGE data 21["startGame",{"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863"}]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"5e5ef74b-a431-4563-b4c2-2c8909e0480b","position":1,"chips":1000,"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863","userId":"Ruben"},"roundPlayers":[{"idRound":"2b17bafa-c096-4be8-93fc-cd53e59fbe58","idPlayer":"5e5ef74b-a431-4563-b4c2-2c8909e0480b","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":10,"card2":24}],"gamePlayers":[{"id":"5e5ef74b-a431-4563-b4c2-2c8909e0480b","position":1,"chips":1000,"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet MESSAGE data 31[]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Received packet MESSAGE data 2["performCheck",{"gameId":"e129297b-fd05-40d8-a426-c1e7b35ef863","username":"Ruben"}]
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet PING data None
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Received packet PONG data 
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Sending packet PING data None
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Received packet PONG data 
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Sending packet PING data None
+INFO:engineio.server:hlTBoTBkg69GstclAAAA: Received packet PONG data 
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Sending packet PING data None
+INFO:engineio.server:GWIRaA8jfpQnVKIsAAAC: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Sending packet OPEN data {'sid': 'cdzj0P7gZJpI4CisAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Sending packet MESSAGE data 0{"sid":"kTdhOD1RnLjI6M8PAAAB"}
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Received request to upgrade to websocket
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Upgrade to websocket successful
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet OPEN data {'sid': 'dDWYEVU3L7hqzaFeAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet MESSAGE data 0{"sid":"DKt4635gQxeXM4QgAAAD"}
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received request to upgrade to websocket
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Upgrade to websocket successful
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received packet MESSAGE data 2["joinGame",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","username":"Ruben"}]
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"f5c85116-6b71-48c4-803f-ee2f8fc1e41f","position":4,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},"game":{"id":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},{"id":"d8e4823f-c4d8-4811-94f2-5ba9bc38af59","position":2,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"},{"id":"31b9f4d8-5348-4bdb-b492-208c24b7cbcc","position":3,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"},{"id":"f5c85116-6b71-48c4-803f-ee2f8fc1e41f","position":4,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"}],"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f"}]
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received packet MESSAGE data 22["startGame",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f"}]
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},"roundPlayers":[{"idRound":"a85f2891-ebc1-40ca-9a72-0c64b1ab18da","idPlayer":"163cb9ee-f049-43c3-adc3-ab924c90caf2","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":26,"card2":15},{"idRound":"a85f2891-ebc1-40ca-9a72-0c64b1ab18da","idPlayer":"d8e4823f-c4d8-4811-94f2-5ba9bc38af59","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":1,"card1":0,"card2":27},{"idRound":"a85f2891-ebc1-40ca-9a72-0c64b1ab18da","idPlayer":"31b9f4d8-5348-4bdb-b492-208c24b7cbcc","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":2,"card1":48,"card2":44},{"idRound":"a85f2891-ebc1-40ca-9a72-0c64b1ab18da","idPlayer":"f5c85116-6b71-48c4-803f-ee2f8fc1e41f","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":3,"card1":12,"card2":14}],"gamePlayers":[{"id":"163cb9ee-f049-43c3-adc3-ab924c90caf2","position":1,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"},{"id":"d8e4823f-c4d8-4811-94f2-5ba9bc38af59","position":2,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"},{"id":"31b9f4d8-5348-4bdb-b492-208c24b7cbcc","position":3,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Test"},{"id":"f5c85116-6b71-48c4-803f-ee2f8fc1e41f","position":4,"chips":1000,"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet MESSAGE data 32[]
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received packet MESSAGE data 2["performCheck",{"gameId":"88b53df1-3b77-4f0f-a8d0-ae19a5f0b33f","username":"Ruben"}]
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Sending packet PING data None
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Received packet PONG data 
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet PING data None
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received packet PONG data 
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Sending packet PING data None
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Received packet PONG data 
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet PING data None
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received packet PONG data 
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Sending packet PING data None
+INFO:engineio.server:cdzj0P7gZJpI4CisAAAA: Received packet PONG data 
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Sending packet PING data None
+INFO:engineio.server:dDWYEVU3L7hqzaFeAAAC: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet OPEN data {'sid': 'VVZUKDcdDgc2GZacAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet MESSAGE data 0{"sid":"Zw7THXPdLwcJ05PXAAAB"}
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received request to upgrade to websocket
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Upgrade to websocket successful
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet OPEN data {'sid': 'yxYRWFdYpYe5O_0HAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet MESSAGE data 0{"sid":"HYaEjZGKDPi5JLMrAAAD"}
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received request to upgrade to websocket
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Upgrade to websocket successful
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet MESSAGE data 2["joinGame",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","username":"Ruben"}]
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},"game":{"id":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257"}]
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet MESSAGE data 20["startGame",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257"}]
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},"roundPlayers":[{"idRound":"3fdac33f-cbf5-43c9-9246-cebaa461fc8f","idPlayer":"c148327a-2418-47e1-a41b-3a49cbddb33a","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":46,"card2":15}],"gamePlayers":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet MESSAGE data 30[]
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet MESSAGE data 2["performCheck",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","username":"Ruben"}]
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet PING data None
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet PONG data 
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet PING data None
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet PONG data 
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet PING data None
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet PONG data 
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet PING data None
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet PONG data 
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet PING data None
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet PONG data 
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet PING data None
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet PONG data 
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet PING data None
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet PONG data 
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet PING data None
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet PONG data 
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet PING data None
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet PONG data 
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet PING data None
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet PONG data 
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet PING data None
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet PONG data 
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Sending packet PING data None
+INFO:engineio.server:yxYRWFdYpYe5O_0HAAAC: Received packet PONG data 
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Sending packet PING data None
+INFO:engineio.server:VVZUKDcdDgc2GZacAAAA: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet OPEN data {'sid': 'A5B9a8BaoQ3rjs5tAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet MESSAGE data 0{"sid":"PhdGUUyCjo6UhrltAAAB"}
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet MESSAGE data 2["joinGame",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","username":"Ruben"}]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"414ffae0-9466-47a1-b7be-c864f7ae5a89","position":2,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},"game":{"id":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":"3fdac33f-cbf5-43c9-9246-cebaa461fc8f","dealer":null},"players":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"414ffae0-9466-47a1-b7be-c864f7ae5a89","position":2,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257"}]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received request to upgrade to websocket
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Upgrade to websocket successful
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Sending packet OPEN data {'sid': 'na9Ph3U4-B0rMt0QAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Sending packet MESSAGE data 0{"sid":"-83gyRNPtkCq-J3cAAAD"}
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Received request to upgrade to websocket
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Upgrade to websocket successful
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet MESSAGE data 21["startGame",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257"}]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},"roundPlayers":[{"idRound":"64e75266-31ae-4353-9ef4-4d531401a44b","idPlayer":"c148327a-2418-47e1-a41b-3a49cbddb33a","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":2,"card2":11},{"idRound":"64e75266-31ae-4353-9ef4-4d531401a44b","idPlayer":"414ffae0-9466-47a1-b7be-c864f7ae5a89","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":1,"card1":41,"card2":38}],"gamePlayers":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"414ffae0-9466-47a1-b7be-c864f7ae5a89","position":2,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet MESSAGE data 31[]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet MESSAGE data 2["performCheck",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","username":"Ruben"}]
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet PING data None
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet PONG data 
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Sending packet PING data None
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Received packet PONG data 
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet PING data None
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet PONG data 
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Sending packet PING data None
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Received packet PONG data 
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet PING data None
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet PONG data 
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Sending packet PING data None
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Received packet PONG data 
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Sending packet PING data None
+INFO:engineio.server:A5B9a8BaoQ3rjs5tAAAA: Received packet PONG data 
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Sending packet PING data None
+INFO:engineio.server:na9Ph3U4-B0rMt0QAAAC: Received packet PONG data 
+INFO:werkzeug: * Detected change in 'C:\\Users\\Reset\\git_repos\\GoldEmDonkey\\Backend\\Logic\\PokerHandler.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet OPEN data {'sid': 'XT8PfMq-s3laHBuGAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet MESSAGE data 0{"sid":"MdmP356ukR1BlbP5AAAB"}
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received request to upgrade to websocket
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Upgrade to websocket successful
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet OPEN data {'sid': 'UiWR7g2u6VgPAeFQAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet MESSAGE data 0{"sid":"56WCSEY_8KvkYTkZAAAD"}
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received request to upgrade to websocket
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Upgrade to websocket successful
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet PING data None
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received packet PONG data 
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet PING data None
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received packet PONG data 
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet PING data None
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received packet PONG data 
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet PING data None
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received packet PONG data 
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet PING data None
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received packet PONG data 
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet PING data None
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received packet PONG data 
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet PING data None
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received packet PONG data 
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet PING data None
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received packet PONG data 
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet PING data None
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received packet PONG data 
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet PING data None
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received packet PONG data 
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Sending packet PING data None
+INFO:engineio.server:XT8PfMq-s3laHBuGAAAA: Received packet PONG data 
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Sending packet PING data None
+INFO:engineio.server:UiWR7g2u6VgPAeFQAAAC: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet OPEN data {'sid': 'LG17Zgz9wM6Dr_mYAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Sending packet OPEN data {'sid': '0xemYPAFQJMylJ1rAAAB', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Received packet MESSAGE data 0
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Sending packet MESSAGE data 0{"sid":"_oUoqw-6B6gWhTrlAAAC"}
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet MESSAGE data 0{"sid":"iaVuqKSZ15uFaC0wAAAD"}
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Received request to upgrade to websocket
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received request to upgrade to websocket
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Upgrade to websocket successful
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Upgrade to websocket successful
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received packet MESSAGE data 2["joinGame",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","username":"Ruben"}]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"131c7cb3-3432-4326-8114-3527efc3d760","position":3,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},"game":{"id":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":"64e75266-31ae-4353-9ef4-4d531401a44b","dealer":null},"players":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"414ffae0-9466-47a1-b7be-c864f7ae5a89","position":2,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"131c7cb3-3432-4326-8114-3527efc3d760","position":3,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257"}]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received packet MESSAGE data 2["joinGame",{"gameId":"945f4720-1407-465a-bcaf-2b93b9fbfeec","username":"Ruben"}]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received packet MESSAGE data 22["startGame",{"gameId":"945f4720-1407-465a-bcaf-2b93b9fbfeec"}]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"6b1859a8-e72b-4cfa-80bb-160fb2808fb3","position":1,"chips":1000,"gameId":"945f4720-1407-465a-bcaf-2b93b9fbfeec","userId":"Ruben"},"roundPlayers":[{"idRound":"6d93a835-4649-465e-850c-4bd52bae874f","idPlayer":"6b1859a8-e72b-4cfa-80bb-160fb2808fb3","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":45,"card2":28}],"gamePlayers":[{"id":"6b1859a8-e72b-4cfa-80bb-160fb2808fb3","position":1,"chips":1000,"gameId":"945f4720-1407-465a-bcaf-2b93b9fbfeec","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet MESSAGE data 32[]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received packet MESSAGE data 2["performCheck",{"gameId":"945f4720-1407-465a-bcaf-2b93b9fbfeec","username":"Ruben"}]
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet PING data None
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Sending packet PING data None
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received packet PONG data 
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Received packet PONG data 
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Sending packet PING data None
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Sending packet PING data None
+INFO:engineio.server:LG17Zgz9wM6Dr_mYAAAA: Received packet PONG data 
+INFO:engineio.server:0xemYPAFQJMylJ1rAAAB: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:xJqIs9Jwc-wJIsKmAAAA: Sending packet OPEN data {'sid': 'xJqIs9Jwc-wJIsKmAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:xJqIs9Jwc-wJIsKmAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:xJqIs9Jwc-wJIsKmAAAA: Sending packet MESSAGE data 0{"sid":"fGG9eHzWC5CTi5JeAAAB"}
+INFO:engineio.server:xJqIs9Jwc-wJIsKmAAAA: Received request to upgrade to websocket
+INFO:engineio.server:xJqIs9Jwc-wJIsKmAAAA: Upgrade to websocket successful
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet OPEN data {'sid': 'MRPoTxlFiSxu2ws0AAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Received packet MESSAGE data 0
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet MESSAGE data 0{"sid":"Qd276wzRgN2012gaAAAD"}
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Received request to upgrade to websocket
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Upgrade to websocket successful
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Received packet MESSAGE data 2["joinGame",{"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84","username":"Ruben"}]
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"053bcca5-00c1-41fc-a61b-007f43ba3fd4","position":1,"chips":1000,"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84","userId":"Ruben"},"game":{"id":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"053bcca5-00c1-41fc-a61b-007f43ba3fd4","position":1,"chips":1000,"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84","userId":"Ruben"}],"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84"}]
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Received packet MESSAGE data 23["startGame",{"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84"}]
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"053bcca5-00c1-41fc-a61b-007f43ba3fd4","position":1,"chips":1000,"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84","userId":"Ruben"},"roundPlayers":[{"idRound":"afe52821-047a-45c8-b0b6-d4e74fa15043","idPlayer":"053bcca5-00c1-41fc-a61b-007f43ba3fd4","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":27,"card2":30}],"gamePlayers":[{"id":"053bcca5-00c1-41fc-a61b-007f43ba3fd4","position":1,"chips":1000,"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet MESSAGE data 33[]
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Received packet MESSAGE data 2["performCheck",{"gameId":"d26b9bf4-1d9d-4a0f-9842-c0c5f4092d84","username":"Ruben"}]
+INFO:engineio.server:xJqIs9Jwc-wJIsKmAAAA: Sending packet PING data None
+INFO:engineio.server:xJqIs9Jwc-wJIsKmAAAA: Received packet PONG data 
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Sending packet PING data None
+INFO:engineio.server:MRPoTxlFiSxu2ws0AAAC: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet OPEN data {'sid': 'zKrGR9HIMTVk4yhCAAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet MESSAGE data 0
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet MESSAGE data 0{"sid":"0-XmNSIMooxCLXW1AAAB"}
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet OPEN data {'sid': 'sgqpM6BD76BX44tkAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet MESSAGE data 0{"sid":"Zz4-vSUpuxv_wJT4AAAD"}
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received request to upgrade to websocket
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Upgrade to websocket successful
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received request to upgrade to websocket
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Upgrade to websocket successful
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet MESSAGE data 2["joinGame",{"gameId":"f5709648-58dc-4667-a440-53a2987f66d8","username":"Ruben"}]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"28f7d3f8-b907-4ced-99e7-98a7a4264b81","position":1,"chips":1000,"gameId":"f5709648-58dc-4667-a440-53a2987f66d8","userId":"Ruben"},"game":{"id":"f5709648-58dc-4667-a440-53a2987f66d8","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":null,"dealer":null},"players":[{"id":"28f7d3f8-b907-4ced-99e7-98a7a4264b81","position":1,"chips":1000,"gameId":"f5709648-58dc-4667-a440-53a2987f66d8","userId":"Ruben"}],"gameId":"f5709648-58dc-4667-a440-53a2987f66d8"}]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet MESSAGE data 24["startGame",{"gameId":"f5709648-58dc-4667-a440-53a2987f66d8"}]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"28f7d3f8-b907-4ced-99e7-98a7a4264b81","position":1,"chips":1000,"gameId":"f5709648-58dc-4667-a440-53a2987f66d8","userId":"Ruben"},"roundPlayers":[{"idRound":"dbc52f2b-f274-4338-b7fd-9c8a84291117","idPlayer":"28f7d3f8-b907-4ced-99e7-98a7a4264b81","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":17,"card2":31}],"gamePlayers":[{"id":"28f7d3f8-b907-4ced-99e7-98a7a4264b81","position":1,"chips":1000,"gameId":"f5709648-58dc-4667-a440-53a2987f66d8","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet MESSAGE data 34[]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet MESSAGE data 2["performCheck",{"gameId":"f5709648-58dc-4667-a440-53a2987f66d8","username":"Ruben"}]
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet PING data None
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet PONG data 
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet PING data None
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received packet PONG data 
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet PING data None
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet PONG data 
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet PING data None
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received packet PONG data 
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet PING data None
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet PONG data 
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet PING data None
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received packet PONG data 
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet PING data None
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet PONG data 
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet PING data None
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received packet PONG data 
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet PING data None
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet PONG data 
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet PING data None
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received packet PONG data 
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Sending packet PING data None
+INFO:engineio.server:zKrGR9HIMTVk4yhCAAAA: Received packet PONG data 
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Sending packet PING data None
+INFO:engineio.server:sgqpM6BD76BX44tkAAAC: Received packet PONG data 
+INFO:engineio.server:Server initialized for gevent.
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:werkzeug: * Restarting with stat
+INFO:engineio.server:Server initialized for gevent.
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 620-260-327
+WARNING:main:WebSocket transport not available. Install gevent-websocket for improved performance.
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet OPEN data {'sid': 'q9rD3cB-LfakYaa1AAAA', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Received packet MESSAGE data 0
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 0{"sid":"OnPo7_yLdHRocUJAAAAB"}
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Received request to upgrade to websocket
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Upgrade to websocket successful
+INFO:engineio.server:NjMhqYg0meRe1CEkAAAC: Sending packet OPEN data {'sid': 'NjMhqYg0meRe1CEkAAAC', 'upgrades': ['websocket'], 'pingTimeout': 60000, 'pingInterval': 30000}
+INFO:engineio.server:NjMhqYg0meRe1CEkAAAC: Received packet MESSAGE data 0
+INFO:engineio.server:NjMhqYg0meRe1CEkAAAC: Sending packet MESSAGE data 0{"sid":"30FFQMFsz_5R05EEAAAD"}
+INFO:engineio.server:NjMhqYg0meRe1CEkAAAC: Received request to upgrade to websocket
+INFO:engineio.server:NjMhqYg0meRe1CEkAAAC: Upgrade to websocket successful
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Received packet MESSAGE data 2["joinGame",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","username":"Ruben"}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 2["joinedGame",{"player":{"id":"bc3fd3c4-2882-4cc9-94f5-2aa14cdf6633","position":4,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},"game":{"id":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","isActive":true,"name":"TestGame","hasStarted":false,"activeRound":"64e75266-31ae-4353-9ef4-4d531401a44b","dealer":null},"players":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"414ffae0-9466-47a1-b7be-c864f7ae5a89","position":2,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"131c7cb3-3432-4326-8114-3527efc3d760","position":3,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"bc3fd3c4-2882-4cc9-94f5-2aa14cdf6633","position":4,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257"}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Received packet MESSAGE data 25["startGame",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257"}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 2["startGame"]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{}}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},"roundPlayers":[{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"c148327a-2418-47e1-a41b-3a49cbddb33a","atPlay":true,"hasPlayed":false,"setChips":0,"isActive":true,"position":0,"card1":27,"card2":12},{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"414ffae0-9466-47a1-b7be-c864f7ae5a89","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":1,"card1":16,"card2":11},{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"131c7cb3-3432-4326-8114-3527efc3d760","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":2,"card1":7,"card2":14},{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"bc3fd3c4-2882-4cc9-94f5-2aa14cdf6633","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":3,"card1":42,"card2":50}],"gamePlayers":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"414ffae0-9466-47a1-b7be-c864f7ae5a89","position":2,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"131c7cb3-3432-4326-8114-3527efc3d760","position":3,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"bc3fd3c4-2882-4cc9-94f5-2aa14cdf6633","position":4,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 35[]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Received packet MESSAGE data 2["performCheck",{"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","username":"Ruben"}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 2["performCheck",{"username":"Ruben"}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet MESSAGE data 2["instruction",{"gamestate":0,"kwargs":{"nextPlayer":{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"414ffae0-9466-47a1-b7be-c864f7ae5a89","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":1,"card1":16,"card2":11},"roundPlayers":[{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"c148327a-2418-47e1-a41b-3a49cbddb33a","atPlay":true,"hasPlayed":true,"setChips":0,"isActive":true,"position":0,"card1":27,"card2":12},{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"414ffae0-9466-47a1-b7be-c864f7ae5a89","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":1,"card1":16,"card2":11},{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"131c7cb3-3432-4326-8114-3527efc3d760","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":2,"card1":7,"card2":14},{"idRound":"9bfbfa6b-0cfd-4500-a176-9c6d039848b1","idPlayer":"bc3fd3c4-2882-4cc9-94f5-2aa14cdf6633","atPlay":false,"hasPlayed":false,"setChips":0,"isActive":true,"position":3,"card1":42,"card2":50}],"gamePlayers":[{"id":"c148327a-2418-47e1-a41b-3a49cbddb33a","position":1,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"414ffae0-9466-47a1-b7be-c864f7ae5a89","position":2,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"131c7cb3-3432-4326-8114-3527efc3d760","position":3,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"},{"id":"bc3fd3c4-2882-4cc9-94f5-2aa14cdf6633","position":4,"chips":1000,"gameId":"7ea3ec11-4ec7-496a-9dbf-86d551e0d257","userId":"Ruben"}],"cards":[]}}]
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Sending packet PING data None
+INFO:engineio.server:q9rD3cB-LfakYaa1AAAA: Received packet PONG data 
+INFO:engineio.server:NjMhqYg0meRe1CEkAAAC: Sending packet PING data None
+INFO:engineio.server:NjMhqYg0meRe1CEkAAAC: Received packet PONG data 
