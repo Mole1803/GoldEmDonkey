@@ -26,6 +26,7 @@ export class GameComponent {
     this.initializeSubscriber()
   }
   onGameUpdate(){
+    console.log("onGameUpdate")
     // @ts-ignore
     let cards:CardDto[]=this.gameService.gameData["kwargs"]["cards"]
     // @ts-ignore
@@ -39,7 +40,7 @@ export class GameComponent {
     }
     for (let i = 0; i < roundPlayers.length; i++) {
       for(let j = 0; j < gamePlayers.length; j++){
-        if(roundPlayers[i].id_player==gamePlayers[j].id){
+        if(roundPlayers[i].idPlayer==gamePlayers[j].id){
           this.drawPlayer(roundPlayers[i],gamePlayers[j])
         }
       }
@@ -79,15 +80,11 @@ export class GameComponent {
   }
 
   @ViewChild('gameTable') set content(content:any){
-    console.log(content.nativeElement)
     this.ctx = content.nativeElement.getContext("2d")
     this.ctx.canvas.width=3840
     this.ctx.canvas.height=2400
     this.board_card_width=this.ctx.canvas.width*0.087
     this.board_card_height=this.ctx.canvas.height*0.215
-
-
-    console.log(this.ctx)
     let img = new Image()
     img.src='/assets/Media/tisch_komplett_plain.svg'
     img.onload= () => {
@@ -105,6 +102,7 @@ export class GameComponent {
   }
 
   drawPlayer(roundPlayer:RoundPlayerDto,gamePlayer:PlayerDto){
+    console.log("Draw Players")
     let mid = this.ctx.canvas.width/2
     let x = 0
     let y = 0
@@ -146,12 +144,13 @@ export class GameComponent {
   }
 
   drawPlayerInfo(roundPlayer:RoundPlayerDto,gamePlayer:PlayerDto, x:number, y:number){
+    console.log("draw player info")
     this.ctx.font = `${100}px Arial`;
     this.ctx.fillStyle = "black"
     this.ctx.fillRect(x, y, 600, 150)
     this.ctx.fillStyle = "white"
 
-    let name = gamePlayer.id
+    let name = gamePlayer.userId
     this.ctx.fillText(name, x+30, y+110, 330)
 
     let chipsValue: any = gamePlayer.chips
@@ -159,6 +158,8 @@ export class GameComponent {
   }
 
   drawPlayerCards(playerRound:RoundPlayerDto,nextPlayer:PlayerDto, x:number, y:number){
+    setTimeout(()=>{
+    console.log("draw player cards")
     let img1 = new Image()
     let img2 = new Image()
     if(this.gameService.isPlayerMoveClient(nextPlayer)) {
@@ -178,6 +179,6 @@ export class GameComponent {
     let y2 = y-500
     img2.onload= () => {
      this.ctx.drawImage(img2, x2, y2, this.board_card_width*0.8,this.board_card_height*0.8)
-    }
+    }},0)
   }
 }

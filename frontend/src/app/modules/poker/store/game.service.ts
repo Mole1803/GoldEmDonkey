@@ -98,13 +98,21 @@ export class GameService {
   }
 
   instructionFn(instruction: {gamestate: number, kwargs: {}}){
-       console.log("Instruction received", instruction);
-      if(instruction.gamestate === 0){
+      console.log("Instruction received 1", instruction);
+      this.gameData=instruction
+      if(instruction.gamestate > 3){
         this.endOfRound.emit();
 
       }
-      if(instruction.gamestate === 1){
+      if(instruction.gamestate >-1  && instruction.gamestate<4){
         this.clientAtMove.emit();
+        this.gameUpdated.emit();
+        // is current player
+        // @ts-ignore
+        let activePlayer = instruction["kwargs"]["nextPlayer"]! as PlayerDto
+        if(this.isPlayerMoveClient(activePlayer)){
+          this.clientAtMove.emit()
+        }
       }
 
   }
@@ -178,12 +186,12 @@ export class GameService {
 
 
     instruction.subscribe((instruction: {gamestate: number, kwargs: {}}) => {
-      console.log("Instruction received", instruction);
-      if(instruction.gamestate === 0){
+      console.log("Instruction received 2", instruction);
+      if(instruction.gamestate > 3){
         this.endOfRound.emit();
 
       }
-      if(instruction.gamestate === 1){
+      if(instruction.gamestate < 4){
         this.clientAtMove.emit();
       }
     })
@@ -286,7 +294,7 @@ export class GameService {
 
   public sendPerformCheck(): void {
     console.log("Performing check");
-    this.socket.emit("performCheck");
+    this.socket.emit("performCheck",);
   }
 
   public sendPerformCall(): void {
@@ -333,6 +341,7 @@ export class GameService {
 
   // region Utils --------------------------
     isPlayerMoveClient(player: PlayerDto): boolean {
+    console.log(player.userId, this.username)
     return player.userId === this.username;
   }
   // endregion ------------------------------

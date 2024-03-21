@@ -3,7 +3,7 @@ import {CardDto} from "../models/card-dto";
 export class CardUtils {
     static getCardAsStringFromNumber(card:number){
       let erg:string="";
-      switch (card/13){
+      switch (Math.floor(card/13)){
         case 3:
           erg="kreuz";
           break;
@@ -24,10 +24,10 @@ export class CardUtils {
         case 12:
           erg+="D"
           break;
-        case 13:
+        case 0:
           erg+="K"
           break;
-        case 14:
+        case 1:
           erg+="A"
           break;
         default:
