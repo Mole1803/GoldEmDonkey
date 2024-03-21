@@ -46,19 +46,6 @@ class GameController(BaseController, SocketIOController):
         return jsonify(),200
         raise NotImplementedError
 
-    @staticmethod
-    @jwt_required()
-    @game_controller.route('/joinGame', methods=['POST'])
-    def join_game_http():
-        username = request.json['username']
-        gameId = request.json['gameId']
-        player = BaseController.dependencies.poker_handler.join_game(username, gameId)
-        user_list = GameService.select_player_get_all_players_by_game(gameId, BaseController.dependencies.db_context)
-        game_ = GameService.select_game_by_id(gameId, BaseController.dependencies.db_context)
-        join_room(room=gameId)
-        json_ = {"player": Serializer.serialize(player),"game": Serializer.serialize(game_), "players": Serializer.serialize_query_set(user_list), "gameId": gameId}
-        emit('joinGame', json_, room=gameId,include_self=True)
-        return "Joined game successfully.", 200
 
     @staticmethod
     @SocketIOController.socketio.on('joinGame')
@@ -73,7 +60,7 @@ class GameController(BaseController, SocketIOController):
         game_ = GameService.select_game_by_id(gameId, BaseController.dependencies.db_context)
         join_room(room=gameId)
         json_ = {"player": Serializer.serialize(player),"game": Serializer.serialize(game_), "players": Serializer.serialize_query_set(user_list), "gameId": gameId}
-        emit('joinGame', json_, room=gameId,include_self=True)
+        emit('joinedGame', json_, room=gameId,include_self=True)
         #return "Joined game successfully."
 
     @staticmethod
@@ -151,6 +138,7 @@ class GameController(BaseController, SocketIOController):
 
     @staticmethod
     def send_instruction_messages(gameId):
-        while BaseController.dependencies.poker_handler.instructionQueue.not_empty:
+        while BaseController.dependencies.poker_handler.instructionQueue.not_empty():
             instruction = BaseController.dependencies.poker_handler.instructionQueue.get()
             emit('instruction', instruction, room=gameId)
+

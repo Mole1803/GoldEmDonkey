@@ -31,7 +31,7 @@ export class GameService {
 
   constructor(@Inject("SOCKET_IO") private socketIo: string, public gameHttpService: GameHttpService, private userManagementService: UserManagementService, private router: Router) {
 
-
+    this.socket = io.connect(this.socketIo)
     // Todo check if player is in a game
   }
 
@@ -45,8 +45,9 @@ export class GameService {
 
   initializeGame() {
     this.username = this.userManagementService.getUser()
-    this.socket = io.connect(this.socketIo, {autoConnect: false})
 
+
+    setTimeout(()=> {
     this.socket.on("connect_error", (err: any) => {
       // the reason of the error, for example "xhr poll error"
       console.log(err.message);
@@ -57,7 +58,7 @@ export class GameService {
       // some additional context, for example the XMLHttpRequest object
       console.log(err.context);
     });
-    this.initializeObservers()
+    this.initializeObservers()},10000)
   }
 
     /**
@@ -87,7 +88,7 @@ export class GameService {
   initializeJoinGame(){
     console.log("Initializing joinGame")
     let gameJoined = new Observable<{player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}>(observer => {
-      this.socket.on("joinGame", (data: any) => {
+      this.socket.on("joinedGame", (data: any) => {
         console.log("gameJoined", data);
         observer.next(data)
       })

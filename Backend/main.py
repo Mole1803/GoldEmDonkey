@@ -16,8 +16,8 @@ import logging
 #import eventlet
 #eventlet.monkey_patch()
 load_dotenv()
-#from gevent import monkey
-#monkey.patch_all()
+from gevent import monkey
+monkey.patch_all()
 
 settings = {}
 
@@ -64,7 +64,7 @@ class GoldEmDonkeyMain:
         self.app.config['DEBUG'] = True
         self.app.config['SECRET_KEY'] = os.environ.get("JWT_SECRET_KEY")
         if self.socketio is None:
-            self.socketio = SocketIO(self.app,ping_timeout=60, ping_interval=30, cors_allowed_origins="*",always_connect=False,  manage_session=False, engineio_logger=True ) #, cors_allowed_origins="*"
+            self.socketio = SocketIO(self.app,ping_timeout=60, ping_interval=30, cors_allowed_origins="*",always_connect=False,  manage_session=False, engineio_logger=True, async_mode="gevent" ) #, cors_allowed_origins="*"
 
     def setup_database(self):
         self.DatabaseManager.init_database()
