@@ -280,23 +280,25 @@ export class GameService {
 
   public sendPerformFold(): void {
     console.log("Performing fold");
-    this.socket.emit("performFold");
+    this.socket.emit("performFold", {gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformCheck(): void {
     console.log("Performing check");
-    this.socket.emit("performCheck");
+    this.socket.emit("performCheck",{gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformCall(): void {
     console.log("Performing call");
-    this.socket.emit("performCall");
+    this.socket.emit("performCall",{gameId: this.game!.id, username: this.username});
   }
 
   public sendPerformRaise(amount: number): void {
     console.log("Performing raise", amount);
-    this.socket.emit("performRaise", amount);
+    this.socket.emit("performRaise",{gameId: this.game!.id, username: this.username, bet: amount});
   }
+
+
 
   gameMove(action: string, player: PlayerDto) {
     /*if(!this.isPlayerMoveClient(player)){
