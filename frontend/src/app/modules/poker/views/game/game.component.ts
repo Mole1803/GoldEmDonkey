@@ -110,31 +110,31 @@ export class GameComponent {
                                this.ctx.canvas.height*0.60,
                                this.ctx.canvas.height*0.92]
     switch(gamePlayer["position"]){
-      case 1:
+      case 0:
         x=mid+600
         y=yPositions[2]
         break
-      case 2:
+      case 1:
         x=mid+1200
         y=yPositions[1]
         break
-      case 3:
+      case 2:
         x=mid+800
         y=yPositions[0]
         break
-      case 4:
+      case 3:
         x=mid-300
         y=yPositions[0]
         break
-      case 5:
+      case 4:
         x=mid-1400
         y=yPositions[0]
         break
-      case 6:
+      case 5:
         x=mid-1800
         y=yPositions[1]
         break
-      case 7:
+      case 6:
         x=mid-1200
         y=yPositions[2]
         break

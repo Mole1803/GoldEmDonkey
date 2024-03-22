@@ -84,8 +84,7 @@ class GameService:
 
     @staticmethod
     def select_game_get_game_by_round_id(id_round: str, db_context: SQLAlchemy):
-        # Funzt nicht
-        game_id = db_context.session.query(RoundDB.game_id).filter_by(id=id_round).first()
+        game_id = db_context.session.query(GameDB.game_id).filter_by(active_round=id_round).first()
         game = GameService.select_game_by_id(game_id, db_context)
         return game
 
@@ -169,7 +168,7 @@ class GameService:
     @staticmethod
     def select_player_get_highest_position(id_game, db_context: SQLAlchemy):
         player = db_context.session.query(PlayerDB).filter_by(game_id=id_game).order_by(PlayerDB.position.desc()).first()
-        return player.position if player else 0
+        return player.position if player else -1
 
     @staticmethod
     def select_player_get_all_players_by_game(id_game: str, db_context: SQLAlchemy):
@@ -264,6 +263,13 @@ class GameService:
         db_context.session.commit()
         return round_player
 
+    @staticmethod
+    def update_round_player_has_played_all(round_id,db_context: SQLAlchemy):
+        round_player = db_context.session.query(RoundPlayerDB).filter_by(id_round=round_id).all()
+        for player in round_player:
+            player.has_played=False
+        db_context.session.commit()
+        return round_player
 
     @staticmethod
     def select_round_player_chips(id_round: str, id_player: str, db_context: SQLAlchemy):
