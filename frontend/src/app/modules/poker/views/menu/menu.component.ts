@@ -14,10 +14,13 @@ import {Subscriber, Subscription} from "rxjs";
 export class MenuComponent implements OnDestroy{
   activeGames: GameDto[] = [];
   subscribers: Subscription = new Subscriber();
+  newGameName: string = "";
 
   constructor(private gameHttpService: GameHttpService,public route: ActivatedRoute, public gameService: GameService, private router: Router) {
     this.listActiveGames();
     this.subscribeToGameCreated();
+    this.gameService.disconnect()
+
   }
 
   public subscribeToGameCreated(): void {
@@ -58,7 +61,7 @@ export class MenuComponent implements OnDestroy{
   }
 
   createGame(): void {
-    this.gameService.createGame();
+    this.gameService.createGame(this.newGameName);
     // redirect to lobby (lobby is sub router outlet
 
 

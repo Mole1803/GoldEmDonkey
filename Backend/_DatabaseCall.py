@@ -27,6 +27,17 @@ class Serializer:
             copy_dict[Serializer.underscore_to_camel_case(key)] = value
         return copy_dict
 
+
+    @staticmethod
+    def serializeDTO(self):
+        i = vars(self)
+        copy_dict = {}
+        for key, value in i.items():
+            if key == "_sa_instance_state":
+                continue
+            copy_dict[Serializer.underscore_to_camel_case(key)] = value
+        return copy_dict
+
     @staticmethod
     def underscore_to_camel_case(key: str):
         # find underscore and convert next letter to uppercase
@@ -146,3 +157,8 @@ class RoundCardsDB(DatabaseManager.db.Model):
             'id_cards': CardService.parse_card_object_from_db(self.id_cards),
             'position': self.position,
         }
+
+class ActiveUserSessionDB(DatabaseManager.db.Model):
+    id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False, primary_key=True)
+    user_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)
+    game_id: Mapped[str] = mapped_column(DatabaseManager.db.String, nullable=False)

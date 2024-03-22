@@ -1,18 +1,18 @@
 from flask_sqlalchemy import SQLAlchemy
 import uuid
 from sqlalchemy import func
-from Backend._DatabaseCall import GameDB, RoundDB, PlayerDB, RoundCardsDB, RoundPlayerDB
+from Backend._DatabaseCall import ActiveUserSessionDB, GameDB, RoundDB, PlayerDB, RoundCardsDB, RoundPlayerDB
 
 
 class GameService:
     # Game
     @staticmethod
-    def insert_game_db(db_context: SQLAlchemy):
+    def insert_game_db(db_context: SQLAlchemy, name: str="new Game"):
         id_ = str(uuid.uuid4())
         game = GameDB(
             id=id_,
             is_active=True,
-            name="TestGame",
+            name=name,
             has_started=False,
             active_round=None,
             dealer=None
@@ -41,11 +41,29 @@ class GameService:
         return True
 
     @staticmethod
+    def update_game_has_started(game_id: str, has_started: bool, db_context: SQLAlchemy):
+        game = db_context.session.query(GameDB).filter_by(id=game_id).first()
+        if game is None:
+            return False
+        game.has_started = has_started
+        db_context.session.commit()
+        return True
+
+    @staticmethod
     def update_game_active_round(game_id: str, active_round: str, db_context: SQLAlchemy):
         game = db_context.session.query(GameDB).filter_by(id=game_id).first()
         if game is None:
             return False
         game.active_round = active_round
+        db_context.session.commit()
+        return True
+
+    @staticmethod
+    def update_game_set_chips(game_id: str, chips: int, db_context: SQLAlchemy):
+        game = db_context.session.query(GameDB).filter_by(id=game_id).first()
+        if game is None:
+            return False
+        game.chips = chips
         db_context.session.commit()
         return True
 
@@ -66,8 +84,7 @@ class GameService:
 
     @staticmethod
     def select_game_get_game_by_round_id(id_round: str, db_context: SQLAlchemy):
-        # Funzt nicht
-        game_id = db_context.session.query(RoundDB.game_id).filter_by(id=id_round).first()
+        game_id = db_context.session.query(GameDB.game_id).filter_by(active_round=id_round).first()
         game = GameService.select_game_by_id(game_id, db_context)
         return game
 
@@ -91,6 +108,7 @@ class GameService:
 
     @staticmethod
     def select_round_by_round_id(round_id, db_context: SQLAlchemy):
+        print("roundID:", round_id)
         round = db_context.session.query(RoundDB).filter_by(id=round_id).first()
         return round
 
@@ -105,11 +123,11 @@ class GameService:
 
     @staticmethod
     def delete_round_by_round_id(round_id: str, db_context: SQLAlchemy):
-        rounds = db_context.session.query(RoundDB).filter_by(id_round=round_id).all()
+        rounds = db_context.session.query(RoundDB).filter_by(id=round_id).all()
         if len(rounds) == 0:
             return None
         for round in rounds:
-            db_context.session.delete(rounds)
+            db_context.session.delete(round)
         db_context.session.commit()
         return rounds
 
@@ -144,9 +162,13 @@ class GameService:
         return player
 
     @staticmethod
+    def select_player_by_user_id_and_game_id(user_id,game_id,db_context: SQLAlchemy):
+        player = db_context.session.query(PlayerDB).filter_by(game_id=game_id,user_id=user_id).first()
+        return player
+    @staticmethod
     def select_player_get_highest_position(id_game, db_context: SQLAlchemy):
         player = db_context.session.query(PlayerDB).filter_by(game_id=id_game).order_by(PlayerDB.position.desc()).first()
-        return player.position if player else 0
+        return player.position if player else -1
 
     @staticmethod
     def select_player_get_all_players_by_game(id_game: str, db_context: SQLAlchemy):
@@ -162,12 +184,22 @@ class GameService:
 
     @staticmethod
     def delete_player_by_player_id(id_player: str, db_context: SQLAlchemy):
-        player = db_context.session.query(PlayerDB).filter_by(id=id_player).first()
+        player = db_context.session.query(PlayerDB).filter_by(id=id_player).all()
         if player is None:
             return None
         db_context.session.delete(player)
         db_context.session.commit()
         return player
+    @staticmethod
+    def delete_player_by_user_id(user_id: str, db_context: SQLAlchemy):
+        players = db_context.session.query(PlayerDB).filter_by(user_id=user_id).all()
+        if players is None:
+            return None
+        for player in players:
+            db_context.session.delete(player)
+        db_context.session.commit()
+
+
 
     # Round Player
     @staticmethod
@@ -222,6 +254,7 @@ class GameService:
 
     @staticmethod
     def update_round_player_has_played(id_round, id_player, has_played, db_context: SQLAlchemy):
+        print("round:player",id_round,id_player)
         round_player = db_context.session.query(RoundPlayerDB).filter_by(id_round=id_round, id_player=id_player).all()
         if len(round_player) == 0:
             return False
@@ -230,6 +263,13 @@ class GameService:
         db_context.session.commit()
         return round_player
 
+    @staticmethod
+    def update_round_player_has_played_all(round_id,db_context: SQLAlchemy):
+        round_player = db_context.session.query(RoundPlayerDB).filter_by(id_round=round_id).all()
+        for player in round_player:
+            player.has_played=False
+        db_context.session.commit()
+        return round_player
 
     @staticmethod
     def select_round_player_chips(id_round: str, id_player: str, db_context: SQLAlchemy):
@@ -239,13 +279,13 @@ class GameService:
 
     @staticmethod
     def select_round_player_current_max_set_chips(id_round: str, db_context: SQLAlchemy):
-        max_set_chips = db_context.session.query(func.max(RoundPlayerDB.set_chips)).filter_by(id_round=id_round).all()
-        return max_set_chips
+        max_set_chips = db_context.session.query(func.max(RoundPlayerDB.set_chips)).filter_by(id_round=id_round).first()
+        return max_set_chips[0]
 
     @staticmethod
     def select_round_player_get_all_set_chips(id_round: str, db_context: SQLAlchemy):
         sum_of_chips_in_round = db_context.session.query(func.sum(RoundPlayerDB.set_chips)).filter_by(
-            id_round=id_round).all()
+            id_round=id_round).first()[0]
         return sum_of_chips_in_round
 
     @staticmethod
@@ -269,7 +309,9 @@ class GameService:
 
     @staticmethod
     def select_round_player_by_round_id_and_player_id(round_id: str, player_id: str, db_context: SQLAlchemy):
-        raise NotImplementedError
+        round_players = db_context.session.query(RoundPlayerDB).filter_by(id_round=round_id,id_player=player_id).order_by(
+            RoundPlayerDB.position).first()
+        return round_players
 
     @staticmethod
     def delete_round_player_by_round_id(round_id: str, db_context: SQLAlchemy):
@@ -308,6 +350,33 @@ class GameService:
         db_context.session.commit()
         return round_cards
 
+    @staticmethod
+    def create_session(user_id, session, game_id, db_context: SQLAlchemy):
+        session = ActiveUserSessionDB(
+            id=session,
+            user_id=user_id,
+            game_id=game_id
 
+        )
+        try:
+            db_context.session.add(session)
+            db_context.session.commit()
+            return session
+        except Exception as e:
+            print(e)
+            return None
 
+    @staticmethod
+    def get_session(session_id, db_context: SQLAlchemy):
+        session = db_context.session.query(ActiveUserSessionDB).filter_by(id=session_id).first()
+        return session
+
+    @staticmethod
+    def delete_session(session_id, db_context: SQLAlchemy):
+        session = db_context.session.query(ActiveUserSessionDB).filter_by(id=session_id).first()
+        if session is None:
+            return None
+        db_context.session.delete(session)
+        db_context.session.commit()
+        return session
 

@@ -2,6 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {GameDto} from "../models/game-dto";
+import {PlayerDto} from "../models/player-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class GameHttpService {
     return this.http.get<GameDto[]>(this.baseUrl + "/game/listActiveGames");
   }
 
-  public createGame(): Observable<GameDto> {
-    return this.http.post<GameDto>(this.baseUrl + "/game/createGame", {});
+  public createGame(name: string): Observable<GameDto> {
+    return this.http.post<GameDto>(this.baseUrl + "/game/createGame", {name: name});
   }
 
   public hasActiveGame(): Observable<GameDto> {
@@ -24,7 +25,7 @@ export class GameHttpService {
   }
 
 
-  public joinGame(gameId: string, username: string): Observable<void> {
-    return this.http.post<void>(this.baseUrl + "/game/joinGame", {gameId, username});
+  public joinGame(gameId: string, username: string): Observable<{player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}> {
+    return this.http.post<{player: PlayerDto, players: PlayerDto[], gameId:string, game: GameDto}>(this.baseUrl + "/game/joinGame", {gameId, username});
   }
 }

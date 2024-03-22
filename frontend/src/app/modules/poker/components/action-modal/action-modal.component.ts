@@ -10,11 +10,11 @@ import {PlayerDto} from "../../models/player-dto";
 })
 export class ActionModalComponent {
 
-  isVisible: boolean = true;
+  isVisible: boolean = false;
   options = [
     { id: 0, name: 'Fold' },
     { id: 1, name: 'Check' },
-    { id: 2, name: 'All in' },
+    { id: 2, name: 'Call' },
     { id: 3, name: 'Raise' }
   ];
   selectedOption = this.options[0].id;
@@ -59,10 +59,10 @@ export class ActionModalComponent {
       case 1:
         this.gameService.sendPerformCheck();
         break;
-      case 3:
+      case 2:
         this.gameService.sendPerformCall();
         break;
-      case 4:
+      case 3:
         this.gameService.sendPerformRaise(value);
         break;
       default:
