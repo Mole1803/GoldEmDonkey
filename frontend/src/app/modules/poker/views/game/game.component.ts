@@ -6,6 +6,9 @@ import {RoundPlayerDto} from "../../models/round-player-dto";
 import {CardDto} from "../../models/card-dto";
 import {CardUtils} from "../../utils/card-utils";
 import {Router} from "@angular/router";
+
+
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -25,6 +28,7 @@ export class GameComponent {
     }
     this.initializeSubscriber()
   }
+
   onGameUpdate(){
     console.log("onGameUpdate")
     // @ts-ignore
@@ -35,6 +39,10 @@ export class GameComponent {
     let nextPlayer:PlayerDto=this.gameService.gameData["kwargs"]["nextPlayer"]
     // @ts-ignore
     let gamePlayers:PlayerDto[]=this.gameService.gameData["kwargs"]["gamePlayers"]
+    if(cards.length==0){
+      this.drawTable()
+
+    }
     for (let i = 0; i < cards.length; i++) {
       this.drawCard('/assets/Media/Karten/'+CardUtils.getCardAsString(cards[i])+'.svg',i+1)
     }
@@ -85,14 +93,20 @@ export class GameComponent {
     this.ctx.canvas.height=2400
     this.board_card_width=this.ctx.canvas.width*0.087
     this.board_card_height=this.ctx.canvas.height*0.215
-    let img = new Image()
-    img.src='/assets/Media/tisch_komplett_plain.svg'
-    img.onload= () => {
-      this.ctx.drawImage(img,0,0,this.ctx.canvas.width,this.ctx.canvas.height)
-    }
-
-
+    this.drawTable()
   }
+
+  async drawTable() {
+
+    //let img = await loadImage('./assets/Media/tisch_komplett_plain.svg');
+    //this.ctx.drawImage(img, 0, 0,this.ctx.canvas.width, this.ctx.canvas.height);
+    let img = new Image()
+    img.src = './assets/Media/tisch_komplett_plain.svg'
+      img.onload = () => {
+        this.ctx.drawImage(img, 0, 0, this.ctx.canvas.width, this.ctx.canvas.height)
+      }
+  }
+
   drawCard(path:string,index:number){
     let img1 = new Image()
     img1.src=path
@@ -156,7 +170,7 @@ export class GameComponent {
 
       let chipsValue: any = gamePlayer.chips
       this.ctx.fillText(chipsValue as string, x + 400, y + 110, 180)
-    },0)
+    },20)
   }
 
   drawPlayerCards(playerRound:RoundPlayerDto,nextPlayer:PlayerDto, x:number, y:number){
@@ -181,6 +195,6 @@ export class GameComponent {
     let y2 = y-500
     img2.onload= () => {
      this.ctx.drawImage(img2, x2, y2, this.board_card_width*0.8,this.board_card_height*0.8)
-    }},0)
+    }},10)
   }
 }

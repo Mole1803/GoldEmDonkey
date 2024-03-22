@@ -73,25 +73,24 @@ class PokerHandler:
         self.after_action(game_id, player.id)
 
     def on_player_call(self, user_id, game_id):
-        player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
+        player = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context)
         game=GameService.select_game_by_id(game_id,self.db_context)
         max_chips=GameService.select_round_player_current_max_set_chips(game.active_round,self.db_context)
-        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player_id, self.db_context)
+        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player.id, self.db_context)
         diff=max_chips-player_round.set_chips
-        player=GameService.select_player_by_player_id(player_round.id_player,self.db_context)
+        GameService.update_round_player_set_chips(player_round.id_round, player_round.id_player, max_chips,self.db_context)
         GameService.update_player_set_chips_player(player_round.id_player,player.chips-diff,self.db_context)
-        self.after_action(game_id, player_id)
+        self.after_action(game_id, player.id)
 
     def on_player_raise(self, user_id, game_id, amount):
-        player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
+        player = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context)
         game = GameService.select_game_by_id(game_id, self.db_context)
         max_chips = GameService.select_round_player_current_max_set_chips(game.active_round, self.db_context)
-        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player_id, self.db_context)
+        player_round = GameService.select_round_player_by_round_id_and_player_id(game.active_round,player.id, self.db_context)
         diff = max_chips + amount - player_round.set_chips
-        player = GameService.select_player_by_player_id(player_round.id_player, self.db_context)
-        GameService.update_game_set_chips(game_id, max_chips+amount, self.db_context),
+        GameService.update_round_player_set_chips(player_round.id_round,player_round.id_player, max_chips+amount, self.db_context)
         GameService.update_player_set_chips_player(player_round.id_player, player.chips - diff, self.db_context)
-        self.after_action(game_id, player_id)
+        self.after_action(game_id, player.id)
 
     def on_player_fold(self, user_id, game_id):
         player_id = GameService.select_player_by_user_id_and_game_id(user_id, game_id, self.db_context).id
@@ -107,7 +106,6 @@ class PokerHandler:
             round_id, self.db_context)
         max_chips = GameService.select_round_player_current_max_set_chips(round_id, self.db_context)
         for player in players:
-            print("player:",player,"roundPlayer:",round_player)
             if player.position > round_player.position:
                 if not player.has_played or player.set_chips < max_chips:
                     playerplayer=GameService.select_player_by_player_id(player.id_player,self.db_context)
@@ -165,10 +163,12 @@ class PokerHandler:
             board_cards.append(CardService.parse_card_object_from_db(card.id_cards))
         best_players = BestHandEvaluator.evaluate_all_hands(board_cards, player_cards)
         pott = GameService.select_round_player_get_all_set_chips(round_id, self.db_context)
+        print("Pott: ",pott)
         for player_index in best_players:
             player = players[player_index]
-            winner=player
+            winner = player
             chips=GameService.select_player_by_player_id(player.id_player,self.db_context).chips
+            print("chips,player",chips,pott)
             GameService.update_player_set_chips_player(player.id_player, chips + pott / len(best_players),
                                                        self.db_context)
 
@@ -183,6 +183,7 @@ class PokerHandler:
         GameService.update_game_set_dealer(game.id, new_dealer, self.db_context)
 
         data["kwargs"]["round_winner"]=winner.id_player
+        data["kwargs"]["pott"] = pott
         #self.instructionQueue.queue()
 
         self.create_round(game.id)

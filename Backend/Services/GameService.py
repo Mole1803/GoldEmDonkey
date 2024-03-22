@@ -59,15 +59,6 @@ class GameService:
         return True
 
     @staticmethod
-    def update_game_set_chips(game_id: str, chips: int, db_context: SQLAlchemy):
-        game = db_context.session.query(GameDB).filter_by(id=game_id).first()
-        if game is None:
-            return False
-        game.chips = chips
-        db_context.session.commit()
-        return True
-
-    @staticmethod
     def select_game_get_all_games(db_context: SQLAlchemy):
         games = db_context.session.query(GameDB).all()
         return games
